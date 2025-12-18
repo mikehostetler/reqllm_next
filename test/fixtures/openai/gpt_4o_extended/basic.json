@@ -1,0 +1,37 @@
+{
+  "captured_at": "2025-12-18T17:13:37.247819Z",
+  "chunks": [],
+  "model_id": "gpt-4o:extended",
+  "prompt": "Hello world! Respond briefly.",
+  "provider": "openai",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiSGVsbG8gd29ybGQhIFJlc3BvbmQgYnJpZWZseS4ifV0sInN0cmVhbSI6dHJ1ZSwibWF4X3Rva2VucyI6MTAwLCJtb2RlbCI6ImdwdC00bzpleHRlbmRlZCIsInN0cmVhbV9vcHRpb25zIjp7ImluY2x1ZGVfdXNhZ2UiOnRydWV9fQ==",
+      "canonical_json": {
+        "max_tokens": 100,
+        "messages": [
+          {
+            "content": "Hello world! Respond briefly.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-4o:extended",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "method": "POST",
+    "url": "https://api.openai.com:443/v1/chat/completions"
+  },
+  "response": {
+    "headers": {},
+    "status": null
+  }
+}

@@ -309,5 +309,270 @@ defmodule ReqLlmNext.ToolTest do
       result = inspect(tool)
       assert result =~ "no params"
     end
+
+    test "shows JSON Schema format for map schema" do
+      {:ok, tool} =
+        Tool.new(
+          name: "json_tool",
+          description: "JSON tool",
+          parameter_schema: %{
+            "type" => "object",
+            "properties" => %{
+              "a" => %{"type" => "string"},
+              "b" => %{"type" => "integer"}
+            }
+          },
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      result = inspect(tool)
+      assert result =~ "2 params (JSON Schema)"
+    end
+
+    test "shows no params for empty JSON Schema properties" do
+      {:ok, tool} =
+        Tool.new(
+          name: "empty_json",
+          description: "Empty JSON",
+          parameter_schema: %{"type" => "object", "properties" => %{}},
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      result = inspect(tool)
+      assert result =~ "no params (JSON Schema)"
+    end
+  end
+
+  describe "new/1 edge cases" do
+    test "rejects non-keyword list options" do
+      {:error, {:invalid_options, _}} = Tool.new(%{name: "test"})
+    end
+
+    test "rejects callback that doesn't exist" do
+      {:error, {:callback_not_found, msg}} =
+        Tool.new(
+          name: "test",
+          description: "Test",
+          callback: {NonExistentModule, :non_existent_function}
+        )
+
+      assert msg =~ "does not exist"
+    end
+
+    test "rejects invalid callback format" do
+      {:error, {:invalid_callback, _}} =
+        Tool.new(
+          name: "test",
+          description: "Test",
+          callback: "not_a_callback"
+        )
+    end
+
+    test "rejects invalid parameter schema type" do
+      {:error, {:invalid_schema, _}} =
+        Tool.new(
+          name: "test",
+          description: "Test",
+          parameter_schema: "invalid",
+          callback: fn _ -> {:ok, nil} end
+        )
+    end
+
+    test "rejects malformed NimbleOptions schema" do
+      {:error, {:invalid_schema, _}} =
+        Tool.new(
+          name: "test",
+          description: "Test",
+          parameter_schema: [invalid_key: [invalid_option: true]],
+          callback: fn _ -> {:ok, nil} end
+        )
+    end
+
+    test "accepts tool name at max length" do
+      name = String.duplicate("a", 64)
+
+      {:ok, tool} =
+        Tool.new(
+          name: name,
+          description: "Test",
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      assert tool.name == name
+    end
+  end
+
+  describe "execute/2 edge cases" do
+    test "handles callback that returns error tuple" do
+      {:ok, tool} =
+        Tool.new(
+          name: "failing",
+          description: "Fails",
+          callback: {TestCallbacks, :failing_callback}
+        )
+
+      assert {:error, "intentional failure"} = Tool.execute(tool, %{})
+    end
+
+    test "handles callback that raises" do
+      {:ok, tool} =
+        Tool.new(
+          name: "raising",
+          description: "Raises",
+          callback: fn _ -> raise "boom" end
+        )
+
+      assert {:error, {:callback_failed, msg}} = Tool.execute(tool, %{})
+      assert msg =~ "boom"
+    end
+
+    test "executes with empty map input" do
+      {:ok, tool} =
+        Tool.new(
+          name: "empty",
+          description: "Empty",
+          callback: fn args -> {:ok, map_size(args)} end
+        )
+
+      assert {:ok, 0} = Tool.execute(tool, %{})
+    end
+  end
+
+  describe "to_schema/2 type conversions" do
+    test "converts various NimbleOptions types" do
+      {:ok, tool} =
+        Tool.new(
+          name: "types_tool",
+          description: "Tests types",
+          parameter_schema: [
+            string_field: [type: :string, doc: "A string"],
+            integer_field: [type: :integer],
+            pos_int_field: [type: :pos_integer],
+            float_field: [type: :float],
+            boolean_field: [type: :boolean],
+            list_strings: [type: {:list, :string}],
+            list_ints: [type: {:list, :integer}],
+            list_nested: [type: {:list, :boolean}],
+            map_field: [type: :map],
+            enum_field: [type: {:in, ["a", "b", "c"]}]
+          ],
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      schema = Tool.to_schema(tool, :openai)
+      props = schema["function"]["parameters"]["properties"]
+
+      assert props["string_field"] == %{"type" => "string", "description" => "A string"}
+      assert props["integer_field"] == %{"type" => "integer"}
+      assert props["pos_int_field"] == %{"type" => "integer", "minimum" => 1}
+      assert props["float_field"] == %{"type" => "number"}
+      assert props["boolean_field"] == %{"type" => "boolean"}
+      assert props["list_strings"] == %{"type" => "array", "items" => %{"type" => "string"}}
+      assert props["list_ints"] == %{"type" => "array", "items" => %{"type" => "integer"}}
+      assert props["list_nested"] == %{"type" => "array", "items" => %{"type" => "boolean"}}
+      assert props["map_field"] == %{"type" => "object"}
+      assert props["enum_field"] == %{"type" => "string", "enum" => ["a", "b", "c"]}
+    end
+
+    test "raises for unknown provider" do
+      {:ok, tool} =
+        Tool.new(
+          name: "test",
+          description: "Test",
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      assert_raise ArgumentError, ~r/Unknown provider/, fn ->
+        Tool.to_schema(tool, :unknown_provider)
+      end
+    end
+
+    test "handles empty parameter schema" do
+      {:ok, tool} =
+        Tool.new(
+          name: "no_params",
+          description: "No params",
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      schema = Tool.to_schema(tool, :openai)
+      assert schema["function"]["parameters"] == %{"type" => "object", "properties" => %{}}
+    end
+
+    test "passes through JSON Schema map directly" do
+      json_schema = %{
+        "type" => "object",
+        "properties" => %{
+          "name" => %{"type" => "string"},
+          "age" => %{"type" => "integer"}
+        },
+        "required" => ["name"]
+      }
+
+      {:ok, tool} =
+        Tool.new(
+          name: "json_schema_tool",
+          description: "Uses JSON Schema",
+          parameter_schema: json_schema,
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      schema = Tool.to_schema(tool, :openai)
+      assert schema["function"]["parameters"] == json_schema
+    end
+
+    test "omits additionalProperties for Google format" do
+      {:ok, tool} =
+        Tool.new(
+          name: "google_tool",
+          description: "For Google",
+          parameter_schema: [field: [type: :string, required: true]],
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      schema = Tool.to_schema(tool, :google)
+      refute Map.has_key?(schema["parameters"], "additionalProperties")
+      assert schema["parameters"]["type"] == "object"
+    end
+  end
+
+  describe "schema/0" do
+    test "returns Zoi schema" do
+      schema = Tool.schema()
+      assert is_struct(schema)
+    end
+  end
+
+  describe "Inspect edge cases" do
+    test "handles unknown schema format" do
+      tool = %Tool{
+        name: "weird_schema",
+        description: "Weird",
+        parameter_schema: :not_list_or_map,
+        compiled: nil,
+        callback: fn _ -> {:ok, nil} end,
+        strict: false
+      }
+
+      result = inspect(tool)
+      assert result =~ "#Tool<"
+      assert result =~ "weird_schema"
+      assert result =~ "unknown schema format"
+    end
+
+    test "handles JSON Schema with no properties key" do
+      {:ok, tool} =
+        Tool.new(
+          name: "no_props",
+          description: "No properties",
+          parameter_schema: %{"type" => "object"},
+          callback: fn _ -> {:ok, nil} end
+        )
+
+      result = inspect(tool)
+      assert result =~ "#Tool<"
+      assert result =~ "no_props"
+      assert result =~ "no params (JSON Schema)"
+    end
   end
 end

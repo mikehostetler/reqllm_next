@@ -1,0 +1,138 @@
+{
+  "captured_at": "2025-12-18T17:17:49.605470Z",
+  "chunks": [
+    "ZXZlbnQ6IG1lc3NhZ2Vfc3RhcnQKZGF0YTogeyJ0eXBlIjoibWVzc2FnZV9zdGFydCIsIm1lc3NhZ2UiOnsibW9kZWwiOiJjbGF1ZGUtaGFpa3UtNC01LTIwMjUxMDAxIiwiaWQiOiJtc2dfMDFEclBKM1R5VTlzUXVjd2ZSeVhqaEpyIiwidHlwZSI6Im1lc3NhZ2UiLCJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6W10sInN0b3BfcmVhc29uIjpudWxsLCJzdG9wX3NlcXVlbmNlIjpudWxsLCJ1c2FnZSI6eyJpbnB1dF90b2tlbnMiOjQ1LCJjYWNoZV9jcmVhdGlvbl9pbnB1dF90b2tlbnMiOjAsImNhY2hlX3JlYWRfaW5wdXRfdG9rZW5zIjowLCJjYWNoZV9jcmVhdGlvbiI6eyJlcGhlbWVyYWxfNW1faW5wdXRfdG9rZW5zIjowLCJlcGhlbWVyYWxfMWhfaW5wdXRfdG9rZW5zIjowfSwib3V0cHV0X3Rva2VucyI6NSwic2VydmljZV90aWVyIjoic3RhbmRhcmQifX0gICAgICAgIH0KCg==",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfc3RhcnQKZGF0YTogeyJ0eXBlIjoiY29udGVudF9ibG9ja19zdGFydCIsImluZGV4IjowLCJjb250ZW50X2Jsb2NrIjp7InR5cGUiOiJ0ZXh0IiwidGV4dCI6IiJ9ICAgICAgIH0KCg==",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfZGVsdGEKZGF0YTogeyJ0eXBlIjoiY29udGVudF9ibG9ja19kZWx0YSIsImluZGV4IjowLCJkZWx0YSI6eyJ0eXBlIjoidGV4dF9kZWx0YSIsInRleHQiOiI0MiJ9ICAgICAgICAgICAgIH0KCg==",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfc3RvcApkYXRhOiB7InR5cGUiOiJjb250ZW50X2Jsb2NrX3N0b3AiLCJpbmRleCI6MCAgICAgICAgICB9Cgo=",
+    "ZXZlbnQ6IG1lc3NhZ2VfZGVsdGEKZGF0YTogeyJ0eXBlIjoibWVzc2FnZV9kZWx0YSIsImRlbHRhIjp7InN0b3BfcmVhc29uIjoiZW5kX3R1cm4iLCJzdG9wX3NlcXVlbmNlIjpudWxsfSwidXNhZ2UiOnsiaW5wdXRfdG9rZW5zIjo0NSwiY2FjaGVfY3JlYXRpb25faW5wdXRfdG9rZW5zIjowLCJjYWNoZV9yZWFkX2lucHV0X3Rva2VucyI6MCwib3V0cHV0X3Rva2VucyI6NX0gICAgICAgICAgICAgfQoK",
+    "ZXZlbnQ6IG1lc3NhZ2Vfc3RvcApkYXRhOiB7InR5cGUiOiJtZXNzYWdlX3N0b3AiICAgICAgICAgICAgICAgfQoK"
+  ],
+  "model_id": "claude-haiku-4-5-20251001",
+  "prompt": {
+    "messages": [
+      {
+        "name": null,
+        "metadata": {},
+        "role": "user",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "My favorite number is 42. Just reply with 'OK' to confirm you understood.",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      },
+      {
+        "name": null,
+        "metadata": {},
+        "role": "assistant",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "OK",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      },
+      {
+        "name": null,
+        "metadata": {},
+        "role": "user",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "What is my favorite number? Reply with just the number.",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      }
+    ],
+    "tools": []
+  },
+  "provider": "anthropic",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiTXkgZmF2b3JpdGUgbnVtYmVyIGlzIDQyLiBKdXN0IHJlcGx5IHdpdGggJ09LJyB0byBjb25maXJtIHlvdSB1bmRlcnN0b29kLiJ9LHsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiJPSyJ9LHsicm9sZSI6InVzZXIiLCJjb250ZW50IjoiV2hhdCBpcyBteSBmYXZvcml0ZSBudW1iZXI/IFJlcGx5IHdpdGgganVzdCB0aGUgbnVtYmVyLiJ9XSwic3RyZWFtIjp0cnVlLCJtb2RlbCI6ImNsYXVkZS1oYWlrdS00LTUtMjAyNTEwMDEiLCJtYXhfdG9rZW5zIjo1MH0=",
+      "canonical_json": {
+        "max_tokens": 50,
+        "messages": [
+          {
+            "content": "My favorite number is 42. Just reply with 'OK' to confirm you understood.",
+            "role": "user"
+          },
+          {
+            "content": "OK",
+            "role": "assistant"
+          },
+          {
+            "content": "What is my favorite number? Reply with just the number.",
+            "role": "user"
+          }
+        ],
+        "model": "claude-haiku-4-5-20251001",
+        "stream": true
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json",
+      "x-api-key": "[REDACTED]"
+    },
+    "method": "POST",
+    "url": "https://api.anthropic.com:443/v1/messages"
+  },
+  "response": {
+    "headers": {
+      "anthropic-organization-id": "a71659e7-a922-4ff7-99de-f3ba615face1",
+      "anthropic-ratelimit-input-tokens-limit": "1000000",
+      "anthropic-ratelimit-input-tokens-remaining": "1000000",
+      "anthropic-ratelimit-input-tokens-reset": "2025-12-18T17:17:49Z",
+      "anthropic-ratelimit-output-tokens-limit": "200000",
+      "anthropic-ratelimit-output-tokens-remaining": "200000",
+      "anthropic-ratelimit-output-tokens-reset": "2025-12-18T17:17:49Z",
+      "anthropic-ratelimit-requests-limit": "2000",
+      "anthropic-ratelimit-requests-remaining": "1999",
+      "anthropic-ratelimit-requests-reset": "2025-12-18T17:17:49Z",
+      "anthropic-ratelimit-tokens-limit": "1200000",
+      "anthropic-ratelimit-tokens-remaining": "1200000",
+      "anthropic-ratelimit-tokens-reset": "2025-12-18T17:17:49Z",
+      "cache-control": "no-cache",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9b0050e14f0672eb-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Thu, 18 Dec 2025 17:17:50 GMT",
+      "request-id": "req_011CWEXsVXZn37nR4F6bDm7v",
+      "server": "cloudflare",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "vary": "accept-encoding",
+      "x-envoy-upstream-service-time": "978",
+      "x-robots-tag": "none"
+    },
+    "status": 200
+  }
+}

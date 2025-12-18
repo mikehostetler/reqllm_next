@@ -1,0 +1,67 @@
+{
+  "captured_at": "2025-12-18T17:17:51.036886Z",
+  "chunks": [
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnZMVFhLRlJkOG9JSFJpQ3Q5QVpWektKcWR1Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODI3MSwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiIiLCJyZWZ1c2FsIjpudWxsfSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiZFAxS2VnR01kIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnZMVFhLRlJkOG9JSFJpQ3Q5QVpWektKcWR1Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODI3MSwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6Ik9LIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IkJDVGJHUnJGUyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29CdkxUWEtGUmQ4b0lIUmlDdDlBWlZ6S0pxZHUiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MjcxLCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNjQ0ZjExZGQ0ZCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6e30sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiVFFCN04ifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnZMVFhLRlJkOG9JSFJpQ3Q5QVpWektKcWR1Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODI3MSwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbXSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MjUsImNvbXBsZXRpb25fdG9rZW5zIjoxLCJ0b3RhbF90b2tlbnMiOjI2LCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6MCwiYXVkaW9fdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnNfZGV0YWlscyI6eyJyZWFzb25pbmdfdG9rZW5zIjowLCJhdWRpb190b2tlbnMiOjAsImFjY2VwdGVkX3ByZWRpY3Rpb25fdG9rZW5zIjowLCJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6MH19LCJvYmZ1c2NhdGlvbiI6IktVSVZxTVZ4c290In0KCmRhdGE6IFtET05FXQoK"
+  ],
+  "model_id": "gpt-4o-mini",
+  "prompt": "My favorite number is 42. Just reply with 'OK' to confirm you understood.",
+  "provider": "openai",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiTXkgZmF2b3JpdGUgbnVtYmVyIGlzIDQyLiBKdXN0IHJlcGx5IHdpdGggJ09LJyB0byBjb25maXJtIHlvdSB1bmRlcnN0b29kLiJ9XSwic3RyZWFtIjp0cnVlLCJtb2RlbCI6ImdwdC00by1taW5pIiwibWF4X3Rva2VucyI6NTAsInRlbXBlcmF0dXJlIjowLjcsInN0cmVhbV9vcHRpb25zIjp7ImluY2x1ZGVfdXNhZ2UiOnRydWV9fQ==",
+      "canonical_json": {
+        "max_tokens": 50,
+        "messages": [
+          {
+            "content": "My favorite number is 42. Just reply with 'OK' to confirm you understood.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-4o-mini",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "temperature": 0.7
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "method": "POST",
+    "url": "https://api.openai.com:443/v1/chat/completions"
+  },
+  "response": {
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9b0050eb3eb961c9-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Thu, 18 Dec 2025 17:17:51 GMT",
+      "openai-organization": "epic-creative-sogybe",
+      "openai-processing-ms": "208",
+      "openai-project": "proj_j5AhgU4eLMRmsoO9FDg7BRD3",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "_cfuvid=s503.2TMZh33NzdncoH.yYTq96JdGe06QvZEFZ.DgFU-1766078271532-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-envoy-upstream-service-time": "222",
+      "x-openai-proxy-wasm": "v0.1",
+      "x-ratelimit-limit-requests": "10000",
+      "x-ratelimit-limit-tokens": "10000000",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "9999979",
+      "x-ratelimit-reset-requests": "6ms",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-request-id": "req_27cb624c738a4faab6b57a1e0f7c87a1"
+    },
+    "status": 200
+  }
+}

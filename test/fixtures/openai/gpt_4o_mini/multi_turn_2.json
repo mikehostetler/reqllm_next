@@ -1,0 +1,137 @@
+{
+  "captured_at": "2025-12-18T17:17:51.602756Z",
+  "chunks": [
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnZNYm15bmZ1MWN6b0xFbDZ3ZTg0ZmYzN0Q2Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODI3MiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2VlNjljMmVmNDgiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiIiLCJyZWZ1c2FsIjpudWxsfSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoicGc2RXRuUFoxIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnZNYm15bmZ1MWN6b0xFbDZ3ZTg0ZmYzN0Q2Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODI3MiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2VlNjljMmVmNDgiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IjQyIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InpEd0Z6emdBNyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29Cdk1ibXluZnUxY3pvTEVsNndlODRmZjM3RDYiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MjcyLCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfZWU2OWMyZWY0OCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6e30sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiYWhROVgifQoK",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnZNYm15bmZ1MWN6b0xFbDZ3ZTg0ZmYzN0Q2Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODI3MiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2VlNjljMmVmNDgiLCJjaG9pY2VzIjpbXSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6NDYsImNvbXBsZXRpb25fdG9rZW5zIjoxLCJ0b3RhbF90b2tlbnMiOjQ3LCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6MCwiYXVkaW9fdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnNfZGV0YWlscyI6eyJyZWFzb25pbmdfdG9rZW5zIjowLCJhdWRpb190b2tlbnMiOjAsImFjY2VwdGVkX3ByZWRpY3Rpb25fdG9rZW5zIjowLCJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6MH19LCJvYmZ1c2NhdGlvbiI6IjVlN3Z4eTFsOTh5In0KCmRhdGE6IFtET05FXQoK"
+  ],
+  "model_id": "gpt-4o-mini",
+  "prompt": {
+    "messages": [
+      {
+        "name": null,
+        "metadata": {},
+        "role": "user",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "My favorite number is 42. Just reply with 'OK' to confirm you understood.",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      },
+      {
+        "name": null,
+        "metadata": {},
+        "role": "assistant",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "OK",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      },
+      {
+        "name": null,
+        "metadata": {},
+        "role": "user",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "What is my favorite number? Reply with just the number.",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      }
+    ],
+    "tools": []
+  },
+  "provider": "openai",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiTXkgZmF2b3JpdGUgbnVtYmVyIGlzIDQyLiBKdXN0IHJlcGx5IHdpdGggJ09LJyB0byBjb25maXJtIHlvdSB1bmRlcnN0b29kLiJ9LHsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiJPSyJ9LHsicm9sZSI6InVzZXIiLCJjb250ZW50IjoiV2hhdCBpcyBteSBmYXZvcml0ZSBudW1iZXI/IFJlcGx5IHdpdGgganVzdCB0aGUgbnVtYmVyLiJ9XSwic3RyZWFtIjp0cnVlLCJtb2RlbCI6ImdwdC00by1taW5pIiwibWF4X3Rva2VucyI6NTAsInRlbXBlcmF0dXJlIjowLjcsInN0cmVhbV9vcHRpb25zIjp7ImluY2x1ZGVfdXNhZ2UiOnRydWV9fQ==",
+      "canonical_json": {
+        "max_tokens": 50,
+        "messages": [
+          {
+            "content": "My favorite number is 42. Just reply with 'OK' to confirm you understood.",
+            "role": "user"
+          },
+          {
+            "content": "OK",
+            "role": "assistant"
+          },
+          {
+            "content": "What is my favorite number? Reply with just the number.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-4o-mini",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "temperature": 0.7
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "method": "POST",
+    "url": "https://api.openai.com:443/v1/chat/completions"
+  },
+  "response": {
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9b0050edc94f61c9-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Thu, 18 Dec 2025 17:17:53 GMT",
+      "openai-organization": "epic-creative-sogybe",
+      "openai-processing-ms": "950",
+      "openai-project": "proj_j5AhgU4eLMRmsoO9FDg7BRD3",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "_cfuvid=ivNn1iBbmNdyIWmezThtN72fdl.JHWWgRi5o_DkrKoE-1766078273588-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-envoy-upstream-service-time": "1900",
+      "x-openai-proxy-wasm": "v0.1",
+      "x-ratelimit-limit-requests": "10000",
+      "x-ratelimit-limit-tokens": "10000000",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "9999963",
+      "x-ratelimit-reset-requests": "6ms",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-request-id": "req_006857643f7c4b3484fb5c54ae5e450d"
+    },
+    "status": 200
+  }
+}

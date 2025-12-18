@@ -21,7 +21,7 @@ defmodule ReqLlmNext.Scenarios.MultiTurn do
     turn1_opts = Keyword.merge(opts, fixture: fixture_name(id(), "1"), max_tokens: 50)
 
     turn1_prompt =
-      "I will tell you a secret word. Just reply with 'ACK' and nothing else. Secret word: BANANA"
+      "My favorite number is 42. Just reply with 'OK' to confirm you understood."
 
     case ReqLlmNext.generate_text(model_spec, turn1_prompt, turn1_opts) do
       {:ok, response1} ->
@@ -45,7 +45,7 @@ defmodule ReqLlmNext.Scenarios.MultiTurn do
       ReqLlmNext.Context.append(
         response1.context,
         ReqLlmNext.Context.user(
-          "What was the secret word I told you earlier? Answer with only the word, nothing else."
+          "What is my favorite number? Reply with just the number."
         )
       )
 
@@ -54,17 +54,16 @@ defmodule ReqLlmNext.Scenarios.MultiTurn do
     case ReqLlmNext.generate_text(model_spec, context, turn2_opts) do
       {:ok, response2} ->
         text2 = ReqLlmNext.Response.text(response2) || ""
-        normalized = text2 |> String.trim() |> String.upcase()
 
-        if String.contains?(normalized, "BANANA") do
+        if String.contains?(text2, "42") do
           ok([
             step("turn_1", :ok, response: response1),
             step("turn_2", :ok, response: response2)
           ])
         else
-          error({:wrong_secret_word, text2}, [
+          error({:wrong_answer, text2}, [
             step("turn_1", :ok, response: response1),
-            step("turn_2", :error, response: response2, error: {:wrong_secret_word, text2})
+            step("turn_2", :error, response: response2, error: {:wrong_answer, text2})
           ])
         end
 

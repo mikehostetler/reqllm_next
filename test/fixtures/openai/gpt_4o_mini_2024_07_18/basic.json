@@ -1,0 +1,70 @@
+{
+  "captured_at": "2025-12-18T17:13:35.502862Z",
+  "chunks": [
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiIiLCJyZWZ1c2FsIjpudWxsfSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiRFJCZ203QTViIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IkhlbGxvIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6Ill2ZE9oMiJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29CckVRc0pKTVFkR2xON0F2Rk44V0w5Vk5hcmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MDE2LCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNjQ0ZjExZGQ0ZCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiISJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJla0pJbkgyeGtKIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiBIb3cifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoicVNmbVRNMyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29CckVRc0pKTVFkR2xON0F2Rk44V0w5Vk5hcmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MDE2LCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNjQ0ZjExZGQ0ZCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGNhbiJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJHbFlvZWtqIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiBJIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InRNOHQ3MUQ3SCJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29CckVRc0pKTVFkR2xON0F2Rk44V0w5Vk5hcmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MDE2LCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNjQ0ZjExZGQ0ZCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGFzc2lzdCJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJDRXVlIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiB5b3UifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiOXhMY2YwYyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29CckVRc0pKTVFkR2xON0F2Rk44V0w5Vk5hcmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MDE2LCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNjQ0ZjExZGQ0ZCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIHRvZGF5In0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InVhMjlKIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6Ij8ifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoicnNuU0hVWHB4RSJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ29CckVRc0pKTVFkR2xON0F2Rk44V0w5Vk5hcmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDc4MDE2LCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfNjQ0ZjExZGQ0ZCIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6e30sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiSEtMMkgifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnJFUXNKSk1RZEdsTjdBdkZOOFdMOVZOYXJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODAxNiwibW9kZWwiOiJncHQtNG8tbWluaS0yMDI0LTA3LTE4Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzY0NGYxMWRkNGQiLCJjaG9pY2VzIjpbXSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MTMsImNvbXBsZXRpb25fdG9rZW5zIjo5LCJ0b3RhbF90b2tlbnMiOjIyLCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6MCwiYXVkaW9fdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnNfZGV0YWlscyI6eyJyZWFzb25pbmdfdG9rZW5zIjowLCJhdWRpb190b2tlbnMiOjAsImFjY2VwdGVkX3ByZWRpY3Rpb25fdG9rZW5zIjowLCJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6MH19LCJvYmZ1c2NhdGlvbiI6InlmUHJpbGpFRTRCIn0KCmRhdGE6IFtET05FXQoK"
+  ],
+  "model_id": "gpt-4o-mini-2024-07-18",
+  "prompt": "Hello world! Respond briefly.",
+  "provider": "openai",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiSGVsbG8gd29ybGQhIFJlc3BvbmQgYnJpZWZseS4ifV0sInN0cmVhbSI6dHJ1ZSwibWF4X3Rva2VucyI6MTAwLCJtb2RlbCI6ImdwdC00by1taW5pLTIwMjQtMDctMTgiLCJzdHJlYW1fb3B0aW9ucyI6eyJpbmNsdWRlX3VzYWdlIjp0cnVlfX0=",
+      "canonical_json": {
+        "max_tokens": 100,
+        "messages": [
+          {
+            "content": "Hello world! Respond briefly.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-4o-mini-2024-07-18",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "method": "POST",
+    "url": "https://api.openai.com:443/v1/chat/completions"
+  },
+  "response": {
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9b004aad2d38eb04-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Thu, 18 Dec 2025 17:13:37 GMT",
+      "openai-organization": "epic-creative-sogybe",
+      "openai-processing-ms": "309",
+      "openai-project": "proj_j5AhgU4eLMRmsoO9FDg7BRD3",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "_cfuvid=MNpgOl7kxZSR.QpqL_sC65B1d4P6iHRUDNnEuJAsP9M-1766078017008-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-envoy-upstream-service-time": "1411",
+      "x-openai-proxy-wasm": "v0.1",
+      "x-ratelimit-limit-requests": "10000",
+      "x-ratelimit-limit-tokens": "10000000",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "9999990",
+      "x-ratelimit-reset-requests": "6ms",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-request-id": "req_bcfa2deda9bf404985b71daaeb8260e9"
+    },
+    "status": 200
+  }
+}

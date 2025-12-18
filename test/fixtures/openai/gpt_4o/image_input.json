@@ -1,0 +1,112 @@
+{
+  "captured_at": "2025-12-18T17:15:12.218238Z",
+  "chunks": [
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnNtbkxTRDRXbkRrSjF5ekg0N2I4NXVwVEtwIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODExMiwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9hMGU5NDgwYTJmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiIiwicmVmdXNhbCI6bnVsbH0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IkFHUTFEOVp6WTZNUVJ6In0K",
+    "CmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1Db0JzbW5MU0Q0V25Ea0oxeXpINDdiODV1cFRLcCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NjYwNzgxMTIsIm1vZGVsIjoiZ3B0LTRvLTIwMjQtMDgtMDYiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYTBlOTQ4MGEyZiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiQW50In0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6Ino5SmRjZmRjRTFUdU0ifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNvQnNtbkxTRDRXbkRrSjF5ekg0N2I4NXVwVEtwIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjA3ODExMiwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9hMGU5NDgwYTJmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7fSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOiJzdG9wIn1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJ6cWg3VmpHemcxIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1Db0JzbW5MU0Q0V25Ea0oxeXpINDdiODV1cFRLcCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NjYwNzgxMTIsIm1vZGVsIjoiZ3B0LTRvLTIwMjQtMDgtMDYiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYTBlOTQ4MGEyZiIsImNob2ljZXMiOltdLCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjoyNzcsImNvbXBsZXRpb25fdG9rZW5zIjoxLCJ0b3RhbF90b2tlbnMiOjI3OCwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjAsImF1ZGlvX3Rva2VucyI6MH0sImNvbXBsZXRpb25fdG9rZW5zX2RldGFpbHMiOnsicmVhc29uaW5nX3Rva2VucyI6MCwiYXVkaW9fdG9rZW5zIjowLCJhY2NlcHRlZF9wcmVkaWN0aW9uX3Rva2VucyI6MCwicmVqZWN0ZWRfcHJlZGljdGlvbl90b2tlbnMiOjB9fSwib2JmdXNjYXRpb24iOiJxUWo2M2I3aWZjTmg3QSJ9CgpkYXRhOiBbRE9ORV0KCg=="
+  ],
+  "model_id": "gpt-4o",
+  "prompt": {
+    "messages": [
+      {
+        "name": null,
+        "metadata": {},
+        "role": "user",
+        "content": [
+          {
+            "data": null,
+            "type": "text",
+            "filename": null,
+            "text": "What animal is shown in this image? Answer with just the animal name.",
+            "metadata": {},
+            "url": null,
+            "media_type": null
+          },
+          {
+            "data": null,
+            "type": "image_url",
+            "filename": null,
+            "text": null,
+            "metadata": {},
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/320px-Camponotus_flavomarginatus_ant.jpg",
+            "media_type": null
+          }
+        ],
+        "tool_calls": null,
+        "tool_call_id": null,
+        "reasoning_details": null
+      }
+    ],
+    "tools": []
+  },
+  "provider": "openai",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjpbeyJ0eXBlIjoidGV4dCIsInRleHQiOiJXaGF0IGFuaW1hbCBpcyBzaG93biBpbiB0aGlzIGltYWdlPyBBbnN3ZXIgd2l0aCBqdXN0IHRoZSBhbmltYWwgbmFtZS4ifSx7InR5cGUiOiJpbWFnZV91cmwiLCJpbWFnZV91cmwiOnsidXJsIjoiaHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9hL2E3L0NhbXBvbm90dXNfZmxhdm9tYXJnaW5hdHVzX2FudC5qcGcvMzIwcHgtQ2FtcG9ub3R1c19mbGF2b21hcmdpbmF0dXNfYW50LmpwZyJ9fV19XSwic3RyZWFtIjp0cnVlLCJtb2RlbCI6ImdwdC00byIsIm1heF90b2tlbnMiOjEwMCwic3RyZWFtX29wdGlvbnMiOnsiaW5jbHVkZV91c2FnZSI6dHJ1ZX19",
+      "canonical_json": {
+        "max_tokens": 100,
+        "messages": [
+          {
+            "content": [
+              {
+                "text": "What animal is shown in this image? Answer with just the animal name.",
+                "type": "text"
+              },
+              {
+                "image_url": {
+                  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/320px-Camponotus_flavomarginatus_ant.jpg"
+                },
+                "type": "image_url"
+              }
+            ],
+            "role": "user"
+          }
+        ],
+        "model": "gpt-4o",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "method": "POST",
+    "url": "https://api.openai.com:443/v1/chat/completions"
+  },
+  "response": {
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9b004d099826a9c6-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Thu, 18 Dec 2025 17:15:13 GMT",
+      "openai-organization": "epic-creative-sogybe",
+      "openai-processing-ms": "903",
+      "openai-project": "proj_j5AhgU4eLMRmsoO9FDg7BRD3",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "_cfuvid=fAwYtpXrebkSQYcItOIbnWYyC5GoGOloOVdcjoiJ3S8-1766078113251-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-envoy-upstream-service-time": "924",
+      "x-openai-proxy-wasm": "v0.1",
+      "x-ratelimit-limit-input-images": "50000",
+      "x-ratelimit-limit-requests": "10000",
+      "x-ratelimit-limit-tokens": "2000000",
+      "x-ratelimit-remaining-input-images": "49999",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "1999215",
+      "x-ratelimit-reset-input-images": "1ms",
+      "x-ratelimit-reset-requests": "6ms",
+      "x-ratelimit-reset-tokens": "23ms",
+      "x-request-id": "req_d5641cb493994104abe3353e08c98ac1"
+    },
+    "status": 200
+  }
+}

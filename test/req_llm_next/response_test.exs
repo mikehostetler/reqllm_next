@@ -374,4 +374,265 @@ defmodule ReqLlmNext.ResponseTest do
       assert Response.finish_reason(response) == nil
     end
   end
+
+  describe "build/4" do
+    test "builds response with model, context, and message" do
+      model = TestModels.openai()
+      context = Context.new([Context.user("Hello")])
+      message = %Message{role: :assistant, content: [ContentPart.text("Hi there!")]}
+
+      response = Response.build(model, context, message)
+
+      assert response.model == model
+      assert response.message == message
+      assert String.starts_with?(response.id, "resp_")
+      assert length(response.context.messages) == 2
+      assert Enum.at(response.context.messages, 1) == message
+    end
+
+    test "builds response with optional fields" do
+      model = TestModels.openai()
+      context = Context.new()
+      message = %Message{role: :assistant, content: [ContentPart.text("Test")]}
+      usage = %{input_tokens: 10, output_tokens: 5}
+      provider_meta = %{request_id: "req_123"}
+
+      response =
+        Response.build(model, context, message,
+          id: "custom_id",
+          object: %{"key" => "value"},
+          usage: usage,
+          finish_reason: :stop,
+          provider_meta: provider_meta
+        )
+
+      assert response.id == "custom_id"
+      assert response.object == %{"key" => "value"}
+      assert response.usage == usage
+      assert response.finish_reason == :stop
+      assert response.provider_meta == provider_meta
+    end
+
+    test "builds response with nil message without appending to context" do
+      model = TestModels.openai()
+      context = Context.new([Context.user("Hello")])
+
+      response = Response.build(model, context, nil)
+
+      assert response.message == nil
+      assert length(response.context.messages) == 1
+    end
+
+    test "generates unique IDs" do
+      model = TestModels.openai()
+      context = Context.new()
+
+      response1 = Response.build(model, context, nil)
+      response2 = Response.build(model, context, nil)
+
+      assert response1.id != response2.id
+    end
+  end
+
+  describe "join_stream/1 with tool calls" do
+    test "collects tool call deltas into complete tool calls" do
+      stream = [
+        {:tool_call_delta,
+         %{index: 0, id: "call_1", function: %{"name" => "get_weather", "arguments" => ""}}},
+        {:tool_call_delta, %{index: 0, function: %{"arguments" => "{\"loc"}}},
+        {:tool_call_delta, %{index: 0, function: %{"arguments" => "ation\":\"SF\"}"}}},
+        {:usage, %{input_tokens: 10, output_tokens: 20}}
+      ]
+
+      context = Context.new([Context.user("What's the weather?")])
+
+      response =
+        build_response(%{
+          stream?: true,
+          stream: stream,
+          context: context
+        })
+
+      assert {:ok, joined} = Response.join_stream(response)
+      tool_calls = Response.tool_calls(joined)
+      assert length(tool_calls) == 1
+      assert hd(tool_calls).function.name == "get_weather"
+      assert hd(tool_calls).function.arguments == "{\"location\":\"SF\"}"
+    end
+
+    test "handles tool_call_start events" do
+      stream = [
+        {:tool_call_start, %{index: 0, id: "call_1", name: "search"}},
+        {:tool_call_delta, %{index: 0, partial_json: "{\"query\":"}},
+        {:tool_call_delta, %{index: 0, partial_json: "\"test\"}"}}
+      ]
+
+      context = Context.new([Context.user("Search for test")])
+
+      response =
+        build_response(%{
+          stream?: true,
+          stream: stream,
+          context: context
+        })
+
+      assert {:ok, joined} = Response.join_stream(response)
+      tool_calls = Response.tool_calls(joined)
+      assert length(tool_calls) == 1
+      assert hd(tool_calls).id == "call_1"
+      assert hd(tool_calls).function.name == "search"
+      assert hd(tool_calls).function.arguments == "{\"query\":\"test\"}"
+    end
+
+    test "handles multiple concurrent tool calls" do
+      stream = [
+        {:tool_call_delta,
+         %{index: 0, id: "call_1", function: %{"name" => "tool_a", "arguments" => ""}}},
+        {:tool_call_delta,
+         %{index: 1, id: "call_2", function: %{"name" => "tool_b", "arguments" => ""}}},
+        {:tool_call_delta, %{index: 0, function: %{"arguments" => "{}"}}},
+        {:tool_call_delta, %{index: 1, function: %{"arguments" => "{\"x\":1}"}}}
+      ]
+
+      context = Context.new()
+
+      response =
+        build_response(%{
+          stream?: true,
+          stream: stream,
+          context: context
+        })
+
+      assert {:ok, joined} = Response.join_stream(response)
+      tool_calls = Response.tool_calls(joined)
+      assert length(tool_calls) == 2
+      assert Enum.at(tool_calls, 0).function.name == "tool_a"
+      assert Enum.at(tool_calls, 1).function.name == "tool_b"
+    end
+
+    test "handles stream errors" do
+      stream = [
+        "Hello ",
+        {:error, %{message: "Rate limit exceeded"}}
+      ]
+
+      context = Context.new()
+
+      response =
+        build_response(%{
+          stream?: true,
+          stream: stream,
+          context: context
+        })
+
+      assert {:error, error} = Response.join_stream(response)
+      assert %ReqLlmNext.Error.API.Stream{} = error
+    end
+
+    test "handles empty stream" do
+      context = Context.new([Context.user("Hi")])
+
+      response =
+        build_response(%{
+          stream?: true,
+          stream: [],
+          context: context
+        })
+
+      assert {:ok, joined} = Response.join_stream(response)
+      assert joined.message == nil
+      assert length(joined.context.messages) == 1
+    end
+  end
+
+  describe "reasoning_tokens/1 with string keys" do
+    test "extracts from string key reasoning_tokens" do
+      usage = %{"input_tokens" => 10, "output_tokens" => 20, "reasoning_tokens" => 32}
+      response = build_response(%{usage: usage})
+      assert Response.reasoning_tokens(response) == 32
+    end
+
+    test "extracts from string key reasoning" do
+      usage = %{"input_tokens" => 10, "output_tokens" => 20, "reasoning" => 48}
+      response = build_response(%{usage: usage})
+      assert Response.reasoning_tokens(response) == 48
+    end
+
+    test "extracts from nested string key completion_tokens_details" do
+      usage = %{
+        "input_tokens" => 10,
+        "output_tokens" => 20,
+        "completion_tokens_details" => %{"reasoning_tokens" => 96}
+      }
+
+      response = build_response(%{usage: usage})
+      assert Response.reasoning_tokens(response) == 96
+    end
+  end
+
+  describe "text/1 filters non-text content" do
+    test "ignores image_url content parts" do
+      message = %Message{
+        role: :assistant,
+        content: [
+          ContentPart.text("Here's the result: "),
+          ContentPart.image_url("https://example.com/image.png"),
+          ContentPart.text("Done!")
+        ]
+      }
+
+      response = build_response(%{message: message})
+      assert Response.text(response) == "Here's the result: Done!"
+    end
+
+    test "ignores thinking content parts" do
+      message = %Message{
+        role: :assistant,
+        content: [
+          %ContentPart{type: :thinking, text: "Let me think..."},
+          ContentPart.text("The answer is 42.")
+        ]
+      }
+
+      response = build_response(%{message: message})
+      assert Response.text(response) == "The answer is 42."
+    end
+  end
+
+  describe "thinking/1 with multiple thinking parts" do
+    test "concatenates multiple thinking parts" do
+      message = %Message{
+        role: :assistant,
+        content: [
+          %ContentPart{type: :thinking, text: "First thought. "},
+          %ContentPart{type: :thinking, text: "Second thought."},
+          ContentPart.text("The answer is 42.")
+        ]
+      }
+
+      response = build_response(%{message: message})
+      assert Response.thinking(response) == "First thought. Second thought."
+    end
+  end
+
+  describe "Jason.Encoder" do
+    test "encodes response to JSON excluding stream" do
+      message = %Message{role: :assistant, content: [ContentPart.text("Hello")]}
+
+      response =
+        build_response(%{
+          message: message,
+          stream?: true,
+          stream: Stream.repeatedly(fn -> "chunk" end),
+          usage: %{input_tokens: 10, output_tokens: 5}
+        })
+
+      json = Jason.encode!(response)
+      decoded = Jason.decode!(json)
+
+      assert decoded["id"] == response.id
+      assert decoded["usage"] == %{"input_tokens" => 10, "output_tokens" => 5}
+      refute Map.has_key?(decoded, "stream")
+    end
+  end
 end

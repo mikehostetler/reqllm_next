@@ -144,6 +144,256 @@ defmodule ReqLlmNext.ValidationTest do
         Validation.validate_stream!(model, context, [])
       end
     end
+
+    test "validates with integer prompt (treated as nil context)" do
+      model = TestModels.openai()
+
+      assert :ok = Validation.validate_stream!(model, 123, [])
+    end
+  end
+
+  describe "validate!/4 with nil capabilities" do
+    test "uses default capabilities when model has nil capabilities" do
+      model = TestModels.minimal(%{capabilities: nil})
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "allows tools with default capabilities" do
+      model = TestModels.minimal(%{capabilities: nil})
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, tools: [%{}])
+    end
+
+    test "allows streaming with default capabilities" do
+      model = TestModels.minimal(%{capabilities: nil})
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, stream: true)
+    end
+  end
+
+  describe "validate!/4 object operation" do
+    test "allows object operation on chat model" do
+      model = TestModels.openai()
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :object, context, [])
+    end
+  end
+
+  describe "model kind inference" do
+    test "infers reasoning kind from capabilities" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            chat: true,
+            reasoning: %{enabled: true},
+            embeddings: false,
+            tools: %{enabled: true},
+            streaming: %{text: true}
+          }
+        })
+
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "infers embedding kind from extra.type" do
+      model =
+        TestModels.openai(%{
+          extra: %{type: "embedding"},
+          capabilities: %{
+            embeddings: %{default_dimensions: 1536}
+          }
+        })
+
+      context = simple_context()
+
+      assert_raise ReqLlmNext.Error.Invalid.Capability, ~r/cannot generate text/, fn ->
+        Validation.validate!(model, :text, context, [])
+      end
+    end
+
+    test "infers embedding kind from embeddings capability" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            embeddings: %{default_dimensions: 1536},
+            chat: false
+          }
+        })
+
+      context = simple_context()
+
+      assert_raise ReqLlmNext.Error.Invalid.Capability, ~r/cannot generate text/, fn ->
+        Validation.validate!(model, :text, context, [])
+      end
+    end
+
+    test "infers chat kind as default" do
+      model = TestModels.minimal()
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+  end
+
+  describe "modalities edge cases" do
+    test "validates context with no images passes modality check" do
+      model = TestModels.openai()
+
+      context = %Context{
+        messages: [
+          %Message{
+            role: :user,
+            content: [ContentPart.text("Hello"), ContentPart.text("World")]
+          }
+        ]
+      }
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "handles context with empty content list" do
+      model = TestModels.openai()
+
+      context = %Context{
+        messages: [
+          %Message{
+            role: :user,
+            content: []
+          }
+        ]
+      }
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "handles context with nil content" do
+      model = TestModels.openai()
+
+      context = %Context{
+        messages: [
+          %Message{
+            role: :user,
+            content: nil
+          }
+        ]
+      }
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "handles model with nil modalities" do
+      model = TestModels.openai(%{modalities: nil})
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+  end
+
+  describe "embeddings capability formats" do
+    test "recognizes embeddings: true format" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            embeddings: true
+          }
+        })
+
+      context = simple_context()
+
+      assert_raise ReqLlmNext.Error.Invalid.Capability, ~r/cannot generate text/, fn ->
+        Validation.validate!(model, :text, context, [])
+      end
+    end
+
+    test "recognizes embeddings map format" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            embeddings: %{min_dimensions: 256, max_dimensions: 3072}
+          }
+        })
+
+      context = simple_context()
+
+      assert_raise ReqLlmNext.Error.Invalid.Capability, ~r/cannot generate text/, fn ->
+        Validation.validate!(model, :text, context, [])
+      end
+    end
+
+    test "handles empty embeddings map as non-embedding" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            chat: true,
+            embeddings: %{},
+            streaming: %{text: true},
+            tools: %{enabled: true}
+          }
+        })
+
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "handles embeddings: false as non-embedding" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            chat: true,
+            embeddings: false,
+            streaming: %{text: true},
+            tools: %{enabled: true}
+          }
+        })
+
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+  end
+
+  describe "reasoning capability formats" do
+    test "recognizes reasoning: true format" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            chat: true,
+            reasoning: true,
+            embeddings: false,
+            streaming: %{text: true},
+            tools: %{enabled: true}
+          }
+        })
+
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
+
+    test "recognizes reasoning map with enabled: true" do
+      model =
+        TestModels.openai(%{
+          capabilities: %{
+            chat: true,
+            reasoning: %{enabled: true, token_budget: 25000},
+            embeddings: false,
+            streaming: %{text: true},
+            tools: %{enabled: true}
+          }
+        })
+
+      context = simple_context()
+
+      assert :ok = Validation.validate!(model, :text, context, [])
+    end
   end
 
   defp simple_context do

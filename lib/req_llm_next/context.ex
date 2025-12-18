@@ -438,7 +438,7 @@ defmodule ReqLlmNext.Context do
     end
 
     def slice(%ReqLlmNext.Context{messages: messages}) do
-      {:ok, length(messages), &Enum.slice(messages, &1, &2)}
+      {:ok, length(messages), fn start, length, _step -> Enum.slice(messages, start, length) end}
     end
   end
 

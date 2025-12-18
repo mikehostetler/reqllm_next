@@ -148,5 +148,182 @@ defmodule ReqLlmNext.Response.UsageTest do
       assert result.output_tokens == 30
       assert result.reasoning_tokens == 10
     end
+
+    test "handles Anthropic format with atom keys" do
+      anthropic_model = TestModels.anthropic()
+
+      raw = %{
+        input_tokens: 15,
+        output_tokens: 25
+      }
+
+      result = Usage.normalize(raw, anthropic_model)
+
+      assert result.input_tokens == 15
+      assert result.output_tokens == 25
+      assert result.total_tokens == 40
+    end
+
+    test "handles Anthropic cache tokens with atom keys" do
+      anthropic_model = TestModels.anthropic()
+
+      raw = %{
+        input_tokens: 15,
+        output_tokens: 25,
+        cache_read_input_tokens: 10,
+        cache_creation_input_tokens: 5
+      }
+
+      result = Usage.normalize(raw, anthropic_model)
+
+      assert result.cache_read_tokens == 10
+      assert result.cache_creation_tokens == 5
+    end
+
+    test "extracts reasoning tokens from atom key completion_tokens_details" do
+      raw = %{
+        prompt_tokens: 12,
+        completion_tokens: 72,
+        total_tokens: 84,
+        completion_tokens_details: %{
+          reasoning_tokens: 64
+        }
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.reasoning_tokens == 64
+    end
+
+    test "extracts cached tokens from atom key prompt_tokens_details" do
+      raw = %{
+        prompt_tokens: 100,
+        completion_tokens: 50,
+        total_tokens: 150,
+        prompt_tokens_details: %{
+          cached_tokens: 80
+        }
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.cache_read_tokens == 80
+    end
+
+    test "handles mixed format with both string and atom keys" do
+      raw = %{
+        "input_tokens" => 10,
+        output_tokens: 20
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.input_tokens == 10
+      assert result.output_tokens == 20
+    end
+
+    test "does not include zero cache tokens" do
+      raw = %{
+        "prompt_tokens" => 100,
+        "completion_tokens" => 50,
+        "total_tokens" => 150,
+        "prompt_tokens_details" => %{
+          "cached_tokens" => 0
+        }
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      refute Map.has_key?(result, :cache_read_tokens)
+    end
+
+    test "does not include zero reasoning tokens" do
+      raw = %{
+        "prompt_tokens" => 100,
+        "completion_tokens" => 50,
+        "total_tokens" => 150,
+        "completion_tokens_details" => %{
+          "reasoning_tokens" => 0
+        }
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      refute Map.has_key?(result, :reasoning_tokens)
+    end
+
+    test "handles generic format without prompt_tokens or completion_tokens" do
+      raw = %{
+        "input_tokens" => 10,
+        "output_tokens" => 5
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.input_tokens == 10
+      assert result.output_tokens == 5
+      assert result.total_tokens == 15
+    end
+
+    test "handles usage with only reasoning_tokens field" do
+      raw = %{
+        "prompt_tokens" => 20,
+        "completion_tokens" => 30,
+        "reasoning_tokens" => 15
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.reasoning_tokens == 15
+    end
+
+    test "handles Anthropic format detection via cache keys only" do
+      raw = %{
+        "cache_read_input_tokens" => 50
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.input_tokens == 0
+      assert result.output_tokens == 0
+      assert result.cache_read_tokens == 50
+    end
+
+    test "handles Anthropic format detection via cache_creation key only" do
+      raw = %{
+        "cache_creation_input_tokens" => 25
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.input_tokens == 0
+      assert result.output_tokens == 0
+      assert result.cache_creation_tokens == 25
+    end
+
+    test "does not include nil cache tokens" do
+      anthropic_model = TestModels.anthropic()
+
+      raw = %{
+        "input_tokens" => 15,
+        "output_tokens" => 25
+      }
+
+      result = Usage.normalize(raw, anthropic_model)
+
+      refute Map.has_key?(result, :cache_read_tokens)
+      refute Map.has_key?(result, :cache_creation_tokens)
+    end
+
+    test "generic format calculates total_tokens from input and output" do
+      raw = %{
+        "input_tokens" => 10,
+        "output_tokens" => 5
+      }
+
+      result = Usage.normalize(raw, @model)
+
+      assert result.total_tokens == 15
+    end
   end
 end

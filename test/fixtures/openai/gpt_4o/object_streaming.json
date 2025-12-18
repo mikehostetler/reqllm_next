@@ -1,0 +1,104 @@
+{
+  "captured_at": "2025-12-17T21:25:01.214212Z",
+  "chunks": [
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiIiwicmVmdXNhbCI6bnVsbH0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6Iko2SVB3SzB0NkZlNFVuIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJ7XCIifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiVWt5Q004TjNKRGx6eiJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6ImFnZSJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJuRnpYMWU4MUVEUldNIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJcIjoifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiMWRvTmdUeXFldXo3cyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IjI4In0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InpJeWVaTEl3dU9uMG9HIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DbnRJeld2MkpKNjcxQUZZbkd4MEFLU2psUXNDViIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NjYwMDY3MDEsIm1vZGVsIjoiZ3B0LTRvLTIwMjQtMDgtMDYiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfZGVhY2RkNWY2ZiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiLFwiIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IjNhVGJjRXoyanUwTHcifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJuYW1lIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6Iko0NDcxcGlUYnF3MCJ9Cgo=",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJcIjpcIiJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJBNE1DSmN2Y1dDSiJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IkFsaWNlIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InlOTGw1TElzUzBZIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgSm9obnNvbiJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJ0N3BDUWhsMCJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IlwiLFwiIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6ImVCQW9qbzBLQTF6In0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJvY2N1cGF0aW9uIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InpkYmlBciJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IlwiOlwiIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IlJlMVRkT3lWRDgwIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJTb2Z0d2FyZSJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJlbWFjdEgwTCJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiBFbmdpbmVlciJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJPN3BJVlJaIn0KCg==",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJcIn0ifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiVGVkTUluU0xGakJJTyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQ250SXpXdjJKSjY3MUFGWW5HeDBBS1NqbFFzQ1YiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzY2MDA2NzAxLCJtb2RlbCI6ImdwdC00by0yMDI0LTA4LTA2Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2RlYWNkZDVmNmYiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnt9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IkRXZW1YcTN6MFUifQoK",
+    "ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUNudEl6V3YySko2NzFBRlluR3gwQUtTamxRc0NWIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc2NjAwNjcwMSwibW9kZWwiOiJncHQtNG8tMjAyNC0wOC0wNiIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9kZWFjZGQ1ZjZmIiwiY2hvaWNlcyI6W10sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjg2LCJjb21wbGV0aW9uX3Rva2VucyI6MTUsInRvdGFsX3Rva2VucyI6MTAxLCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6MCwiYXVkaW9fdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnNfZGV0YWlscyI6eyJyZWFzb25pbmdfdG9rZW5zIjowLCJhdWRpb190b2tlbnMiOjAsImFjY2VwdGVkX3ByZWRpY3Rpb25fdG9rZW5zIjowLCJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6MH19LCJvYmZ1c2NhdGlvbiI6InFRSnJFc1ZseVd3MndMIn0KCmRhdGE6IFtET05FXQoK"
+  ],
+  "model_id": "gpt-4o",
+  "prompt": "Generate a software engineer profile named Alice who is 28 years old.",
+  "provider": "openai",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiR2VuZXJhdGUgYSBzb2Z0d2FyZSBlbmdpbmVlciBwcm9maWxlIG5hbWVkIEFsaWNlIHdobyBpcyAyOCB5ZWFycyBvbGQuIn1dLCJzdHJlYW0iOnRydWUsIm1heF90b2tlbnMiOjIwMCwibW9kZWwiOiJncHQtNG8iLCJyZXNwb25zZV9mb3JtYXQiOnsidHlwZSI6Impzb25fc2NoZW1hIiwianNvbl9zY2hlbWEiOnsibmFtZSI6Im9iamVjdCIsInN0cmljdCI6dHJ1ZSwic2NoZW1hIjp7ImFkZGl0aW9uYWxQcm9wZXJ0aWVzIjpmYWxzZSwicHJvcGVydGllcyI6eyJhZ2UiOnsiZGVzY3JpcHRpb24iOiJQZXJzb24ncyBhZ2UgaW4geWVhcnMiLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9LCJuYW1lIjp7ImRlc2NyaXB0aW9uIjoiUGVyc29uJ3MgZnVsbCBuYW1lIiwidHlwZSI6InN0cmluZyJ9LCJvY2N1cGF0aW9uIjp7ImRlc2NyaXB0aW9uIjoiUGVyc29uJ3Mgam9iIG9yIHByb2Zlc3Npb24iLCJ0eXBlIjoic3RyaW5nIn19LCJyZXF1aXJlZCI6WyJuYW1lIiwiYWdlIiwib2NjdXBhdGlvbiJdLCJ0eXBlIjoib2JqZWN0In19fSwic3RyZWFtX29wdGlvbnMiOnsiaW5jbHVkZV91c2FnZSI6dHJ1ZX19",
+      "canonical_json": {
+        "max_tokens": 200,
+        "messages": [
+          {
+            "content": "Generate a software engineer profile named Alice who is 28 years old.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-4o",
+        "response_format": {
+          "json_schema": {
+            "name": "object",
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "age": {
+                  "description": "Person's age in years",
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "name": {
+                  "description": "Person's full name",
+                  "type": "string"
+                },
+                "occupation": {
+                  "description": "Person's job or profession",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "age",
+                "occupation"
+              ],
+              "type": "object"
+            },
+            "strict": true
+          },
+          "type": "json_schema"
+        },
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "method": "POST",
+    "url": "https://api.openai.com:443/v1/chat/completions"
+  },
+  "response": {
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9af97d9afb6610c4-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 17 Dec 2025 21:25:02 GMT",
+      "openai-organization": "epic-creative-sogybe",
+      "openai-processing-ms": "1006",
+      "openai-project": "proj_j5AhgU4eLMRmsoO9FDg7BRD3",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "_cfuvid=0DPciYMnvSHbPz7Lra0ulbBvezDjRaG3EVwiv3jYLP4-1766006702368-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-envoy-upstream-service-time": "1022",
+      "x-openai-proxy-wasm": "v0.1",
+      "x-ratelimit-limit-requests": "10000",
+      "x-ratelimit-limit-tokens": "2000000",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "1999980",
+      "x-ratelimit-reset-requests": "6ms",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-request-id": "req_64ad2a359e874b31891e9f61da6676a7"
+    },
+    "status": 200
+  }
+}

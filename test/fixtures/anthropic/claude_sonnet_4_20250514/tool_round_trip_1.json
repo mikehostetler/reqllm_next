@@ -1,0 +1,99 @@
+{
+  "captured_at": "2025-12-17T21:37:51.451091Z",
+  "chunks": [
+    "ZXZlbnQ6IG1lc3NhZ2Vfc3RhcnQKZGF0YTogeyJ0eXBlIjoibWVzc2FnZV9zdGFydCIsIm1lc3NhZ2UiOnsibW9kZWwiOiJjbGF1ZGUtc29ubmV0LTQtMjAyNTA1MTQiLCJpZCI6Im1zZ18wMUNtcThSWTlDTWFpU1BWR3o4UmFka2siLCJ0eXBlIjoibWVzc2FnZSIsInJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjpbXSwic3RvcF9yZWFzb24iOm51bGwsInN0b3Bfc2VxdWVuY2UiOm51bGwsInVzYWdlIjp7ImlucHV0X3Rva2VucyI6NDM3LCJjYWNoZV9jcmVhdGlvbl9pbnB1dF90b2tlbnMiOjAsImNhY2hlX3JlYWRfaW5wdXRfdG9rZW5zIjowLCJjYWNoZV9jcmVhdGlvbiI6eyJlcGhlbWVyYWxfNW1faW5wdXRfdG9rZW5zIjowLCJlcGhlbWVyYWxfMWhfaW5wdXRfdG9rZW5zIjowfSwib3V0cHV0X3Rva2VucyI6MTYsInNlcnZpY2VfdGllciI6InN0YW5kYXJkIn19ICAgICB9CgpldmVudDogY29udGVudF9ibG9ja19zdGFydApkYXRhOiB7InR5cGUiOiJjb250ZW50X2Jsb2NrX3N0YXJ0IiwiaW5kZXgiOjAsImNvbnRlbnRfYmxvY2siOnsidHlwZSI6InRvb2xfdXNlIiwiaWQiOiJ0b29sdV8wMUtvQ3d5VXE4MXN1QW1LQ0c3R01vdEMiLCJuYW1lIjoiYWRkIiwiaW5wdXQiOnt9fSAgfQoK",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfZGVsdGEKZGF0YTogeyJ0eXBlIjoiY29udGVudF9ibG9ja19kZWx0YSIsImluZGV4IjowLCJkZWx0YSI6eyJ0eXBlIjoiaW5wdXRfanNvbl9kZWx0YSIsInBhcnRpYWxfanNvbiI6IiJ9ICAgICAgICAgICAgICAgfQoK",
+    "ZXZlbnQ6IHBpbmcKZGF0YTogeyJ0eXBlIjogInBpbmcifQoK",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfZGVsdGEKZGF0YTogeyJ0eXBlIjoiY29udGVudF9ibG9ja19kZWx0YSIsImluZGV4IjowLCJkZWx0YSI6eyJ0eXBlIjoiaW5wdXRfanNvbl9kZWx0YSIsInBhcnRpYWxfanNvbiI6IntcImFcIjogMiJ9ICAgICAgICAgIH0KCg==",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfZGVsdGEKZGF0YTogeyJ0eXBlIjoiY29udGVudF9ibG9ja19kZWx0YSIsImluZGV4IjowLCJkZWx0YSI6eyJ0eXBlIjoiaW5wdXRfanNvbl9kZWx0YSIsInBhcnRpYWxfanNvbiI6IiwgXCJiXCI6IDN9In0gfQoK",
+    "ZXZlbnQ6IGNvbnRlbnRfYmxvY2tfc3RvcApkYXRhOiB7InR5cGUiOiJjb250ZW50X2Jsb2NrX3N0b3AiLCJpbmRleCI6MCAgICAgICAgICAgICAgfQoK",
+    "ZXZlbnQ6IG1lc3NhZ2VfZGVsdGEKZGF0YTogeyJ0eXBlIjoibWVzc2FnZV9kZWx0YSIsImRlbHRhIjp7InN0b3BfcmVhc29uIjoidG9vbF91c2UiLCJzdG9wX3NlcXVlbmNlIjpudWxsfSwidXNhZ2UiOnsiaW5wdXRfdG9rZW5zIjo0MzcsImNhY2hlX2NyZWF0aW9uX2lucHV0X3Rva2VucyI6MCwiY2FjaGVfcmVhZF9pbnB1dF90b2tlbnMiOjAsIm91dHB1dF90b2tlbnMiOjUwfSAgICAgIH0KCg==",
+    "ZXZlbnQ6IG1lc3NhZ2Vfc3RvcApkYXRhOiB7InR5cGUiOiJtZXNzYWdlX3N0b3AiICAgICAgIH0KCg=="
+  ],
+  "model_id": "claude-sonnet-4-20250514",
+  "prompt": "Use the add tool to compute 2 + 3. After the tool result arrives, respond with 'sum=<value>'.",
+  "provider": "anthropic",
+  "request": {
+    "body": {
+      "b64": "eyJtZXNzYWdlcyI6W3sicm9sZSI6InVzZXIiLCJjb250ZW50IjoiVXNlIHRoZSBhZGQgdG9vbCB0byBjb21wdXRlIDIgKyAzLiBBZnRlciB0aGUgdG9vbCByZXN1bHQgYXJyaXZlcywgcmVzcG9uZCB3aXRoICdzdW09PHZhbHVlPicuIn1dLCJzdHJlYW0iOnRydWUsInRvb2xzIjpbeyJkZXNjcmlwdGlvbiI6IkFkZCB0d28gaW50ZWdlcnMiLCJpbnB1dF9zY2hlbWEiOnsiYWRkaXRpb25hbFByb3BlcnRpZXMiOmZhbHNlLCJwcm9wZXJ0aWVzIjp7ImEiOnsiZGVzY3JpcHRpb24iOiJGaXJzdCBudW1iZXIiLCJ0eXBlIjoiaW50ZWdlciJ9LCJiIjp7ImRlc2NyaXB0aW9uIjoiU2Vjb25kIG51bWJlciIsInR5cGUiOiJpbnRlZ2VyIn19LCJyZXF1aXJlZCI6WyJhIiwiYiJdLCJ0eXBlIjoib2JqZWN0In0sIm5hbWUiOiJhZGQifV0sIm1vZGVsIjoiY2xhdWRlLXNvbm5ldC00LTIwMjUwNTE0IiwibWF4X3Rva2VucyI6NTAwLCJ0b29sX2Nob2ljZSI6eyJuYW1lIjoiYWRkIiwidHlwZSI6InRvb2wifX0=",
+      "canonical_json": {
+        "max_tokens": 500,
+        "messages": [
+          {
+            "content": "Use the add tool to compute 2 + 3. After the tool result arrives, respond with 'sum=<value>'.",
+            "role": "user"
+          }
+        ],
+        "model": "claude-sonnet-4-20250514",
+        "stream": true,
+        "tool_choice": {
+          "name": "add",
+          "type": "tool"
+        },
+        "tools": [
+          {
+            "description": "Add two integers",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "a": {
+                  "description": "First number",
+                  "type": "integer"
+                },
+                "b": {
+                  "description": "Second number",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "a",
+                "b"
+              ],
+              "type": "object"
+            },
+            "name": "add"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "accept": "text/event-stream",
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json",
+      "x-api-key": "[REDACTED]"
+    },
+    "method": "POST",
+    "url": "https://api.anthropic.com:443/v1/messages"
+  },
+  "response": {
+    "headers": {
+      "anthropic-organization-id": "a71659e7-a922-4ff7-99de-f3ba615face1",
+      "anthropic-ratelimit-input-tokens-limit": "800000",
+      "anthropic-ratelimit-input-tokens-remaining": "800000",
+      "anthropic-ratelimit-input-tokens-reset": "2025-12-17T21:37:51Z",
+      "anthropic-ratelimit-output-tokens-limit": "160000",
+      "anthropic-ratelimit-output-tokens-remaining": "160000",
+      "anthropic-ratelimit-output-tokens-reset": "2025-12-17T21:37:51Z",
+      "anthropic-ratelimit-requests-limit": "2000",
+      "anthropic-ratelimit-requests-remaining": "1999",
+      "anthropic-ratelimit-requests-reset": "2025-12-17T21:37:52Z",
+      "anthropic-ratelimit-tokens-limit": "960000",
+      "anthropic-ratelimit-tokens-remaining": "960000",
+      "anthropic-ratelimit-tokens-reset": "2025-12-17T21:37:51Z",
+      "cache-control": "no-cache",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "9af9906b587bf4e8-ORD",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 17 Dec 2025 21:37:54 GMT",
+      "request-id": "req_011CWCytggKzhdXLr2QFh3dw",
+      "server": "cloudflare",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "vary": "accept-encoding",
+      "x-envoy-upstream-service-time": "2123",
+      "x-robots-tag": "none"
+    },
+    "status": 200
+  }
+}

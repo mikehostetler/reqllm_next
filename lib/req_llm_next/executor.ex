@@ -2,37 +2,191 @@ defmodule ReqLlmNext.Executor do
   @moduledoc """
   Central pipeline orchestration for ReqLLM v2.
 
-  Tracer bullet implementation - handles only gpt-4o-mini streaming for now.
+  The Executor implements a 6-step pipeline:
+  1. ModelResolver - LLMDB + config overrides
+  2. Validation - Modalities, operation compatibility (stub)
+  3. Constraints - Parameter transforms from metadata (stub)
+  4. Adapter Pipeline - Per-model customizations
+  5. Wire Protocol - JSON encode/decode per API family
+  6. Provider HTTP - Base URL, auth, Finch orchestration
   """
 
-  alias ReqLlmNext.{ModelResolver, Wire, StreamResponse}
+  alias ReqLlmNext.Adapters.Pipeline, as: AdapterPipeline
+
+  alias ReqLlmNext.{
+    Constraints,
+    Context,
+    Error,
+    Fixtures,
+    ModelResolver,
+    Response,
+    Schema,
+    StreamResponse,
+    Validation
+  }
+
+  alias ReqLlmNext.Executor.StreamState
+  alias ReqLlmNext.Wire.{Resolver, Streaming}
+
+  @stream_timeout Application.compile_env(:req_llm_next, :stream_timeout, 30_000)
+
+  @spec generate_text(String.t(), String.t() | Context.t(), keyword()) ::
+          {:ok, Response.t()} | {:error, term()}
+  def generate_text(model_spec, prompt, opts \\ []) do
+    with {:ok, %StreamResponse{} = stream_resp} <- stream_text(model_spec, prompt, opts),
+         {:ok, context} <- Context.normalize(prompt) do
+      stream = stream_resp.stream
+      model = stream_resp.model
+
+      streaming_response = %Response{
+        id: generate_id(),
+        model: model,
+        context: context,
+        message: nil,
+        stream?: true,
+        stream: stream,
+        usage: nil,
+        finish_reason: nil
+      }
+
+      Response.join_stream(streaming_response)
+    end
+  end
+
+  defp generate_id do
+    Uniq.UUID.uuid7()
+  end
 
   @spec stream_text(String.t(), String.t(), keyword()) ::
           {:ok, StreamResponse.t()} | {:error, term()}
   def stream_text(model_spec, prompt, opts \\ []) do
     with {:ok, model} <- ModelResolver.resolve(model_spec),
-         {:ok, finch_request} <- build_stream_request(model, prompt, opts),
-         {:ok, stream} <- start_stream(finch_request, model) do
-      {:ok, %StreamResponse{stream: stream, model: model}}
+         :ok <- Validation.validate_stream!(model, prompt, opts),
+         opts <- Constraints.apply(model, opts),
+         opts <- AdapterPipeline.apply(model, opts),
+         %{provider_mod: provider_mod, wire_mod: wire_mod} <- Resolver.resolve!(model) do
+      case Fixtures.maybe_replay_stream(model, prompt, opts) do
+        {:ok, replay_stream} ->
+          {:ok, %StreamResponse{stream: replay_stream, model: model}}
+
+        :no_fixture ->
+          with {:ok, finch_request} <-
+                 Streaming.build_request(provider_mod, wire_mod, model, prompt, opts),
+               {:ok, stream} <- start_stream(finch_request, model, wire_mod, prompt, opts) do
+            {:ok, %StreamResponse{stream: stream, model: model}}
+          end
+      end
     end
   end
 
-  defp build_stream_request(model, prompt, opts) do
-    Wire.OpenAIChat.build_stream_request(model, prompt, opts)
+  @spec stream_object(String.t(), String.t(), term(), keyword()) ::
+          {:ok, StreamResponse.t()} | {:error, term()}
+  def stream_object(model_spec, prompt, object_schema, opts \\ []) do
+    with {:ok, model} <- ModelResolver.resolve(model_spec),
+         :ok <- Validation.validate_stream!(model, prompt, opts),
+         {:ok, compiled_schema} <- ReqLlmNext.Schema.compile(object_schema),
+         opts <-
+           opts
+           |> Keyword.put(:operation, :object)
+           |> Keyword.put(:compiled_schema, compiled_schema),
+         opts <- Constraints.apply(model, opts),
+         opts <- AdapterPipeline.apply(model, opts),
+         %{provider_mod: provider_mod, wire_mod: wire_mod} <- Resolver.resolve!(model) do
+      case Fixtures.maybe_replay_stream(model, prompt, opts) do
+        {:ok, replay_stream} ->
+          {:ok, %StreamResponse{stream: replay_stream, model: model}}
+
+        :no_fixture ->
+          with {:ok, finch_request} <-
+                 Streaming.build_request(provider_mod, wire_mod, model, prompt, opts),
+               {:ok, stream} <- start_stream(finch_request, model, wire_mod, prompt, opts) do
+            {:ok, %StreamResponse{stream: stream, model: model}}
+          end
+      end
+    end
   end
 
-  defp start_stream(finch_request, model) do
+  @spec generate_object(String.t(), String.t() | Context.t(), term(), keyword()) ::
+          {:ok, Response.t()} | {:error, term()}
+  def generate_object(model_spec, prompt, object_schema, opts \\ []) do
+    with {:ok, compiled_schema} <- Schema.compile(object_schema),
+         {:ok, %StreamResponse{} = stream_resp} <-
+           stream_object(model_spec, prompt, object_schema, opts),
+         {:ok, context} <- Context.normalize(prompt) do
+      json_text = StreamResponse.text(stream_resp)
+      model = stream_resp.model
+
+      case Jason.decode(json_text) do
+        {:ok, object} ->
+          case Schema.validate(object, compiled_schema) do
+            {:ok, validated_object} ->
+              {:ok, build_object_response(model, validated_object, context)}
+
+            {:error, {:validation_errors, errors}} ->
+              {:error,
+               Error.API.SchemaValidation.exception(
+                 message: "Schema validation failed",
+                 errors: errors,
+                 value: object
+               )}
+          end
+
+        {:error, jason_error} ->
+          {:error,
+           Error.API.JsonParse.exception(
+             message: "Failed to parse JSON: #{Exception.message(jason_error)}",
+             raw_json: json_text
+           )}
+      end
+    end
+  end
+
+  defp build_object_response(model, object, context) do
+    message = %Context.Message{
+      role: :assistant,
+      content: [Context.ContentPart.text(Jason.encode!(object))],
+      metadata: %{}
+    }
+
+    updated_context = Context.append(context, message)
+
+    %Response{
+      id: generate_id(),
+      model: model,
+      context: updated_context,
+      message: message,
+      object: object,
+      stream?: false,
+      stream: nil,
+      usage: nil,
+      finish_reason: :stop
+    }
+  end
+
+  defp start_stream(finch_request, model, wire_mod, prompt, opts) do
+    recorder = maybe_start_recorder(model, prompt, finch_request, opts)
+
     stream =
       Stream.resource(
-        fn -> start_finch_stream(finch_request) end,
-        fn state -> next_chunk(state, model) end,
+        fn -> start_finch_stream(finch_request, recorder, wire_mod) end,
+        fn state -> next_chunk(state) end,
         fn state -> cleanup(state) end
       )
 
     {:ok, stream}
   end
 
-  defp start_finch_stream(finch_request) do
+  defp maybe_start_recorder(model, prompt, finch_request, opts) do
+    case {Fixtures.mode(), Keyword.get(opts, :fixture)} do
+      {:record, fixture_name} when is_binary(fixture_name) ->
+        Fixtures.start_recorder(model, fixture_name, prompt, finch_request)
+
+      _ ->
+        nil
+    end
+  end
+
+  defp start_finch_stream(finch_request, recorder, wire_mod) do
     parent = self()
     ref = make_ref()
 
@@ -58,63 +212,126 @@ defmodule ReqLlmNext.Executor do
     %{
       ref: ref,
       task: task,
-      buffer: ""
+      stream_state: StreamState.new(recorder, wire_mod)
     }
   end
 
-  defp next_chunk(%{ref: ref, buffer: buffer} = state, model) do
+  defp next_chunk(%{ref: ref, stream_state: stream_state} = state) do
     receive do
-      {^ref, :status, status} when status != 200 ->
-        {:halt, Map.put(state, :error, {:http_error, status})}
+      {^ref, :status, status} ->
+        handle_stream_result(StreamState.handle_message({:status, status}, stream_state), state)
 
-      {^ref, :status, _status} ->
-        next_chunk(state, model)
-
-      {^ref, :headers, _headers} ->
-        next_chunk(state, model)
+      {^ref, :headers, headers} ->
+        handle_stream_result(StreamState.handle_message({:headers, headers}, stream_state), state)
 
       {^ref, :data, data} ->
-        new_buffer = buffer <> data
-        {events, remaining} = ServerSentEvents.parse(new_buffer)
-
-        chunks =
-          events
-          |> Enum.flat_map(&decode_event(&1, model))
-          |> Enum.reject(&is_nil/1)
-
-        new_state = %{state | buffer: remaining}
-
-        case chunks do
-          [] -> next_chunk(new_state, model)
-          chunks -> {chunks, new_state}
-        end
+        handle_stream_result(StreamState.handle_message({:data, data}, stream_state), state)
 
       {^ref, :done} ->
-        {:halt, state}
+        handle_stream_result(StreamState.handle_message(:done, stream_state), state)
     after
-      30_000 ->
-        {:halt, Map.put(state, :error, :timeout)}
+      @stream_timeout ->
+        new_stream_state = StreamState.handle_timeout(stream_state)
+        {:halt, %{state | stream_state: new_stream_state}}
     end
   end
 
-  defp decode_event(%{data: "[DONE]"}, _model), do: [nil]
+  defp handle_stream_result({:cont, [], new_stream_state}, state) do
+    next_chunk(%{state | stream_state: new_stream_state})
+  end
 
-  defp decode_event(%{data: data}, _model) do
-    case Jason.decode(data) do
-      {:ok, %{"choices" => [%{"delta" => %{"content" => content}} | _]}}
-      when is_binary(content) ->
-        [content]
+  defp handle_stream_result({:cont, chunks, new_stream_state}, state) do
+    {chunks, %{state | stream_state: new_stream_state}}
+  end
 
-      {:ok, _} ->
-        []
-
-      {:error, _} ->
-        []
-    end
+  defp handle_stream_result({:halt, new_stream_state}, state) do
+    {:halt, %{state | stream_state: new_stream_state}}
   end
 
   defp cleanup(%{task: task}) do
     Task.shutdown(task, :brutal_kill)
     :ok
+  end
+
+  @spec embed(String.t(), String.t() | [String.t()], keyword()) ::
+          {:ok, [float()] | [[float()]]} | {:error, term()}
+  def embed(model_spec, input, opts \\ []) do
+    with {:ok, model} <- ModelResolver.resolve(model_spec),
+         :ok <- Validation.validate!(model, :embed, nil, opts),
+         :ok <- validate_embedding_input(input),
+         %{provider_mod: provider_mod, wire_mod: wire_mod} <- Resolver.resolve!(model, :embed),
+         {:ok, raw_response} <-
+           execute_embedding_request(provider_mod, wire_mod, model, input, opts) do
+      wire_mod.extract_embeddings(raw_response, input)
+    end
+  end
+
+  defp validate_embedding_input("") do
+    {:error, Error.Invalid.Parameter.exception(parameter: "input: cannot be empty")}
+  end
+
+  defp validate_embedding_input(text) when is_binary(text), do: :ok
+
+  defp validate_embedding_input([]) do
+    {:error, Error.Invalid.Parameter.exception(parameter: "input: cannot be empty list")}
+  end
+
+  defp validate_embedding_input(texts) when is_list(texts) do
+    if Enum.all?(texts, &is_binary/1) do
+      if Enum.any?(texts, &(&1 == "")) do
+        {:error, Error.Invalid.Parameter.exception(parameter: "input: contains empty string")}
+      else
+        :ok
+      end
+    else
+      {:error, Error.Invalid.Parameter.exception(parameter: "input: all items must be strings")}
+    end
+  end
+
+  defp validate_embedding_input(_) do
+    {:error,
+     Error.Invalid.Parameter.exception(parameter: "input: must be string or list of strings")}
+  end
+
+  defp execute_embedding_request(provider_mod, wire_mod, model, input, opts) do
+    api_key = provider_mod.get_api_key(opts)
+    base_url = provider_mod.base_url()
+    url = base_url <> wire_mod.path()
+
+    headers =
+      provider_mod.auth_headers(api_key) ++
+        [{"Content-Type", "application/json"}]
+
+    body =
+      wire_mod.encode_body(model, input, opts)
+      |> Jason.encode!()
+
+    request = Finch.build(:post, url, headers, body)
+
+    case Finch.request(request, ReqLlmNext.Finch) do
+      {:ok, %Finch.Response{status: status, body: response_body}} when status in 200..299 ->
+        case Jason.decode(response_body) do
+          {:ok, decoded} ->
+            {:ok, decoded}
+
+          {:error, jason_error} ->
+            {:error,
+             Error.API.JsonParse.exception(
+               message: "Failed to parse embedding response: #{Exception.message(jason_error)}",
+               raw_json: response_body
+             )}
+        end
+
+      {:ok, %Finch.Response{status: status, body: response_body}} ->
+        {:error,
+         Error.API.Request.exception(
+           reason: "Embedding request failed",
+           status: status,
+           response_body: response_body
+         )}
+
+      {:error, reason} ->
+        {:error, Error.API.Request.exception(reason: "HTTP request failed: #{inspect(reason)}")}
+    end
   end
 end

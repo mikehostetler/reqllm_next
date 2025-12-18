@@ -83,7 +83,7 @@ defmodule Mix.Tasks.ReqLlmNext.Gen do
       System.halt(1)
   end
 
-  defp show_banner(model_spec, prompt, :quiet), do: :ok
+  defp show_banner(_model_spec, _prompt, :quiet), do: :ok
 
   defp show_banner(model_spec, prompt, _log_level) do
     preview = String.slice(prompt, 0, 50)

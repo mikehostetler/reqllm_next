@@ -2,18 +2,20 @@ defmodule ReqLlmNext.ModelResolver do
   @moduledoc """
   Resolves model specs to LLMDB.Model structs.
 
-  Tracer bullet - only supports "openai:gpt-4o-mini" for now.
+  Delegates to LLMDB.model/1 which handles all spec formats:
+  - "provider:model_id" strings (e.g., "openai:gpt-4o")
+  - {provider, model_id} tuples
+  - LLMDB.Model structs (passthrough)
   """
 
-  @spec resolve(String.t()) :: {:ok, LLMDB.Model.t()} | {:error, term()}
-  def resolve("openai:" <> model_id) do
-    case LLMDB.model(:openai, model_id) do
-      {:ok, model} -> {:ok, model}
-      {:error, reason} -> {:error, {:model_not_found, reason}}
-    end
-  end
+  @spec resolve(String.t() | {atom(), String.t()} | LLMDB.Model.t()) ::
+          {:ok, LLMDB.Model.t()} | {:error, term()}
+  def resolve(%LLMDB.Model{} = model), do: {:ok, model}
 
   def resolve(model_spec) do
-    {:error, {:invalid_model_spec, model_spec}}
+    case LLMDB.model(model_spec) do
+      {:ok, model} -> {:ok, model}
+      {:error, reason} -> {:error, {:model_not_found, model_spec, reason}}
+    end
   end
 end

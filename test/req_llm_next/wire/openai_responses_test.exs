@@ -3,6 +3,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   alias ReqLlmNext.Wire.OpenAIResponses
   alias ReqLlmNext.Context
+  alias ReqLlmNext.TestModels
 
   describe "endpoint/0 and path/0" do
     test "returns responses endpoint" do
@@ -13,16 +14,16 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   describe "encode_body/3" do
     test "encodes string prompt as input array" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", [])
 
-      assert body.model == "o1"
+      assert body.model == "o1-test"
       assert body.stream == true
       assert body.input == [%{role: "user", content: [%{type: "input_text", text: "Hello"}]}]
     end
 
     test "converts system role to developer role" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       context =
         Context.new([
@@ -39,7 +40,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "uses output_text for assistant messages" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       context =
         Context.new([
@@ -56,21 +57,21 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "includes reasoning config when effort specified" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", reasoning_effort: :high)
 
       assert body.reasoning == %{effort: "high"}
     end
 
     test "accepts string reasoning effort" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", reasoning_effort: "medium")
 
       assert body.reasoning == %{effort: "medium"}
     end
 
     test "uses max_output_tokens instead of max_tokens" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", max_tokens: 1000)
 
       assert body.max_output_tokens == 1000
@@ -78,7 +79,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "prioritizes max_output_tokens over alternatives" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       body =
         OpenAIResponses.encode_body(model, "Hello",
@@ -91,7 +92,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "encodes tools in responses format" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       tool =
         ReqLlmNext.Tool.new!(
@@ -111,21 +112,21 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "encodes tool_choice auto" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", tool_choice: :auto)
 
       assert body.tool_choice == "auto"
     end
 
     test "encodes tool_choice none" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", tool_choice: :none)
 
       assert body.tool_choice == "none"
     end
 
     test "encodes specific tool choice" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       body =
         OpenAIResponses.encode_body(model, "Hello",
@@ -136,7 +137,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "omits nil values" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       body = OpenAIResponses.encode_body(model, "Hello", [])
 
       refute Map.has_key?(body, :max_output_tokens)
@@ -147,21 +148,21 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   describe "decode_sse_event/2 - text content" do
     test "decodes text content from output_text.delta" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: ~s({"type": "response.output_text.delta", "delta": "Hello"})}
 
       assert ["Hello"] = OpenAIResponses.decode_sse_event(event, model)
     end
 
     test "ignores empty text delta" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: ~s({"type": "response.output_text.delta", "delta": ""})}
 
       assert [] = OpenAIResponses.decode_sse_event(event, model)
     end
 
     test "decodes pre-parsed data map" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: %{"type" => "response.output_text.delta", "delta" => "Text"}}
 
       assert ["Text"] = OpenAIResponses.decode_sse_event(event, model)
@@ -170,14 +171,14 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   describe "decode_sse_event/2 - reasoning content" do
     test "decodes reasoning as {:thinking, text}" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: %{"type" => "response.reasoning.delta", "delta" => "Thinking..."}}
 
       assert [{:thinking, "Thinking..."}] = OpenAIResponses.decode_sse_event(event, model)
     end
 
     test "ignores empty reasoning delta" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: %{"type" => "response.reasoning.delta", "delta" => ""}}
 
       assert [] = OpenAIResponses.decode_sse_event(event, model)
@@ -186,7 +187,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   describe "decode_sse_event/2 - usage" do
     test "decodes usage with reasoning_tokens" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       event = %{
         data: %{
@@ -207,7 +208,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "handles missing reasoning_tokens" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       event = %{
         data: %{
@@ -227,7 +228,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   describe "decode_sse_event/2 - function calls" do
     test "decodes function call start from output_item.added" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       event = %{
         data: %{
@@ -248,7 +249,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "decodes function call arguments delta" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       event = %{
         data: %{
@@ -266,14 +267,14 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
 
   describe "decode_sse_event/2 - terminal events" do
     test "handles [DONE] event" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: "[DONE]"}
 
       assert [nil] = OpenAIResponses.decode_sse_event(event, model)
     end
 
     test "decodes completed event" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       event = %{
         data: %{
@@ -303,7 +304,7 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "decodes incomplete event with length reason" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
 
       event = %{
         data: %{
@@ -318,26 +319,17 @@ defmodule ReqLlmNext.Wire.OpenAIResponsesTest do
     end
 
     test "ignores output_text.done event" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: %{"type" => "response.output_text.done"}}
 
       assert [] = OpenAIResponses.decode_sse_event(event, model)
     end
 
     test "ignores unknown event types" do
-      model = reasoning_model()
+      model = TestModels.openai_reasoning()
       event = %{data: %{"type" => "response.unknown.type"}}
 
       assert [] = OpenAIResponses.decode_sse_event(event, model)
     end
-  end
-
-  defp reasoning_model do
-    %LLMDB.Model{
-      id: "o1",
-      provider: :openai,
-      modalities: %{input: [:text], output: [:text]},
-      extra: %{api: "responses"}
-    }
   end
 end

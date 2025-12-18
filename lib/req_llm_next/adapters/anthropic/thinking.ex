@@ -25,6 +25,8 @@ defmodule ReqLlmNext.Adapters.Anthropic.Thinking do
 
   @behaviour ReqLlmNext.Adapters.ModelAdapter
 
+  alias ReqLlmNext.Wire.Anthropic, as: AnthropicWire
+
   @default_receive_timeout 300_000
 
   @impl true
@@ -81,9 +83,14 @@ defmodule ReqLlmNext.Adapters.Anthropic.Thinking do
 
     budget_tokens =
       cond do
-        is_map(thinking) -> Map.get(thinking, :budget_tokens, 0)
-        not is_nil(reasoning_effort) -> get_budget_for_effort(reasoning_effort)
-        true -> 0
+        is_map(thinking) ->
+          Map.get(thinking, :budget_tokens, 0)
+
+        not is_nil(reasoning_effort) ->
+          AnthropicWire.map_reasoning_effort_to_budget(reasoning_effort)
+
+        true ->
+          0
       end
 
     if budget_tokens > 0 and not is_nil(max_tokens) and max_tokens <= budget_tokens do
@@ -92,12 +99,4 @@ defmodule ReqLlmNext.Adapters.Anthropic.Thinking do
       opts
     end
   end
-
-  defp get_budget_for_effort(:low), do: 1024
-  defp get_budget_for_effort(:medium), do: 2048
-  defp get_budget_for_effort(:high), do: 4096
-  defp get_budget_for_effort("low"), do: 1024
-  defp get_budget_for_effort("medium"), do: 2048
-  defp get_budget_for_effort("high"), do: 4096
-  defp get_budget_for_effort(_), do: 2048
 end

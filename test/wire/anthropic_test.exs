@@ -1,6 +1,7 @@
 defmodule ReqLlmNext.Wire.AnthropicTest do
   use ExUnit.Case, async: true
 
+  alias ReqLlmNext.TestModels
   alias ReqLlmNext.Wire.Anthropic
 
   describe "endpoint/0" do
@@ -11,31 +12,31 @@ defmodule ReqLlmNext.Wire.AnthropicTest do
 
   describe "encode_body/3" do
     test "encodes basic prompt with default max_tokens" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic()
       body = Anthropic.encode_body(model, "Hello!", [])
 
-      assert body.model == "claude-sonnet-4-20250514"
+      assert body.model == "test-model"
       assert body.messages == [%{role: "user", content: "Hello!"}]
       assert body.stream == true
       assert body.max_tokens == 1024
     end
 
     test "uses provided max_tokens" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic()
       body = Anthropic.encode_body(model, "Hello!", max_tokens: 2048)
 
       assert body.max_tokens == 2048
     end
 
     test "includes temperature when provided" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic()
       body = Anthropic.encode_body(model, "Hello!", temperature: 0.7)
 
       assert body.temperature == 0.7
     end
 
     test "omits temperature when not provided" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic()
       body = Anthropic.encode_body(model, "Hello!", [])
 
       refute Map.has_key?(body, :temperature)
@@ -121,9 +122,11 @@ defmodule ReqLlmNext.Wire.AnthropicTest do
       assert Anthropic.decode_sse_event(event, nil) == []
     end
 
-    test "returns empty list for invalid JSON" do
+    test "returns error event for invalid JSON" do
       event = %{data: "not valid json", event: nil, id: nil}
-      assert Anthropic.decode_sse_event(event, nil) == []
+      result = Anthropic.decode_sse_event(event, nil)
+      assert [{:error, %{type: "decode_error", message: message}}] = result
+      assert message =~ "Failed to decode SSE event"
     end
   end
 end

@@ -47,7 +47,7 @@ defmodule ReqLlmNext.Wire.Streaming do
           {:ok, Finch.Request.t()} | {:error, term()}
   def build_request(provider_mod, wire_mod, model, prompt, opts) do
     api_key = provider_mod.get_api_key(opts)
-    base_url = provider_mod.base_url()
+    base_url = Keyword.get(opts, :base_url, provider_mod.base_url())
     endpoint = wire_mod.endpoint()
     url = base_url <> endpoint
 

@@ -28,7 +28,7 @@ defmodule ReqLlmNext.Executor do
   alias ReqLlmNext.Executor.StreamState
   alias ReqLlmNext.Wire.{Resolver, Streaming}
 
-  @stream_timeout Application.compile_env(:req_llm_next, :stream_timeout, 30_000)
+  @default_stream_timeout Application.compile_env(:req_llm_next, :stream_timeout, 30_000)
 
   @spec generate_text(String.t(), String.t() | Context.t(), keyword()) ::
           {:ok, Response.t()} | {:error, term()}
@@ -165,10 +165,11 @@ defmodule ReqLlmNext.Executor do
 
   defp start_stream(finch_request, model, wire_mod, prompt, opts) do
     recorder = maybe_start_recorder(model, prompt, finch_request, opts)
+    receive_timeout = Keyword.get(opts, :receive_timeout, @default_stream_timeout)
 
     stream =
       Stream.resource(
-        fn -> start_finch_stream(finch_request, recorder, wire_mod) end,
+        fn -> start_finch_stream(finch_request, recorder, wire_mod, receive_timeout) end,
         fn state -> next_chunk(state) end,
         fn state -> cleanup(state) end
       )
@@ -186,7 +187,7 @@ defmodule ReqLlmNext.Executor do
     end
   end
 
-  defp start_finch_stream(finch_request, recorder, wire_mod) do
+  defp start_finch_stream(finch_request, recorder, wire_mod, receive_timeout) do
     parent = self()
     ref = make_ref()
 
@@ -212,11 +213,12 @@ defmodule ReqLlmNext.Executor do
     %{
       ref: ref,
       task: task,
-      stream_state: StreamState.new(recorder, wire_mod)
+      stream_state: StreamState.new(recorder, wire_mod),
+      receive_timeout: receive_timeout
     }
   end
 
-  defp next_chunk(%{ref: ref, stream_state: stream_state} = state) do
+  defp next_chunk(%{ref: ref, stream_state: stream_state, receive_timeout: timeout} = state) do
     receive do
       {^ref, :status, status} ->
         handle_stream_result(StreamState.handle_message({:status, status}, stream_state), state)
@@ -230,7 +232,7 @@ defmodule ReqLlmNext.Executor do
       {^ref, :done} ->
         handle_stream_result(StreamState.handle_message(:done, stream_state), state)
     after
-      @stream_timeout ->
+      timeout ->
         new_stream_state = StreamState.handle_timeout(stream_state)
         {:halt, %{state | stream_state: new_stream_state}}
     end
@@ -295,12 +297,14 @@ defmodule ReqLlmNext.Executor do
 
   defp execute_embedding_request(provider_mod, wire_mod, model, input, opts) do
     api_key = provider_mod.get_api_key(opts)
-    base_url = provider_mod.base_url()
+    base_url = Keyword.get(opts, :base_url, provider_mod.base_url())
     url = base_url <> wire_mod.path()
+
+    wire_headers = get_wire_headers(wire_mod, opts)
 
     headers =
       provider_mod.auth_headers(api_key) ++
-        [{"Content-Type", "application/json"}]
+        wire_headers
 
     body =
       wire_mod.encode_body(model, input, opts)
@@ -332,6 +336,14 @@ defmodule ReqLlmNext.Executor do
 
       {:error, reason} ->
         {:error, Error.API.Request.exception(reason: "HTTP request failed: #{inspect(reason)}")}
+    end
+  end
+
+  defp get_wire_headers(wire_mod, opts) do
+    if function_exported?(wire_mod, :headers, 1) do
+      wire_mod.headers(opts)
+    else
+      [{"Content-Type", "application/json"}]
     end
   end
 end

@@ -2,6 +2,7 @@ defmodule ReqLlmNext.FixturesTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Fixtures
+  alias ReqLlmNext.TestModels
 
   describe "mode/0" do
     test "returns :replay by default" do
@@ -11,21 +12,21 @@ defmodule ReqLlmNext.FixturesTest do
 
   describe "path/2" do
     test "generates path for openai model" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o-mini"})
       path = Fixtures.path(model, "basic")
 
       assert path =~ "test/fixtures/openai/gpt_4o_mini/basic.json"
     end
 
     test "generates path for anthropic model" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic(%{id: "claude-sonnet-4-20250514"})
       path = Fixtures.path(model, "basic")
 
       assert path =~ "test/fixtures/anthropic/claude_sonnet_4_20250514/basic.json"
     end
 
     test "sanitizes fixture name with special chars" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o"})
       path = Fixtures.path(model, "test/with spaces!")
 
       assert path =~ "with_spaces.json"
@@ -91,7 +92,7 @@ defmodule ReqLlmNext.FixturesTest do
 
   describe "start_recorder/4" do
     test "creates recorder struct" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o-mini"})
       finch_request = Finch.build(:post, "https://api.openai.com/v1/chat/completions", [], "{}")
       prompt = "Hello!"
 
@@ -108,7 +109,7 @@ defmodule ReqLlmNext.FixturesTest do
     end
 
     test "extracts request info with redacted auth" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o-mini"})
       headers = [{"Authorization", "Bearer sk-secret"}, {"Content-Type", "application/json"}]
       body = ~s({"model":"gpt-4o-mini"})
 
@@ -127,12 +128,12 @@ defmodule ReqLlmNext.FixturesTest do
 
   describe "maybe_replay_stream/3" do
     test "returns :no_fixture when no fixture option" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o"})
       assert Fixtures.maybe_replay_stream(model, "Hello", []) == :no_fixture
     end
 
     test "returns :no_fixture when fixture option is nil" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o"})
       assert Fixtures.maybe_replay_stream(model, "Hello", fixture: nil) == :no_fixture
     end
 
@@ -148,7 +149,7 @@ defmodule ReqLlmNext.FixturesTest do
 
   describe "save_fixture integration" do
     test "saves and can replay fixture" do
-      model = %LLMDB.Model{id: "test-model", provider: :openai}
+      model = TestModels.openai()
       fixture_path = Fixtures.path(model, "integration_test")
 
       File.rm(fixture_path)

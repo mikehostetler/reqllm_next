@@ -142,6 +142,11 @@ defmodule ReqLlmNext.Wire.OpenAIChat do
 
   def decode_sse_event(%{data: data}, model) do
     case Jason.decode(data) do
+      {:ok, %{"error" => error}} ->
+        message = error["message"] || "Unknown API error"
+        error_type = error["type"] || "api_error"
+        [{:error, %{message: message, type: error_type, code: error["code"]}}]
+
       {:ok, %{"choices" => [%{"delta" => delta} | _]} = payload} ->
         content = decode_delta(delta)
         usage = maybe_extract_usage(payload, model)
@@ -153,8 +158,14 @@ defmodule ReqLlmNext.Wire.OpenAIChat do
       {:ok, _} ->
         []
 
-      {:error, _} ->
-        []
+      {:error, decode_error} ->
+        [
+          {:error,
+           %{
+             message: "Failed to decode SSE event: #{inspect(decode_error)}",
+             type: "decode_error"
+           }}
+        ]
     end
   end
 

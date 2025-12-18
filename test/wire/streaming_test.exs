@@ -2,11 +2,12 @@ defmodule ReqLlmNext.Wire.StreamingTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Providers.OpenAI
+  alias ReqLlmNext.TestModels
   alias ReqLlmNext.Wire.{OpenAIChat, Streaming}
 
   describe "build_request/5" do
     test "builds Finch request for OpenAI" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai()
       opts = [api_key: "test-key", max_tokens: 100]
 
       {:ok, request} = Streaming.build_request(OpenAI, OpenAIChat, model, "Hello!", opts)
@@ -18,7 +19,7 @@ defmodule ReqLlmNext.Wire.StreamingTest do
     end
 
     test "includes auth headers" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai()
       opts = [api_key: "sk-test-key"]
 
       {:ok, request} = Streaming.build_request(OpenAI, OpenAIChat, model, "Hello!", opts)
@@ -28,7 +29,7 @@ defmodule ReqLlmNext.Wire.StreamingTest do
     end
 
     test "includes content-type and accept headers" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai()
       opts = [api_key: "test-key"]
 
       {:ok, request} = Streaming.build_request(OpenAI, OpenAIChat, model, "Hello!", opts)
@@ -39,13 +40,13 @@ defmodule ReqLlmNext.Wire.StreamingTest do
     end
 
     test "encodes body as JSON" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai()
       opts = [api_key: "test-key", temperature: 0.5]
 
       {:ok, request} = Streaming.build_request(OpenAI, OpenAIChat, model, "Hello!", opts)
 
       body = Jason.decode!(request.body)
-      assert body["model"] == "gpt-4o-mini"
+      assert body["model"] == "test-model"
       assert body["messages"] == [%{"role" => "user", "content" => "Hello!"}]
       assert body["stream"] == true
       assert body["temperature"] == 0.5
@@ -57,7 +58,7 @@ defmodule ReqLlmNext.Wire.StreamingTest do
     alias ReqLlmNext.Wire.Anthropic, as: AnthropicWire
 
     test "builds Finch request for Anthropic" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic()
       opts = [api_key: "test-key"]
 
       {:ok, request} = Streaming.build_request(Anthropic, AnthropicWire, model, "Hello!", opts)
@@ -67,7 +68,7 @@ defmodule ReqLlmNext.Wire.StreamingTest do
     end
 
     test "includes anthropic auth headers" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic()
       opts = [api_key: "sk-ant-test"]
 
       {:ok, request} = Streaming.build_request(Anthropic, AnthropicWire, model, "Hello!", opts)

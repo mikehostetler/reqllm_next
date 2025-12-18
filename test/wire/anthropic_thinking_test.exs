@@ -2,6 +2,7 @@ defmodule ReqLlmNext.Wire.AnthropicThinkingTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Wire.Anthropic
+  alias ReqLlmNext.TestModels
 
   describe "headers/1" do
     test "returns base headers without beta flags when no special options" do
@@ -68,8 +69,7 @@ defmodule ReqLlmNext.Wire.AnthropicThinkingTest do
 
   describe "encode_body/3 with thinking" do
     setup do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
-      {:ok, model: model}
+      {:ok, model: TestModels.anthropic_thinking()}
     end
 
     test "adds thinking config when thinking option provided", %{model: model} do
@@ -111,8 +111,7 @@ defmodule ReqLlmNext.Wire.AnthropicThinkingTest do
 
   describe "encode_body/3 with caching" do
     setup do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
-      {:ok, model: model}
+      {:ok, model: TestModels.anthropic_thinking()}
     end
 
     test "adds cache_control to system content when caching enabled", %{model: model} do

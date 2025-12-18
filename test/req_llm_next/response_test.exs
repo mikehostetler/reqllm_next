@@ -5,6 +5,7 @@ defmodule ReqLlmNext.ResponseTest do
   alias ReqLlmNext.Context
   alias ReqLlmNext.Context.{Message, ContentPart}
   alias ReqLlmNext.ToolCall
+  alias ReqLlmNext.TestModels
 
   describe "struct definition (Zoi)" do
     test "schema/0 returns Zoi schema" do
@@ -16,7 +17,7 @@ defmodule ReqLlmNext.ResponseTest do
       fields =
         Map.keys(%Response{
           id: "test",
-          model: %LLMDB.Model{id: "test", provider: :openai},
+          model: TestModels.openai(),
           context: Context.new(),
           message: nil,
           usage: nil,
@@ -50,7 +51,7 @@ defmodule ReqLlmNext.ResponseTest do
     test "provides default values" do
       response = %Response{
         id: "test",
-        model: %LLMDB.Model{id: "test", provider: :openai},
+        model: TestModels.openai(),
         context: Context.new(),
         message: nil,
         usage: nil,
@@ -68,7 +69,7 @@ defmodule ReqLlmNext.ResponseTest do
       for reason <- [:stop, :length, :tool_calls, :content_filter, :error, nil] do
         response = %Response{
           id: "test",
-          model: %LLMDB.Model{id: "test", provider: :openai},
+          model: TestModels.openai(),
           context: Context.new(),
           message: nil,
           usage: nil,
@@ -83,7 +84,7 @@ defmodule ReqLlmNext.ResponseTest do
   defp build_response(attrs) do
     defaults = %{
       id: "resp_123",
-      model: %LLMDB.Model{id: "gpt-4o", provider: :openai},
+      model: TestModels.openai(),
       context: Context.new(),
       message: nil,
       usage: nil,

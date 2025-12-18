@@ -2,33 +2,33 @@ defmodule ReqLlmNext.Adapters.Anthropic.ThinkingTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Adapters.Anthropic.Thinking
+  alias ReqLlmNext.TestModels
 
   describe "matches?/1" do
     test "matches Anthropic models" do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
+      model = TestModels.anthropic_thinking()
       assert Thinking.matches?(model)
     end
 
     test "matches any Anthropic model" do
-      model = %LLMDB.Model{id: "claude-3-haiku-20240307", provider: :anthropic}
+      model = TestModels.anthropic(%{id: "claude-3-haiku-20240307"})
       assert Thinking.matches?(model)
     end
 
     test "does not match OpenAI models" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai(%{id: "gpt-4o"})
       refute Thinking.matches?(model)
     end
 
     test "does not match Google models" do
-      model = %LLMDB.Model{id: "gemini-1.5-pro", provider: :google}
+      model = TestModels.google(%{id: "gemini-1.5-pro"})
       refute Thinking.matches?(model)
     end
   end
 
   describe "transform_opts/2 when thinking enabled" do
     setup do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
-      {:ok, model: model}
+      {:ok, model: TestModels.anthropic_thinking()}
     end
 
     test "sets extended timeout", %{model: model} do
@@ -97,8 +97,7 @@ defmodule ReqLlmNext.Adapters.Anthropic.ThinkingTest do
 
   describe "transform_opts/2 when reasoning_effort set" do
     setup do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
-      {:ok, model: model}
+      {:ok, model: TestModels.anthropic_thinking()}
     end
 
     test "sets timeout for reasoning_effort", %{model: model} do
@@ -125,8 +124,7 @@ defmodule ReqLlmNext.Adapters.Anthropic.ThinkingTest do
 
   describe "transform_opts/2 when thinking disabled" do
     setup do
-      model = %LLMDB.Model{id: "claude-sonnet-4-20250514", provider: :anthropic}
-      {:ok, model: model}
+      {:ok, model: TestModels.anthropic_thinking()}
     end
 
     test "preserves all opts unchanged", %{model: model} do

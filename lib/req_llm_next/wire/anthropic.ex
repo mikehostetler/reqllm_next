@@ -292,6 +292,11 @@ defmodule ReqLlmNext.Wire.Anthropic do
   @impl ReqLlmNext.Wire.Streaming
   def decode_sse_event(%{data: data}, model) do
     case Jason.decode(data) do
+      {:ok, %{"type" => "error", "error" => error}} ->
+        message = error["message"] || "Unknown API error"
+        error_type = error["type"] || "api_error"
+        [{:error, %{message: message, type: error_type}}]
+
       {:ok, %{"type" => "message_stop"}} ->
         [nil]
 
@@ -354,8 +359,14 @@ defmodule ReqLlmNext.Wire.Anthropic do
       {:ok, _} ->
         []
 
-      {:error, _} ->
-        []
+      {:error, decode_error} ->
+        [
+          {:error,
+           %{
+             message: "Failed to decode SSE event: #{inspect(decode_error)}",
+             type: "decode_error"
+           }}
+        ]
     end
   end
 

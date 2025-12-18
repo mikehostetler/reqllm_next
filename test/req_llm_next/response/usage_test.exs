@@ -2,8 +2,9 @@ defmodule ReqLlmNext.Response.UsageTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Response.Usage
+  alias ReqLlmNext.TestModels
 
-  @model %LLMDB.Model{id: "gpt-4o", provider: :openai}
+  @model TestModels.openai()
 
   describe "normalize/2" do
     test "returns nil for nil input" do
@@ -64,7 +65,7 @@ defmodule ReqLlmNext.Response.UsageTest do
     end
 
     test "normalizes Anthropic usage format" do
-      anthropic_model = %LLMDB.Model{id: "claude-3-sonnet", provider: :anthropic}
+      anthropic_model = TestModels.anthropic()
 
       raw = %{
         "input_tokens" => 15,
@@ -79,7 +80,7 @@ defmodule ReqLlmNext.Response.UsageTest do
     end
 
     test "extracts cache tokens from Anthropic" do
-      anthropic_model = %LLMDB.Model{id: "claude-3-sonnet", provider: :anthropic}
+      anthropic_model = TestModels.anthropic()
 
       raw = %{
         "input_tokens" => 15,

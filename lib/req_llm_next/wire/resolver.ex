@@ -27,25 +27,14 @@ defmodule ReqLlmNext.Wire.Resolver do
   @doc """
   Checks if a model uses the OpenAI Responses API.
 
-  Returns true for o-series (o1, o3, o4), GPT-5, and models with `api: "responses"` in extra.
+  Determines this from LLMDB metadata only (extra.wire.protocol or extra.api).
   """
   @spec responses_api?(LLMDB.Model.t()) :: boolean()
   def responses_api?(%LLMDB.Model{} = model) do
+    wire_protocol = get_wire_protocol(model)
     api = get_in(model, [Access.key(:extra, %{}), :api])
-    api == "responses" or infer_responses_api?(model.id)
+    wire_protocol == :openai_responses or api == "responses"
   end
-
-  defp infer_responses_api?(model_id) when is_binary(model_id) do
-    cond do
-      String.starts_with?(model_id, "o1") -> true
-      String.starts_with?(model_id, "o3") -> true
-      String.starts_with?(model_id, "o4") -> true
-      String.starts_with?(model_id, "gpt-5") -> true
-      true -> false
-    end
-  end
-
-  defp infer_responses_api?(_), do: false
 
   @spec resolve!(LLMDB.Model.t(), operation()) :: resolution()
   def resolve!(%LLMDB.Model{} = model, :embed) do
@@ -71,13 +60,12 @@ defmodule ReqLlmNext.Wire.Resolver do
 
   @spec wire_module!(LLMDB.Model.t()) :: module()
   def wire_module!(%LLMDB.Model{} = model) do
-    protocol = get_wire_protocol(model)
+    protocol = get_wire_protocol(model) || default_wire_for_provider(model.provider)
 
     case protocol do
       :openai_chat -> Wire.OpenAIChat
       :openai_responses -> Wire.OpenAIResponses
       :anthropic -> Wire.Anthropic
-      nil -> infer_wire_module(model)
       other -> raise "Unknown wire protocol: #{inspect(other)}"
     end
   end
@@ -93,13 +81,10 @@ defmodule ReqLlmNext.Wire.Resolver do
     end
   end
 
-  defp infer_wire_module(%LLMDB.Model{provider: :openai} = model) do
-    if responses_api?(model), do: Wire.OpenAIResponses, else: Wire.OpenAIChat
-  end
-
-  defp infer_wire_module(%LLMDB.Model{provider: :groq}), do: Wire.OpenAIChat
-  defp infer_wire_module(%LLMDB.Model{provider: :openrouter}), do: Wire.OpenAIChat
-  defp infer_wire_module(%LLMDB.Model{provider: :xai}), do: Wire.OpenAIChat
-  defp infer_wire_module(%LLMDB.Model{provider: :anthropic}), do: Wire.Anthropic
-  defp infer_wire_module(_model), do: Wire.OpenAIChat
+  defp default_wire_for_provider(:openai), do: :openai_chat
+  defp default_wire_for_provider(:anthropic), do: :anthropic
+  defp default_wire_for_provider(:groq), do: :openai_chat
+  defp default_wire_for_provider(:openrouter), do: :openai_chat
+  defp default_wire_for_provider(:xai), do: :openai_chat
+  defp default_wire_for_provider(_), do: :openai_chat
 end

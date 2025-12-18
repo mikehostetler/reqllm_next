@@ -10,6 +10,7 @@ defmodule ReqLlmNext.ParityTest do
   @moduletag :parity
 
   alias ReqLlmNext.{Context, Response, StreamResponse, Tool, ToolCall, Error}
+  alias ReqLlmNext.TestModels
 
   defp has_function?(module, function, arity) do
     Code.ensure_loaded!(module)
@@ -111,7 +112,7 @@ defmodule ReqLlmNext.ParityTest do
 
   describe "Response struct parity" do
     setup do
-      model = %LLMDB.Model{id: "test-model", provider: :test}
+      model = TestModels.minimal()
       context = Context.new([Context.user("Hello")])
 
       message = %Context.Message{
@@ -206,7 +207,7 @@ defmodule ReqLlmNext.ParityTest do
 
   describe "StreamResponse parity" do
     setup do
-      model = %LLMDB.Model{id: "test-model", provider: :test}
+      model = TestModels.minimal()
       stream = Stream.map(["Hello", " ", "world"], & &1)
       stream_resp = %StreamResponse{stream: stream, model: model}
       {:ok, stream_resp: stream_resp}
@@ -218,7 +219,7 @@ defmodule ReqLlmNext.ParityTest do
     end
 
     test "object/1 works" do
-      model = %LLMDB.Model{id: "test-model", provider: :test}
+      model = TestModels.minimal()
       stream = Stream.map([~s({"name": "test"})], & &1)
       sr = %StreamResponse{stream: stream, model: model}
 
@@ -235,7 +236,7 @@ defmodule ReqLlmNext.ParityTest do
     end
 
     test "usage/1 works" do
-      model = %LLMDB.Model{id: "test-model", provider: :test}
+      model = TestModels.minimal()
       stream = Stream.map([{:usage, %{input_tokens: 10}}], & &1)
       sr = %StreamResponse{stream: stream, model: model}
 
@@ -247,7 +248,7 @@ defmodule ReqLlmNext.ParityTest do
       Code.ensure_loaded!(StreamResponse)
       assert function_exported?(StreamResponse, :cancel, 1)
 
-      model = %LLMDB.Model{id: "test-model", provider: :test}
+      model = TestModels.minimal()
       stream = Stream.map([], & &1)
       sr = %StreamResponse{stream: stream, model: model, cancel_fn: nil}
 
@@ -255,7 +256,7 @@ defmodule ReqLlmNext.ParityTest do
     end
 
     test "cancel/1 calls cancel function" do
-      model = %LLMDB.Model{id: "test-model", provider: :test}
+      model = TestModels.minimal()
       stream = Stream.map([], & &1)
 
       test_pid = self()

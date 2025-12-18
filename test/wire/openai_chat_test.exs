@@ -1,6 +1,7 @@
 defmodule ReqLlmNext.Wire.OpenAIChatTest do
   use ExUnit.Case, async: true
 
+  alias ReqLlmNext.TestModels
   alias ReqLlmNext.Wire.OpenAIChat
 
   describe "endpoint/0" do
@@ -11,31 +12,31 @@ defmodule ReqLlmNext.Wire.OpenAIChatTest do
 
   describe "encode_body/3" do
     test "encodes basic prompt" do
-      model = %LLMDB.Model{id: "gpt-4o-mini", provider: :openai}
+      model = TestModels.openai()
       body = OpenAIChat.encode_body(model, "Hello!", [])
 
-      assert body.model == "gpt-4o-mini"
+      assert body.model == "test-model"
       assert body.messages == [%{role: "user", content: "Hello!"}]
       assert body.stream == true
       assert body.stream_options == %{include_usage: true}
     end
 
     test "includes max_tokens when provided" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai()
       body = OpenAIChat.encode_body(model, "Hello!", max_tokens: 100)
 
       assert body.max_tokens == 100
     end
 
     test "includes temperature when provided" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai()
       body = OpenAIChat.encode_body(model, "Hello!", temperature: 0.5)
 
       assert body.temperature == 0.5
     end
 
     test "includes both max_tokens and temperature" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai()
       body = OpenAIChat.encode_body(model, "Hello!", max_tokens: 200, temperature: 0.8)
 
       assert body.max_tokens == 200
@@ -43,7 +44,7 @@ defmodule ReqLlmNext.Wire.OpenAIChatTest do
     end
 
     test "omits nil values" do
-      model = %LLMDB.Model{id: "gpt-4o", provider: :openai}
+      model = TestModels.openai()
       body = OpenAIChat.encode_body(model, "Hello!", [])
 
       refute Map.has_key?(body, :max_tokens)
@@ -112,9 +113,11 @@ defmodule ReqLlmNext.Wire.OpenAIChatTest do
       assert usage.output_tokens == 5
     end
 
-    test "returns empty list for invalid JSON" do
+    test "returns error event for invalid JSON" do
       event = %{data: "not valid json", event: nil, id: nil}
-      assert OpenAIChat.decode_sse_event(event, nil) == []
+      result = OpenAIChat.decode_sse_event(event, nil)
+      assert [{:error, %{type: "decode_error", message: message}}] = result
+      assert message =~ "Failed to decode SSE event"
     end
 
     test "handles multiple choices (uses first)" do

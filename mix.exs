@@ -71,6 +71,7 @@ defmodule ReqLlmNext.MixProject do
         "credo --strict"
       ],
       q: ["quality"],
+      mc: ["req_llm_next.model_compat"],
       test: ["test --exclude integration --exclude live --exclude slow"],
       "test.live": ["test --include live --exclude slow"],
       "test.all": ["test --include integration --include live --include slow"],

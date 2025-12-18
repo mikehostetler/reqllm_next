@@ -15,6 +15,7 @@ defmodule ReqLlmNext.Provider do
   @callback base_url() :: String.t()
   @callback env_key() :: String.t()
   @callback auth_headers(api_key :: String.t()) :: [auth_header()]
+  @callback get_api_key(opts :: keyword()) :: String.t()
 
   @optional_callbacks []
 
@@ -37,13 +38,14 @@ defmodule ReqLlmNext.Provider do
         ReqLlmNext.Provider.build_auth_headers(unquote(auth_style), api_key)
       end
 
+      @impl ReqLlmNext.Provider
       def get_api_key(opts) do
         Keyword.get(opts, :api_key) ||
           System.get_env(env_key()) ||
           raise "#{env_key()} not set"
       end
 
-      defoverridable base_url: 0, env_key: 0, auth_headers: 1
+      defoverridable base_url: 0, env_key: 0, auth_headers: 1, get_api_key: 1
     end
   end
 

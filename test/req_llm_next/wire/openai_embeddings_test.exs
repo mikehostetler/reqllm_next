@@ -2,6 +2,7 @@ defmodule ReqLlmNext.Wire.OpenAIEmbeddingsTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Wire.OpenAIEmbeddings
+  alias ReqLlmNext.TestModels
 
   describe "path/0" do
     test "returns embeddings endpoint" do
@@ -11,63 +12,63 @@ defmodule ReqLlmNext.Wire.OpenAIEmbeddingsTest do
 
   describe "encode_body/3" do
     test "encodes single text input" do
-      model = embedding_model()
+      model = TestModels.openai_embedding()
       input = "Hello world"
 
       body = OpenAIEmbeddings.encode_body(model, input, [])
 
       assert body == %{
-               "model" => "text-embedding-3-small",
+               "model" => "text-embedding-test",
                "input" => "Hello world"
              }
     end
 
     test "encodes batch input" do
-      model = embedding_model()
+      model = TestModels.openai_embedding()
       input = ["Hello", "World"]
 
       body = OpenAIEmbeddings.encode_body(model, input, [])
 
       assert body == %{
-               "model" => "text-embedding-3-small",
+               "model" => "text-embedding-test",
                "input" => ["Hello", "World"]
              }
     end
 
     test "includes optional dimensions" do
-      model = embedding_model()
+      model = TestModels.openai_embedding()
       input = "Hello"
 
       body = OpenAIEmbeddings.encode_body(model, input, dimensions: 256)
 
       assert body == %{
-               "model" => "text-embedding-3-small",
+               "model" => "text-embedding-test",
                "input" => "Hello",
                "dimensions" => 256
              }
     end
 
     test "includes optional encoding_format" do
-      model = embedding_model()
+      model = TestModels.openai_embedding()
       input = "Hello"
 
       body = OpenAIEmbeddings.encode_body(model, input, encoding_format: "base64")
 
       assert body == %{
-               "model" => "text-embedding-3-small",
+               "model" => "text-embedding-test",
                "input" => "Hello",
                "encoding_format" => "base64"
              }
     end
 
     test "includes all options together" do
-      model = embedding_model()
+      model = TestModels.openai_embedding()
       input = "Hello"
 
       body = OpenAIEmbeddings.encode_body(model, input, dimensions: 512, encoding_format: "float")
 
       assert body == %{
-               "model" => "text-embedding-3-small",
+               "model" => "text-embedding-test",
                "input" => "Hello",
                "dimensions" => 512,
                "encoding_format" => "float"
@@ -111,17 +112,5 @@ defmodule ReqLlmNext.Wire.OpenAIEmbeddingsTest do
       assert {:error, error} = OpenAIEmbeddings.extract_embeddings(response, "Hello")
       assert error.reason == "Invalid embedding response format"
     end
-  end
-
-  defp embedding_model do
-    %LLMDB.Model{
-      id: "text-embedding-3-small",
-      provider: :openai,
-      modalities: %{input: [:text], output: [:text, :embedding]},
-      capabilities: %{
-        embeddings: %{default_dimensions: 1536}
-      },
-      extra: %{type: "embedding"}
-    }
   end
 end

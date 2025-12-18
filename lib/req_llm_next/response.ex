@@ -239,74 +239,94 @@ defmodule ReqLlmNext.Response do
   def join_stream(%__MODULE__{stream: nil} = response), do: {:ok, response}
 
   def join_stream(%__MODULE__{stream: stream, context: context} = response) do
-    {text_parts, tool_calls, usage} = collect_stream(stream)
+    case collect_stream(stream) do
+      {:error, error} ->
+        {:error, error}
 
-    text = Enum.join(text_parts, "")
+      {:ok, {text_parts, tool_calls, usage}} ->
+        text = Enum.join(text_parts, "")
 
-    message =
-      if text != "" or tool_calls != [] do
-        tool_calls_normalized = if tool_calls == [], do: nil, else: tool_calls
+        message =
+          if text != "" or tool_calls != [] do
+            tool_calls_normalized = if tool_calls == [], do: nil, else: tool_calls
 
-        %Message{
-          role: :assistant,
-          content: [ContentPart.text(text)],
-          tool_calls: tool_calls_normalized
-        }
-      else
-        nil
-      end
+            %Message{
+              role: :assistant,
+              content: [ContentPart.text(text)],
+              tool_calls: tool_calls_normalized
+            }
+          else
+            nil
+          end
 
-    updated_context =
-      if message do
-        Context.append(context, message)
-      else
-        context
-      end
+        updated_context =
+          if message do
+            Context.append(context, message)
+          else
+            context
+          end
 
-    {:ok,
-     %{
-       response
-       | stream?: false,
-         stream: nil,
-         message: message,
-         context: updated_context,
-         usage: usage || response.usage
-     }}
+        {:ok,
+         %{
+           response
+           | stream?: false,
+             stream: nil,
+             message: message,
+             context: updated_context,
+             usage: usage || response.usage
+         }}
+    end
   rescue
     e -> {:error, e}
   end
 
   defp collect_stream(stream) do
-    stream
-    |> Enum.reduce({[], %{}, nil}, fn
-      text, {texts, tool_acc, usage} when is_binary(text) ->
-        {[text | texts], tool_acc, usage}
+    result =
+      Enum.reduce_while(stream, {:ok, {[], %{}, nil}}, fn
+        {:error, error_info}, {:ok, _acc} ->
+          error =
+            ReqLlmNext.Error.API.Stream.exception(
+              reason: error_info.message,
+              cause: error_info
+            )
 
-      {:usage, usage_map}, {texts, tool_acc, _usage} ->
-        {texts, tool_acc, usage_map}
+          {:halt, {:error, error}}
 
-      {:tool_call_delta, %{index: index} = delta}, {texts, tool_acc, usage} ->
-        updated = Map.update(tool_acc, index, init_tool_call(delta), &merge_tool_call(&1, delta))
-        {texts, updated, usage}
+        text, {:ok, {texts, tool_acc, usage}} when is_binary(text) ->
+          {:cont, {:ok, {[text | texts], tool_acc, usage}}}
 
-      {:tool_call_start, %{index: index} = start}, {texts, tool_acc, usage} ->
-        updated =
-          Map.update(tool_acc, index, init_tool_call_from_start(start), &merge_start(&1, start))
+        {:usage, usage_map}, {:ok, {texts, tool_acc, _usage}} ->
+          {:cont, {:ok, {texts, tool_acc, usage_map}}}
 
-        {texts, updated, usage}
+        {:tool_call_delta, %{index: index} = delta}, {:ok, {texts, tool_acc, usage}} ->
+          updated =
+            Map.update(tool_acc, index, init_tool_call(delta), &merge_tool_call(&1, delta))
 
-      _other, acc ->
-        acc
-    end)
-    |> then(fn {texts, tool_acc, usage} ->
-      tool_calls =
-        tool_acc
-        |> Map.values()
-        |> Enum.sort_by(& &1.index)
-        |> Enum.map(&finalize_tool_call/1)
+          {:cont, {:ok, {texts, updated, usage}}}
 
-      {Enum.reverse(texts), tool_calls, usage}
-    end)
+        {:tool_call_start, %{index: index} = start}, {:ok, {texts, tool_acc, usage}} ->
+          updated =
+            Map.update(tool_acc, index, init_tool_call_from_start(start), &merge_start(&1, start))
+
+          {:cont, {:ok, {texts, updated, usage}}}
+
+        _other, acc ->
+          {:cont, acc}
+      end)
+
+    case result do
+      {:error, _} = error ->
+        error
+
+      {:ok, {texts, tool_acc, usage}} ->
+        tool_calls =
+          tool_acc
+          |> Map.values()
+          |> Enum.sort_by(& &1.index)
+          |> Enum.map(&finalize_tool_call/1)
+
+        {:ok, {Enum.reverse(texts), tool_calls, usage}}
+    end
   end
 
   defp init_tool_call(%{id: id, function: function} = delta) when not is_nil(id) do

@@ -2,6 +2,7 @@ defmodule ReqLlmNext.ConstraintsTest do
   use ExUnit.Case, async: true
 
   alias ReqLlmNext.Constraints
+  alias ReqLlmNext.TestModels
 
   describe "apply/2 token limit key" do
     test "renames max_tokens to max_completion_tokens when required" do
@@ -15,7 +16,7 @@ defmodule ReqLlmNext.ConstraintsTest do
     end
 
     test "leaves max_tokens unchanged for chat models" do
-      model = chat_model()
+      model = TestModels.openai()
       opts = [max_tokens: 1000]
 
       result = Constraints.apply(model, opts)
@@ -57,7 +58,7 @@ defmodule ReqLlmNext.ConstraintsTest do
     end
 
     test "leaves temperature unchanged when any is allowed" do
-      model = chat_model()
+      model = TestModels.openai()
       opts = [temperature: 0.5]
 
       result = Constraints.apply(model, opts)
@@ -79,7 +80,7 @@ defmodule ReqLlmNext.ConstraintsTest do
     end
 
     test "leaves sampling parameters when supported" do
-      model = chat_model()
+      model = TestModels.openai()
       opts = [top_p: 0.9, top_k: 50]
 
       result = Constraints.apply(model, opts)
@@ -170,19 +171,18 @@ defmodule ReqLlmNext.ConstraintsTest do
 
   describe "apply/2 combined constraints" do
     test "applies multiple constraints in order" do
-      model = %LLMDB.Model{
-        id: "o3-mini",
-        provider: :openai,
-        extra: %{
-          constraints: %{
-            token_limit_key: :max_completion_tokens,
-            temperature: :fixed_1,
-            sampling: :unsupported,
-            min_output_tokens: 1000,
-            reasoning_effort: :required
+      model =
+        TestModels.openai_reasoning(%{
+          extra: %{
+            constraints: %{
+              token_limit_key: :max_completion_tokens,
+              temperature: :fixed_1,
+              sampling: :unsupported,
+              min_output_tokens: 1000,
+              reasoning_effort: :required
+            }
           }
-        }
-      }
+        })
 
       opts = [
         max_tokens: 500,
@@ -202,88 +202,62 @@ defmodule ReqLlmNext.ConstraintsTest do
     end
   end
 
-  defp chat_model do
-    %LLMDB.Model{
-      id: "gpt-4o",
-      provider: :openai,
-      extra: %{constraints: %{}}
-    }
-  end
-
   defp reasoning_model do
-    %LLMDB.Model{
-      id: "o3-mini",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{constraints: %{token_limit_key: :max_completion_tokens}}
-    }
+    })
   end
 
   defp fixed_temp_model do
-    %LLMDB.Model{
-      id: "o1",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{constraints: %{temperature: :fixed_1}}
-    }
+    })
   end
 
   defp no_temp_model do
-    %LLMDB.Model{
-      id: "some-model",
-      provider: :openai,
+    TestModels.openai(%{
       extra: %{constraints: %{temperature: :unsupported}}
-    }
+    })
   end
 
   defp no_sampling_model do
-    %LLMDB.Model{
-      id: "o1",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{constraints: %{sampling: :unsupported}}
-    }
+    })
   end
 
   defp min_tokens_model do
-    %LLMDB.Model{
-      id: "o3",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{constraints: %{min_output_tokens: 1000}}
-    }
+    })
   end
 
   defp min_tokens_with_completion_key_model do
-    %LLMDB.Model{
-      id: "o3",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{
         constraints: %{
           token_limit_key: :max_completion_tokens,
           min_output_tokens: 1000
         }
       }
-    }
+    })
   end
 
   defp reasoning_required_model do
-    %LLMDB.Model{
-      id: "o3",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{constraints: %{reasoning_effort: :required}}
-    }
+    })
   end
 
   defp reasoning_supported_model do
-    %LLMDB.Model{
-      id: "o3-mini",
-      provider: :openai,
+    TestModels.openai_reasoning(%{
       extra: %{constraints: %{reasoning_effort: :supported}}
-    }
+    })
   end
 
   defp no_reasoning_model do
-    %LLMDB.Model{
-      id: "gpt-4o",
-      provider: :openai,
+    TestModels.openai(%{
       extra: %{constraints: %{reasoning_effort: :unsupported}}
-    }
+    })
   end
 end

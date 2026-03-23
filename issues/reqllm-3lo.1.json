@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-3lo.2"
+  ],
   "created": "2026-03-23T23:36:57Z",
   "description": "Build the coverage plan from LLMDB and the current package architecture before broadening implementation.\n\nScope:\n- inventory current Anthropic and OpenAI model families exposed by LLMDB that are realistic near-term targets\n- group them by semantic family, wire shape, transport shape, and notable capability differences\n- identify which differences should be modeled as ExecutionSurface differences versus policy-rule overrides versus adapters\n- pick a curated anchor set for live testing and fixture recording\n- define what \"supported\" means for this pass at the scenario level\n\nOutput:\n- a concrete provider/model matrix for this pressure-test phase\n- a short list of expected edge cases for each provider lane\n- dependencies and assumptions for downstream implementation tasks",
   "id": "reqllm-3lo.1",

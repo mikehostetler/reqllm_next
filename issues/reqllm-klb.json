@@ -10,11 +10,15 @@
     {
       "text": "Refreshed llm_db to main commit 352b2eea6ad700d21124abce5a0ad235a318fa4f. Starter models for the first runtime slice are anthropic:claude-haiku-4-5 (resolves to claude-haiku-4-5-20251001) and openai:gpt-4o-mini.",
       "timestamp": "2026-03-23T14:02:14Z"
+    },
+    {
+      "text": "Latest llm_db changes the starter assumptions: openai:gpt-4o-mini now carries extra.wire.protocol=openai_responses, so the OpenAI slice should target a Responses surface first. anthropic:claude-haiku-4-5 also exposes richer extra.capabilities, but we can still stage support by landing the base text/tool/image path before deeper thinking-specific policy.",
+      "timestamp": "2026-03-23T14:02:41Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Bootstrap first v2 model implementations",
   "type": "epic",
-  "updated_at": "2026-03-23T14:02:14Z"
+  "updated_at": "2026-03-23T14:02:41Z"
 }

@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-23T14:01:31Z",
+  "description": "Commit the current architecture narrative, package-thesis guide, HexDocs wiring, and model-boundary tightening so runtime work starts from a stable reviewed base.",
+  "id": "reqllm-klb.3",
+  "labels": [],
+  "parent": "reqllm-klb",
+  "priority": 1,
+  "status": "open",
+  "title": "Land package-thesis and model-boundary groundwork",
+  "type": "task",
+  "updated_at": "2026-03-23T14:01:31Z"
+}

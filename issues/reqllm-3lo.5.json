@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-3lo.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-3lo.6"
+  ],
   "created": "2026-03-23T23:36:57Z",
   "description": "Broaden OpenAI support across the Responses API HTTP lane for representative low-cost and current models.\n\nScope:\n- support the practical Responses HTTP surface for current OpenAI models we can handle cleanly\n- validate object generation, tool calls, image input, reasoning, and usage extraction where applicable\n- keep the shared semantic path aligned across models so the execution plan remains the main source of variation\n- isolate true OpenAI quirks into policy or adapters only when needed",
   "id": "reqllm-3lo.5",

@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-3lo.5"
+  ],
   "blocks": [],
   "created": "2026-03-23T23:36:57Z",
   "description": "Harden the OpenAI Responses WebSocket lane as a first-class transport expression of the same semantic API.\n\nScope:\n- pressure-test websocket surface selection through ExecutionPlan\n- validate frame decoding, event ordering, and canonical normalization\n- support continuation/session mechanics that are appropriate for the current architecture\n- define fallback behavior or explicit exclusions where websocket mode differs from HTTP\n- keep transport differences isolated from semantic protocol and public API shape\n\nGoal:\n- prove that the same semantic family can run over a different transport without collapsing concerns",

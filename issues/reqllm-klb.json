@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-23T14:01:03Z",
+  "description": "Establish the first end-to-end ReqLlmNext v2 implementation slice around the new architecture.\n\nScope:\n- land the current package-thesis and model-boundary groundwork cleanly\n- introduce the first planner/profile/surface runtime skeleton\n- implement Anthropic Claude Haiku 4.5 and OpenAI GPT-4o-mini through that path\n- prove the slice with scenarios and fixture-backed verification\n\nChosen starter models:\n- anthropic:claude-haiku-4-5 -\u003e claude-haiku-4-5-20251001\n- openai:gpt-4o-mini\n\n```mermaid\ngraph LR\n    A[Groundwork] --\u003e B[Planner skeleton]\n    B --\u003e C[Anthropic Haiku 4.5]\n    B --\u003e D[OpenAI GPT-4o-mini]\n    C --\u003e E[Scenarios and fixtures]\n    D --\u003e E[Scenarios and fixtures]\n```\n",
+  "id": "reqllm-klb",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "Bootstrap first v2 model implementations",
+  "type": "epic",
+  "updated_at": "2026-03-23T14:01:03Z"
+}

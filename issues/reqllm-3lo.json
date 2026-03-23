@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-23T23:36:57Z",
+  "description": "Pressure-test the ReqLlmNext v2 architecture across the two highest-value provider lanes we have in hand right now:\n- Anthropic Messages models and beta features\n- OpenAI Responses HTTP and WebSocket modes\n\nGoals:\n- expand provider/model coverage without collapsing concerns\n- keep the happy path declarative and execution-plan-driven\n- isolate edge cases into narrow policy rules or layer-scoped adapters\n- use fixtures and careful live testing to surface architectural drift\n- compare provider differences and fold the results back into the planning model\n\nTesting posture:\n- prefer replay first and targeted fixture recording second\n- use curated anchor models instead of blasting the full catalog indiscriminately\n- keep live API use deliberate, representative, and cost-aware\n\nDesired outcome:\n- confidence that the execution-plan spine stays simple for common cases\n- explicit pressure-test evidence for the edge cases that require special handling\n- a clearer map of what belongs in metadata, policy rules, surfaces, transports, and adapters\n\n```mermaid\ngraph LR\n    A[Catalog provider surfaces] --\u003e B[Anthropic core support]\n    B --\u003e C[Anthropic beta and edge-case policy]\n    C --\u003e D[Anthropic verification]\n    A --\u003e E[OpenAI Responses HTTP]\n    E --\u003e F[OpenAI Responses WebSocket]\n    F --\u003e G[OpenAI verification]\n    D --\u003e H[Cross-provider pressure test]\n    G --\u003e H[Cross-provider pressure test]\n```",
+  "id": "reqllm-3lo",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "Pressure test Anthropic and OpenAI architecture lanes",
+  "type": "epic",
+  "updated_at": "2026-03-23T23:36:57Z"
+}

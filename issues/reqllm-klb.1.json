@@ -7,14 +7,15 @@
     "reqllm-klb.2",
     "reqllm-klb.4"
   ],
+  "closed_at": "2026-03-23T14:36:34Z",
   "created": "2026-03-23T14:01:22Z",
   "description": "Introduce the first runtime objects and deterministic planning path: ModelProfile, ExecutionMode, ExecutionSurface, ExecutionPlan, and a planner bridge that dispatches through the existing spike execution code without collapsing concerns.",
   "id": "reqllm-klb.1",
   "labels": [],
   "parent": "reqllm-klb",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add planner/profile/surface skeleton",
   "type": "task",
-  "updated_at": "2026-03-23T14:12:19Z"
+  "updated_at": "2026-03-23T14:36:34Z"
 }

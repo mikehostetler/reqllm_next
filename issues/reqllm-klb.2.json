@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-klb.5"
   ],
+  "closed_at": "2026-03-23T14:39:30Z",
   "created": "2026-03-23T14:01:22Z",
   "description": "Implement anthropic:claude-haiku-4-5 through the new plan path, including its execution surface, provider/protocol/wire/transport selection, and the first supported scenario set for a non-OpenAI model.",
   "id": "reqllm-klb.2",
   "labels": [],
   "parent": "reqllm-klb",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Implement Anthropic Claude Haiku 4.5 slice",
   "type": "task",
-  "updated_at": "2026-03-23T14:37:10Z"
+  "updated_at": "2026-03-23T14:39:30Z"
 }

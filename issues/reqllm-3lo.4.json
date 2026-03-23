@@ -4,7 +4,9 @@
     "reqllm-3lo.2",
     "reqllm-3lo.3"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-3lo.8"
+  ],
   "created": "2026-03-23T23:36:57Z",
   "description": "Verify the Anthropic lane with a careful, cost-aware fixture and scenario pass.\n\nScope:\n- add or refine curated Anthropic anchor slices\n- record only the fixtures needed to prove the lane and its edge cases\n- run scenario-backed verification against the chosen anchor models\n- compare fixture behavior against current live responses to identify drift\n- capture any metadata gaps versus implementation gaps discovered during the pass\n\nTesting posture:\n- replay first, targeted recording second\n- avoid broad or redundant live calls",
   "id": "reqllm-3lo.4",

@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-3lo.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-3lo.3"
+  ],
   "created": "2026-03-23T23:36:57Z",
   "description": "Implement the core Anthropic Messages lane across the currently relevant Claude models we can support cleanly through the execution-plan architecture.\n\nScope:\n- support representative Haiku, Sonnet, and Opus-style Anthropic models where the API shape is aligned\n- keep the path execution-plan-first rather than model-name-branch-first\n- ensure provider, semantic protocol, wire, transport, and policy decisions stay explicit\n- add only the minimum edge-case overrides needed for real model differences\n\nFocus:\n- common Anthropic path should stay simple and metadata-driven\n- model-specific quirks should be narrow and justified",
   "id": "reqllm-3lo.2",

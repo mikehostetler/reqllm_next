@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-3lo.2"
+  ],
   "blocks": [],
   "created": "2026-03-23T23:36:57Z",
   "description": "Add Anthropic-specific beta and edge-case support in a way that pressure-tests the planning model rather than bypassing it.\n\nScope:\n- extended thinking / reasoning budget modes\n- prompt caching and related beta headers/options\n- large-context and long-output related request constraints where supported\n- surface- or mode-specific validation for incompatible option combinations\n- explicit policy-rule ownership of Anthropic-specific deviations\n\nGuardrails:\n- do not smear Anthropic beta logic across unrelated layers\n- prefer planner/policy validation over silent wire-level dropping of parameters",

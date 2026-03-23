@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [],
   "blocks": [
     "reqllm-3lo.2",
@@ -11,8 +11,8 @@
   "labels": [],
   "parent": "reqllm-3lo",
   "priority": 1,
-  "status": "open",
+  "status": "in_progress",
   "title": "Catalog Anthropic and OpenAI target surfaces from LLMDB",
   "type": "task",
-  "updated_at": "2026-03-23T23:36:57Z"
+  "updated_at": "2026-03-23T23:38:59Z"
 }

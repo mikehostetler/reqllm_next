@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-klb.1"
+  ],
   "blocks": [],
   "created": "2026-03-23T14:01:34Z",
   "description": "Implement openai:gpt-4o-mini through the new plan path, including structured-output support and the first OpenAI surface defined by ExecutionPlan rather than the legacy resolver path.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Implement OpenAI GPT-4o-mini slice",
   "type": "task",
-  "updated_at": "2026-03-23T14:01:34Z"
+  "updated_at": "2026-03-23T14:01:52Z"
 }

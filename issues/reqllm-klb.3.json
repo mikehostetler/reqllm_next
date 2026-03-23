@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [],
   "blocks": [
     "reqllm-klb.1"
@@ -10,8 +10,8 @@
   "labels": [],
   "parent": "reqllm-klb",
   "priority": 1,
-  "status": "open",
+  "status": "in_progress",
   "title": "Land package-thesis and model-boundary groundwork",
   "type": "task",
-  "updated_at": "2026-03-23T14:01:52Z"
+  "updated_at": "2026-03-23T14:01:57Z"
 }

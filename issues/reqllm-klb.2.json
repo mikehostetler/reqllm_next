@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-klb.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-klb.5"
+  ],
   "created": "2026-03-23T14:01:22Z",
   "description": "Implement anthropic:claude-haiku-4-5 through the new plan path, including its execution surface, provider/protocol/wire/transport selection, and the first supported scenario set for a non-OpenAI model.",
   "id": "reqllm-klb.2",

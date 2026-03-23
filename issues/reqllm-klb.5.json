@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-klb.2"
+  ],
   "blocks": [],
   "created": "2026-03-23T14:01:40Z",
   "description": "Drive the first slice through scenario tests, fixture replay, and live fixture recording where needed so the canonical API normalization is proven for both starter models.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Verify with scenarios and fixtures",
   "type": "task",
-  "updated_at": "2026-03-23T14:01:40Z"
+  "updated_at": "2026-03-23T14:01:52Z"
 }

@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [
     "reqllm-klb.2",
     "reqllm-klb.4"
@@ -11,8 +11,8 @@
   "labels": [],
   "parent": "reqllm-klb",
   "priority": 1,
-  "status": "open",
+  "status": "in_progress",
   "title": "Verify with scenarios and fixtures",
   "type": "task",
-  "updated_at": "2026-03-23T14:01:52Z"
+  "updated_at": "2026-03-23T14:41:22Z"
 }

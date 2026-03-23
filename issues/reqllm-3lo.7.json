@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-3lo.5"
+  ],
   "blocks": [],
   "created": "2026-03-23T23:36:57Z",
   "description": "Verify the OpenAI Responses HTTP and WebSocket lanes with curated fixtures and scenario-backed coverage.\n\nScope:\n- maintain a small anchor set of OpenAI models that prove the important lanes\n- capture HTTP and WebSocket fixtures where they demonstrate real architectural differences\n- verify object, tool, image, reasoning, and transport-specific behavior across the chosen anchors\n- identify drift between HTTP and WebSocket behavior and map it back to the correct layer\n\nTesting posture:\n- replay first, then deliberate live recording for missing or drift-prone cases",

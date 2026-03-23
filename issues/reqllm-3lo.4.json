@@ -1,7 +1,8 @@
 {
   "assignee": "",
   "blocked_by": [
-    "reqllm-3lo.2"
+    "reqllm-3lo.2",
+    "reqllm-3lo.3"
   ],
   "blocks": [],
   "created": "2026-03-23T23:36:57Z",

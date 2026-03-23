@@ -5,14 +5,15 @@
     "reqllm-klb.4"
   ],
   "blocks": [],
+  "closed_at": "2026-03-23T14:44:29Z",
   "created": "2026-03-23T14:01:40Z",
   "description": "Drive the first slice through scenario tests, fixture replay, and live fixture recording where needed so the canonical API normalization is proven for both starter models.",
   "id": "reqllm-klb.5",
   "labels": [],
   "parent": "reqllm-klb",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Verify with scenarios and fixtures",
   "type": "task",
-  "updated_at": "2026-03-23T14:41:22Z"
+  "updated_at": "2026-03-23T14:44:29Z"
 }

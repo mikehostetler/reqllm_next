@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-klb.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-klb.5"
+  ],
   "created": "2026-03-23T14:01:34Z",
   "description": "Implement openai:gpt-4o-mini through the new plan path, including structured-output support and the first OpenAI surface defined by ExecutionPlan rather than the legacy resolver path.",
   "id": "reqllm-klb.4",

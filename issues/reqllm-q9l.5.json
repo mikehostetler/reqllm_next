@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-q9l.2"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-q9l.6"
+  ],
   "created": "2026-03-24T21:38:13Z",
   "description": "Make Anthropic support for media honest: preserve current image/document input on text/object lanes, add explicit unsupported boundaries for image generation, transcription, and speech, and cover this in tests/specs/docs.",
   "id": "reqllm-q9l.5",

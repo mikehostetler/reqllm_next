@@ -7,7 +7,8 @@
     "reqllm-ujv.5",
     "reqllm-ujv.6",
     "reqllm-ujv.7",
-    "reqllm-ujv.8"
+    "reqllm-ujv.8",
+    "reqllm-ujv.9"
   ],
   "blocks": [],
   "created": "2026-03-24T01:39:04Z",
@@ -19,5 +20,5 @@
   "status": "open",
   "title": "Expand Anthropic coverage matrix fixtures and docs reconciliation",
   "type": "task",
-  "updated_at": "2026-03-24T01:39:04Z"
+  "updated_at": "2026-03-24T01:39:05Z"
 }

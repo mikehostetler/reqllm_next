@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-ujv.2"
+  ],
   "created": "2026-03-24T01:39:04Z",
   "description": "Use official Anthropic docs plus the current LLMDB catalog and runtime to produce a concrete map of supported, partial, and missing Anthropic surfaces. Capture what belongs in planning, semantic protocol, wire, transport, fixtures, and diagnostics.",
   "id": "reqllm-ujv.1",

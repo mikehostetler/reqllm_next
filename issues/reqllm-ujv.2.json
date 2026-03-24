@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-ujv.11"
   ],
+  "closed_at": "2026-03-24T02:27:20Z",
   "created": "2026-03-24T01:39:04Z",
   "description": "Implement Anthropic-native structured outputs where available, plus normalization for citations and search-result style output blocks. Keep prompt-and-parse as fallback only where the execution surface requires it.",
   "id": "reqllm-ujv.2",
   "labels": [],
   "parent": "reqllm-ujv",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add Anthropic native structured outputs and citations support",
   "type": "task",
-  "updated_at": "2026-03-24T01:44:22Z"
+  "updated_at": "2026-03-24T02:27:20Z"
 }

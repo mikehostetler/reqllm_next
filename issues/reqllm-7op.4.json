@@ -4,14 +4,15 @@
   "blocks": [
     "reqllm-7op.9"
   ],
+  "closed_at": "2026-03-24T18:14:04Z",
   "created": "2026-03-24T17:30:04Z",
   "description": "Implement OpenAI prompt caching support for the supported API families, including request parameters such as prompt cache keys/retention where appropriate and usage normalization or metadata preservation for cache-related response details.",
   "id": "reqllm-7op.4",
   "labels": [],
   "parent": "reqllm-7op",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add OpenAI prompt caching support and normalization",
   "type": "task",
-  "updated_at": "2026-03-24T18:10:45Z"
+  "updated_at": "2026-03-24T18:14:04Z"
 }

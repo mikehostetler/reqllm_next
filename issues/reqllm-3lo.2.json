@@ -7,14 +7,16 @@
     "reqllm-3lo.3",
     "reqllm-3lo.4"
   ],
+  "closed_at": "2026-03-24T00:19:24Z",
+  "close_reason": "completed",
   "created": "2026-03-23T23:36:57Z",
   "description": "Implement the core Anthropic Messages lane across the currently relevant Claude models we can support cleanly through the execution-plan architecture.\n\nScope:\n- support representative Haiku, Sonnet, and Opus-style Anthropic models where the API shape is aligned\n- keep the path execution-plan-first rather than model-name-branch-first\n- ensure provider, semantic protocol, wire, transport, and policy decisions stay explicit\n- add only the minimum edge-case overrides needed for real model differences\n\nFocus:\n- common Anthropic path should stay simple and metadata-driven\n- model-specific quirks should be narrow and justified",
   "id": "reqllm-3lo.2",
   "labels": [],
   "parent": "reqllm-3lo",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Expand Anthropic Messages support across representative Claude models",
   "type": "task",
-  "updated_at": "2026-03-23T23:36:57Z"
+  "updated_at": "2026-03-24T00:19:24Z"
 }

@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-ujv.11"
   ],
+  "closed_at": "2026-03-24T02:27:29Z",
   "created": "2026-03-24T01:39:04Z",
   "description": "Evaluate and implement Anthropic computer use support, including tool schemas, event normalization, and required session or transport boundaries. Keep this isolated from the standard text-tool happy path.",
   "id": "reqllm-ujv.9",
   "labels": [],
   "parent": "reqllm-ujv",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Add Anthropic computer use support",
   "type": "task",
-  "updated_at": "2026-03-24T01:39:05Z"
+  "updated_at": "2026-03-24T02:27:29Z"
 }

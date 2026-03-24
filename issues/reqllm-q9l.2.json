@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T21:37:51Z",
+  "description": "Teach ExecutionMode, OperationPlanner, ExecutionPlan, validation, and extension seams about media operations such as image generation, transcription, and speech. Keep the implementation family/provider-driven instead of central imperative branching.",
+  "id": "reqllm-q9l.2",
+  "labels": [],
+  "parent": "reqllm-q9l",
+  "priority": 1,
+  "status": "open",
+  "title": "Extend planning and execution contracts for media operations",
+  "type": "task",
+  "updated_at": "2026-03-24T21:37:51Z"
+}

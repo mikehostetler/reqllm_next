@@ -12,14 +12,16 @@
     "reqllm-ujv.8",
     "reqllm-ujv.9"
   ],
+  "closed_at": "2026-03-24T01:44:11Z",
+  "close_reason": "completed",
   "created": "2026-03-24T01:39:04Z",
   "description": "Use official Anthropic docs plus the current LLMDB catalog and runtime to produce a concrete map of supported, partial, and missing Anthropic surfaces. Capture what belongs in planning, semantic protocol, wire, transport, fixtures, and diagnostics.",
   "id": "reqllm-ujv.1",
   "labels": [],
   "parent": "reqllm-ujv",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Catalog Anthropic API surface and current runtime gaps",
   "type": "task",
-  "updated_at": "2026-03-24T01:39:15Z"
+  "updated_at": "2026-03-24T01:44:11Z"
 }

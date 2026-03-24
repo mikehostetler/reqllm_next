@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T17:30:04Z",
+  "description": "Pressure-test the Anthropic Messages surface beyond baseline generation with scenario/live coverage for structured outputs, citations, file-backed documents, prompt caching, context management, MCP servers, web search, code execution, and computer use where supported.",
+  "id": "reqllm-7op.3",
+  "labels": [],
+  "parent": "reqllm-7op",
+  "priority": 1,
+  "status": "open",
+  "title": "Add Anthropic advanced Messages scenario and live coverage",
+  "type": "task",
+  "updated_at": "2026-03-24T17:30:04Z"
+}

@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-pwm.3"
+  ],
   "blocks": [],
   "created": "2026-03-24T12:15:16Z",
   "description": "Refactor ModelProfile provider facts and surface catalog generation to consume the compiled extension manifest. Remove hard-coded provider dispatch from shared catalog/profile code and replace it with family defaults plus declared overrides.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Refactor profile and surface catalog to extensions",
   "type": "task",
-  "updated_at": "2026-03-24T12:15:16Z"
+  "updated_at": "2026-03-24T12:15:17Z"
 }

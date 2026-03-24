@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T12:15:17Z",
+  "description": "Rebuild the proof loop around the extension architecture: tests, fixtures, public API contracts, support-matrix lanes, and Spec Led documentation should all validate the new compile-time extension model.",
+  "id": "reqllm-pwm.8",
+  "labels": [],
+  "parent": "reqllm-pwm",
+  "priority": 1,
+  "status": "open",
+  "title": "Reconcile tests fixtures and specs with extension architecture",
+  "type": "task",
+  "updated_at": "2026-03-24T12:15:17Z"
+}

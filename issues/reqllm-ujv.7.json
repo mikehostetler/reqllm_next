@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-ujv.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-ujv.11"
+  ],
   "created": "2026-03-24T01:39:04Z",
   "description": "Support Anthropic context editing or compaction-related controls and normalize richer stop-reason flows like pause_turn, refusal, and compaction-related events. Reconcile with Response and diagnostics.",
   "id": "reqllm-ujv.7",

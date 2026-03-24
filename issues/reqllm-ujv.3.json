@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-ujv.1"
+  ],
   "blocks": [],
   "created": "2026-03-24T01:39:04Z",
   "description": "Support Anthropic file upload and file lifecycle primitives, plus request-side file_id or document references for PDFs and other supported files. Reconcile this with existing multimodal context parts and fixture recording.",

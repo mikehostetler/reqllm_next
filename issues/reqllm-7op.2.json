@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T17:30:04Z",
+  "description": "Complete Anthropic utility-endpoint coverage around Files and Message Batches. Add missing helpers such as batch results retrieval and richer file retrieval/download/result flows, and verify they stay provider-scoped rather than leaking into the canonical API surface.",
+  "id": "reqllm-7op.2",
+  "labels": [],
+  "parent": "reqllm-7op",
+  "priority": 1,
+  "status": "open",
+  "title": "Finish Anthropic Files and Message Batches utility coverage",
+  "type": "task",
+  "updated_at": "2026-03-24T17:30:04Z"
+}

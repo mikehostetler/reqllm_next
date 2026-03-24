@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-ujv.1"
+  ],
   "blocks": [],
   "created": "2026-03-24T01:39:04Z",
   "description": "Support Anthropic MCP connector flows and remote MCP server tool use without leaking Anthropic-specific machinery into the generic tool API. Clarify whether this is a first-class surface or a layer-scoped extension.",

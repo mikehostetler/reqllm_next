@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T17:30:05Z",
+  "description": "Implement the documented OpenAI built-in tools surface that belongs in this package scope, including web search, file search, code interpreter, and computer use where supported. Keep the boundary clean between canonical API support and provider-native utility surfaces.",
+  "id": "reqllm-7op.6",
+  "labels": [],
+  "parent": "reqllm-7op",
+  "priority": 1,
+  "status": "open",
+  "title": "Add OpenAI built-in tools surface",
+  "type": "task",
+  "updated_at": "2026-03-24T17:30:05Z"
+}

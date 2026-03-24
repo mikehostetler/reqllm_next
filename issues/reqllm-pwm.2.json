@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T12:15:16Z",
+  "description": "Add Spark to the package and build the first DSL layer that emits plain extension data plus a compiled manifest module. Keep runtime dependent on data/manifest, not on Spark macros directly.",
+  "id": "reqllm-pwm.2",
+  "labels": [],
+  "parent": "reqllm-pwm",
+  "priority": 1,
+  "status": "open",
+  "title": "Add Spark DSL and compile manifest",
+  "type": "task",
+  "updated_at": "2026-03-24T12:15:16Z"
+}

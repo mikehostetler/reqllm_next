@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T01:39:04Z",
+  "description": "Implement Anthropic token counting support and expose it through a narrow runtime boundary that can inform planning, diagnostics, and fixture validation without collapsing concerns.",
+  "id": "reqllm-ujv.4",
+  "labels": [],
+  "parent": "reqllm-ujv",
+  "priority": 2,
+  "status": "open",
+  "title": "Add Anthropic token counting and prompt sizing hooks",
+  "type": "task",
+  "updated_at": "2026-03-24T01:39:04Z"
+}

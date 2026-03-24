@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-pwm.6"
   ],
+  "closed_at": "2026-03-24T13:44:35Z",
   "created": "2026-03-24T12:15:16Z",
   "description": "Refactor ModelProfile provider facts and surface catalog generation to consume the compiled extension manifest. Remove hard-coded provider dispatch from shared catalog/profile code and replace it with family defaults plus declared overrides.",
   "id": "reqllm-pwm.4",
   "labels": [],
   "parent": "reqllm-pwm",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Refactor profile and surface catalog to extensions",
   "type": "task",
-  "updated_at": "2026-03-24T13:37:07Z"
+  "updated_at": "2026-03-24T13:44:35Z"
 }

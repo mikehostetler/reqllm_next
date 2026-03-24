@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-ujv.1"
+  ],
   "blocks": [],
   "created": "2026-03-24T01:39:04Z",
   "description": "Support Anthropic message batches as a separate surface from interactive Messages calls. Design the batch boundary, request model, polling or retrieval behavior, and verification story.",

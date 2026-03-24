@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T21:37:56Z",
+  "description": "Implement generate_image in ReqLlmNext using the existing execution-plan architecture, canonical Response output, OpenAI-owned surfaces/modules, fixtures, and coverage.",
+  "id": "reqllm-q9l.3",
+  "labels": [],
+  "parent": "reqllm-q9l",
+  "priority": 1,
+  "status": "open",
+  "title": "Implement OpenAI image generation lane",
+  "type": "task",
+  "updated_at": "2026-03-24T21:37:56Z"
+}

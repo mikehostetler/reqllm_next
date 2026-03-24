@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-q9l.2"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-q9l.6"
+  ],
   "created": "2026-03-24T21:38:00Z",
   "description": "Implement transcribe and speak in ReqLlmNext with dedicated result contracts, OpenAI-owned surfaces/modules, binary/media handling, fixtures, and coverage.",
   "id": "reqllm-q9l.4",

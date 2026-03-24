@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T21:37:47Z",
+  "description": "Add the explicit media operation plan for ReqLlmNext: preserve ReqLLM frontend API shape, decide which operations reuse Response versus dedicated result structs, extend the public API and planning contracts for media operations without copying old imperative branching.",
+  "id": "reqllm-q9l.1",
+  "labels": [],
+  "parent": "reqllm-q9l",
+  "priority": 1,
+  "status": "open",
+  "title": "Define media operation architecture and public API parity",
+  "type": "task",
+  "updated_at": "2026-03-24T21:37:47Z"
+}

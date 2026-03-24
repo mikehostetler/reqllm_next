@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T17:30:04Z",
+  "description": "Implement OpenAI file-input support for the currently targeted families, including PDF/document-style inputs where supported by the official docs, and verify canonical normalization across Responses and chat-compatible lanes.",
+  "id": "reqllm-7op.5",
+  "labels": [],
+  "parent": "reqllm-7op",
+  "priority": 1,
+  "status": "open",
+  "title": "Add OpenAI file-input and PDF/document support",
+  "type": "task",
+  "updated_at": "2026-03-24T17:30:04Z"
+}

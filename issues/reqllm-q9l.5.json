@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T21:38:13Z",
+  "description": "Make Anthropic support for media honest: preserve current image/document input on text/object lanes, add explicit unsupported boundaries for image generation, transcription, and speech, and cover this in tests/specs/docs.",
+  "id": "reqllm-q9l.5",
+  "labels": [],
+  "parent": "reqllm-q9l",
+  "priority": 2,
+  "status": "open",
+  "title": "Add Anthropic media boundaries and supported media-input behavior",
+  "type": "task",
+  "updated_at": "2026-03-24T21:38:13Z"
+}

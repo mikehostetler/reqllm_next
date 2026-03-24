@@ -4,14 +4,15 @@
   "blocks": [
     "reqllm-7op.9"
   ],
+  "closed_at": "2026-03-24T19:00:20Z",
   "created": "2026-03-24T17:30:05Z",
   "description": "Evaluate documented OpenAI utility surfaces beyond the core generation path, such as background/batch-adjacent features, and decide which belong in the canonical package scope versus provider-scoped helpers before implementation work broadens further.",
   "id": "reqllm-7op.8",
   "labels": [],
   "parent": "reqllm-7op",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Evaluate OpenAI utility surfaces beyond core generation",
   "type": "task",
-  "updated_at": "2026-03-24T17:30:05Z"
+  "updated_at": "2026-03-24T19:00:20Z"
 }

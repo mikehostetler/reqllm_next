@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-ujv.11"
   ],
+  "closed_at": "2026-03-24T02:27:29Z",
   "created": "2026-03-24T01:39:04Z",
   "description": "Decide whether Anthropic OpenAI SDK compatibility belongs inside ReqLlmNext as a real execution surface, as a thin adapter, or as an explicit non-goal. Capture the decision with architecture evidence.",
   "id": "reqllm-ujv.10",
   "labels": [],
   "parent": "reqllm-ujv",
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Evaluate Anthropic OpenAI compatibility layer",
   "type": "task",
-  "updated_at": "2026-03-24T01:39:05Z"
+  "updated_at": "2026-03-24T02:27:29Z"
 }

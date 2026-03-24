@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-pwm.6"
   ],
+  "closed_at": "2026-03-24T14:14:53Z",
   "created": "2026-03-24T12:15:16Z",
   "description": "Refactor surface preparation, semantic protocol selection, and adapter entry points so provider/model edge cases are attached through declared extension seams instead of imperative central branching.",
   "id": "reqllm-pwm.5",
   "labels": [],
   "parent": "reqllm-pwm",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Refactor prep protocol and adapters to extension seams",
   "type": "task",
-  "updated_at": "2026-03-24T13:45:02Z"
+  "updated_at": "2026-03-24T14:14:53Z"
 }

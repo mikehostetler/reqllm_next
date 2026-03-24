@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-q9l.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-q9l.3"
+  ],
   "created": "2026-03-24T21:37:51Z",
   "description": "Teach ExecutionMode, OperationPlanner, ExecutionPlan, validation, and extension seams about media operations such as image generation, transcription, and speech. Keep the implementation family/provider-driven instead of central imperative branching.",
   "id": "reqllm-q9l.2",

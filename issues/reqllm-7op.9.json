@@ -11,14 +11,15 @@
     "reqllm-7op.8"
   ],
   "blocks": [],
+  "closed_at": "2026-03-24T21:11:06Z",
   "created": "2026-03-24T17:30:05Z",
   "description": "After the provider gap work lands, reconcile the support matrix, docs, guides, fixtures, and live verification lanes so package claims match actual implementation depth and representative provider/model coverage.",
   "id": "reqllm-7op.9",
   "labels": [],
   "parent": "reqllm-7op",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Reconcile support matrix docs fixtures and coverage claims",
   "type": "task",
-  "updated_at": "2026-03-24T19:00:24Z"
+  "updated_at": "2026-03-24T21:11:06Z"
 }

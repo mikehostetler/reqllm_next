@@ -6,14 +6,16 @@
     "reqllm-q9l.5"
   ],
   "blocks": [],
+  "closed_at": "2026-03-24T22:33:19Z",
+  "close_reason": "done",
   "created": "2026-03-24T21:38:17Z",
   "description": "Finish the media slice with fixture support, coverage suites, docs/spec truth, and quality gates for OpenAI and Anthropic media operations.",
   "id": "reqllm-q9l.6",
   "labels": [],
   "parent": "reqllm-q9l",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Reconcile fixtures tests docs and specs for media operations",
   "type": "task",
-  "updated_at": "2026-03-24T21:38:28Z"
+  "updated_at": "2026-03-24T22:33:19Z"
 }

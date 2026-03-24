@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-pwm.2"
+  ],
   "blocks": [],
   "created": "2026-03-24T12:15:16Z",
   "description": "Implement default execution-family registration with explicit fallback behavior. Model the OpenAI-compatible happy path as a first-class family and make provider-specific behavior opt-in through extension declarations rather than central branching.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Build default family registry and fallbacks",
   "type": "task",
-  "updated_at": "2026-03-24T12:15:16Z"
+  "updated_at": "2026-03-24T12:15:17Z"
 }

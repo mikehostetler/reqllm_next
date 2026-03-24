@@ -4,7 +4,8 @@
     "reqllm-pwm.2"
   ],
   "blocks": [
-    "reqllm-pwm.4"
+    "reqllm-pwm.4",
+    "reqllm-pwm.5"
   ],
   "created": "2026-03-24T12:15:16Z",
   "description": "Implement default execution-family registration with explicit fallback behavior. Model the OpenAI-compatible happy path as a first-class family and make provider-specific behavior opt-in through extension declarations rather than central branching.",

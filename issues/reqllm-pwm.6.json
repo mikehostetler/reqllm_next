@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-pwm.4"
+  ],
   "blocks": [],
   "created": "2026-03-24T12:15:17Z",
   "description": "Migrate the currently supported OpenAI and Anthropic lanes into the DSL/manifest pattern, with obvious extension points for the models and surfaces already in the support matrix.",

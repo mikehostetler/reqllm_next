@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-ujv.11"
   ],
+  "closed_at": "2026-03-24T02:27:20Z",
   "created": "2026-03-24T01:39:04Z",
   "description": "Support Anthropic server-hosted tools like web search and code execution with canonical normalization, usage handling, and replay or live verification. Keep tool differences contained to explicit surfaces and protocol handling.",
   "id": "reqllm-ujv.6",
   "labels": [],
   "parent": "reqllm-ujv",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Add Anthropic server tools: web search and code execution",
   "type": "task",
-  "updated_at": "2026-03-24T01:39:04Z"
+  "updated_at": "2026-03-24T02:27:20Z"
 }

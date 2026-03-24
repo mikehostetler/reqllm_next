@@ -1,7 +1,8 @@
 {
   "assignee": "",
   "blocked_by": [
-    "reqllm-pwm.4"
+    "reqllm-pwm.4",
+    "reqllm-pwm.5"
   ],
   "blocks": [],
   "created": "2026-03-24T12:15:17Z",

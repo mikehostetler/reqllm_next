@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-7op.9"
+  ],
   "created": "2026-03-24T17:30:05Z",
   "description": "Deepen OpenAI Responses session/runtime and WebSocket coverage with continuation flows, previous_response_id handling, object/tool flows over WebSocket, and stronger live/replay verification so the transport and session layers reflect the documented API behavior.",
   "id": "reqllm-7op.7",

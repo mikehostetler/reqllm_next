@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-pwm.2"
+  ],
   "created": "2026-03-24T12:15:16Z",
   "description": "Define the extension record, precedence model, allowed patch seams, fallback semantics, and how family-first happy-path resolution works with provider atoms from LLMDB. Outcome: a concrete design contract that runtime code can consume independent of Spark.",
   "id": "reqllm-pwm.1",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Define extension contract and precedence",
   "type": "task",
-  "updated_at": "2026-03-24T12:15:16Z"
+  "updated_at": "2026-03-24T12:15:17Z"
 }

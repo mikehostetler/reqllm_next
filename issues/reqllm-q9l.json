@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-24T21:37:22Z",
+  "description": "Preserve ReqLLM's frontend media API shape in ReqLlmNext while implementing media operations through the v2 planner/runtime architecture. Scope: generate_image, transcribe, speak, dedicated result contracts where needed, OpenAI implementation lanes, Anthropic explicit unsupported boundaries, fixtures/tests/spec reconciliation.",
+  "id": "reqllm-q9l",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "Media operations parity for ReqLlmNext",
+  "type": "epic",
+  "updated_at": "2026-03-24T21:37:22Z"
+}

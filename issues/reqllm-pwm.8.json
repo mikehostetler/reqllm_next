@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-pwm.6"
+  ],
   "blocks": [],
   "created": "2026-03-24T12:15:17Z",
   "description": "Rebuild the proof loop around the extension architecture: tests, fixtures, public API contracts, support-matrix lanes, and Spec Led documentation should all validate the new compile-time extension model.",

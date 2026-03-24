@@ -5,14 +5,15 @@
     "reqllm-7op.3",
     "reqllm-7op.9"
   ],
+  "closed_at": "2026-03-24T18:03:56Z",
   "created": "2026-03-24T17:30:04Z",
   "description": "Update Anthropic beta header constants and provider-native tool/version defaults to match current public docs. Includes computer use, MCP, web search, code execution, context window, structured outputs, and other versioned/beta flags so the provider surface does not silently drift from docs.",
   "id": "reqllm-7op.1",
   "labels": [],
   "parent": "reqllm-7op",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Refresh Anthropic beta headers and tool versions from current docs",
   "type": "task",
-  "updated_at": "2026-03-24T17:30:06Z"
+  "updated_at": "2026-03-24T18:03:56Z"
 }

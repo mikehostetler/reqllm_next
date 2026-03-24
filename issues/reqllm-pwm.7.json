@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-pwm.8"
   ],
+  "closed_at": "2026-03-24T14:14:53Z",
   "created": "2026-03-24T12:15:17Z",
   "description": "Add compile-time verifiers and manifest checks for overlap detection, bad provider/family references, invalid seam patches, and missing fallbacks. The result should make contributor edge-case additions safe by default.",
   "id": "reqllm-pwm.7",
   "labels": [],
   "parent": "reqllm-pwm",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Add verifiers conflict detection and fallback guarantees",
   "type": "task",
-  "updated_at": "2026-03-24T12:15:17Z"
+  "updated_at": "2026-03-24T14:14:53Z"
 }

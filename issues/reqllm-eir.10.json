@@ -6,6 +6,7 @@
   "blocks": [
     "reqllm-eir.14"
   ],
+  "closed_at": "2026-03-25T23:46:27Z",
   "created": "2026-03-25T22:30:31Z",
   "description": "Implement Zenmux as an OpenAI-compatible provider with routing/reasoning deltas, tests, fixtures, docs, and specs.",
   "id": "reqllm-eir.10",
@@ -18,8 +19,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add Zenmux provider",
   "type": "task",
-  "updated_at": "2026-03-25T23:46:20Z"
+  "updated_at": "2026-03-25T23:46:27Z"
 }

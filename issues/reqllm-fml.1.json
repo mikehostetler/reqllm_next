@@ -7,7 +7,8 @@
     "reqllm-fml.4",
     "reqllm-fml.5",
     "reqllm-fml.6",
-    "reqllm-fml.7"
+    "reqllm-fml.7",
+    "reqllm-fml.8"
   ],
   "created": "2026-03-25T12:00:36Z",
   "description": "Reconcile the official OpenAI docs surface against ReqLlmNext and capture an explicit inventory of supported, partial, missing, and boundary-evaluation surfaces. Keep Anthropic standalone media operations unsupported and document that boundary clearly.",

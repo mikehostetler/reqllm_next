@@ -7,14 +7,15 @@
   "blocks": [
     "reqllm-7on.4"
   ],
+  "closed_at": "2026-03-25T14:42:24Z",
   "created": "2026-03-25T14:26:20Z",
   "description": "Add or refresh focused Anthropic provider-feature tests and fixtures for current server-tool and context-management lanes so the implemented surface is proven rather than just encoded.",
   "id": "reqllm-7on.3",
   "labels": [],
   "parent": "reqllm-7on",
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Deepen Anthropic provider-feature proof",
   "type": "task",
-  "updated_at": "2026-03-25T14:36:04Z"
+  "updated_at": "2026-03-25T14:42:24Z"
 }

@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T13:03:15Z",
+  "description": "Strengthen proof depth for provider-owned utility surfaces, especially OpenAI. Add focused replay fixtures, provider-feature tests, and honest support claims so implemented helpers and deeply-verified lanes are clearly distinguished.",
+  "id": "reqllm-trb.6",
+  "labels": [],
+  "parent": "reqllm-trb",
+  "priority": 1,
+  "status": "open",
+  "title": "Deepen verification for provider-owned utility surfaces",
+  "type": "task",
+  "updated_at": "2026-03-25T13:03:15Z"
+}

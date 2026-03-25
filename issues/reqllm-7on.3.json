@@ -1,6 +1,7 @@
 {
   "assignee": "",
   "blocked_by": [
+    "reqllm-7on.2",
     "reqllm-jcc.6"
   ],
   "blocks": [],
@@ -13,5 +14,5 @@
   "status": "open",
   "title": "Deepen Anthropic provider-feature proof",
   "type": "task",
-  "updated_at": "2026-03-25T14:26:24Z"
+  "updated_at": "2026-03-25T14:26:25Z"
 }

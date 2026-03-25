@@ -3,12 +3,12 @@
   "blocked_by": [],
   "blocks": [],
   "created": "2026-03-25T12:00:35Z",
-  "description": "Thoroughly map and close the remaining OpenAI API surface gaps while keeping the Anthropic boundary intact. This epic covers core generation/media gaps, built-in tool lifecycle support, file and vector-store utilities, background and batch execution surfaces, realtime, and explicit evaluation of OpenAI-native utility surfaces that may need provider-owned modules instead of planner creep.\n\n",
+  "description": "Thoroughly map and close the remaining OpenAI API surface gaps while keeping the Anthropic boundary intact. This epic covers core generation/media gaps, built-in tool lifecycle support, file and vector-store utilities, background and batch execution surfaces, realtime, and explicit evaluation of OpenAI-native utility surfaces that may need provider-owned modules instead of planner creep.\n\n```mermaid\ngraph LR\n    A[Gap map and boundary] --\u003e B[Media completion]\n    A --\u003e C[Files and vector stores]\n    A --\u003e D[Built-in tools lifecycle]\n    A --\u003e E[Background mode]\n    A --\u003e F[Batch API]\n    A --\u003e G[Realtime family]\n    A --\u003e H[MCP connectors and skills evaluation]\n    C --\u003e D\n    D --\u003e E\n    D --\u003e G\n    E --\u003e I[Docs fixtures specs reconciliation]\n    F --\u003e I\n    G --\u003e I\n    H --\u003e I\n    B --\u003e I\n    C --\u003e I\n```",
   "id": "reqllm-fml",
   "labels": [],
   "priority": 1,
   "status": "open",
   "title": "Close OpenAI platform surface gaps",
   "type": "epic",
-  "updated_at": "2026-03-25T12:00:35Z"
+  "updated_at": "2026-03-25T12:00:59Z"
 }

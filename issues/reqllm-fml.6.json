@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-fml.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T12:00:36Z",
   "description": "Implement provider-owned Batch API utilities and verification so non-interactive large-run workflows are covered explicitly instead of being left outside the package boundary.",

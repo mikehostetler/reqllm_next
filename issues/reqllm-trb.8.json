@@ -10,14 +10,15 @@
     "reqllm-trb.7"
   ],
   "blocks": [],
+  "closed_at": "2026-03-25T13:54:52Z",
   "created": "2026-03-25T13:03:15Z",
   "description": "Update ADRs, specs, guides, AGENTS, public support claims, and verification references so the telemetry kernel, output-item normalization, realtime core, provider utility proof depth, and third-provider result are reflected as current truth. Finish with full verification and a clean landing.",
   "id": "reqllm-trb.8",
   "labels": [],
   "parent": "reqllm-trb",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Reconcile specs guides telemetry docs and closeout",
   "type": "task",
-  "updated_at": "2026-03-25T13:03:17Z"
+  "updated_at": "2026-03-25T13:54:52Z"
 }

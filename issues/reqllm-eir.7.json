@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-eir.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T22:30:31Z",
   "description": "Implement Alibaba DashScope as an OpenAI-compatible provider, including international and China endpoint strategy, tests, fixtures, docs, and specs.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Add Alibaba provider",
   "type": "task",
-  "updated_at": "2026-03-25T22:30:31Z"
+  "updated_at": "2026-03-25T22:30:40Z"
 }

@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T12:00:36Z",
+  "description": "Close remaining media gaps on OpenAI surfaces, including image edits, audio translations, richer diarization-aware transcription normalization, and any missing media result/fixture coverage needed to make OpenAI media support feel complete.",
+  "id": "reqllm-fml.2",
+  "labels": [],
+  "parent": "reqllm-fml",
+  "priority": 1,
+  "status": "open",
+  "title": "Complete OpenAI media lane coverage",
+  "type": "task",
+  "updated_at": "2026-03-25T12:00:36Z"
+}

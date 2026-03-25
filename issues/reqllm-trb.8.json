@@ -4,7 +4,8 @@
     "reqllm-trb.1",
     "reqllm-trb.2",
     "reqllm-trb.3",
-    "reqllm-trb.4"
+    "reqllm-trb.4",
+    "reqllm-trb.5"
   ],
   "blocks": [],
   "created": "2026-03-25T13:03:15Z",
@@ -16,5 +17,5 @@
   "status": "open",
   "title": "Reconcile specs guides telemetry docs and closeout",
   "type": "task",
-  "updated_at": "2026-03-25T13:03:16Z"
+  "updated_at": "2026-03-25T13:03:17Z"
 }

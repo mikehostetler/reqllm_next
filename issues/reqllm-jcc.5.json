@@ -6,14 +6,15 @@
     "reqllm-jcc.4"
   ],
   "blocks": [],
+  "closed_at": "2026-03-25T14:14:29Z",
   "created": "2026-03-25T14:00:37Z",
   "description": "Update specs, guides, and verification references so the simplified media catalog, deeper utility proof, explicit result channels, and generalized realtime adapter contract become current truth.",
   "id": "reqllm-jcc.5",
   "labels": [],
   "parent": "reqllm-jcc",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Reconcile specs and guides for the hardening pass",
   "type": "task",
-  "updated_at": "2026-03-25T14:07:22Z"
+  "updated_at": "2026-03-25T14:14:29Z"
 }

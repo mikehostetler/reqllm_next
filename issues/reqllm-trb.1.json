@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-trb.2"
+  ],
   "created": "2026-03-25T13:03:14Z",
   "description": "Define the concrete ReqLlmNext telemetry event families, measurements, metadata, redaction rules, and span boundaries. Align this with the existing telemetry spec, planner/runtime seams, fixture/compat flows, and the desired stable public observability story.",
   "id": "reqllm-trb.1",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Define telemetry contract and event taxonomy",
   "type": "task",
-  "updated_at": "2026-03-25T13:03:14Z"
+  "updated_at": "2026-03-25T13:03:15Z"
 }

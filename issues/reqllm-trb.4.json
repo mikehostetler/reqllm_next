@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-trb.3"
+  ],
   "blocks": [],
   "created": "2026-03-25T13:03:15Z",
   "description": "Make realtime a first-class package concept without making WebSockets the package abstraction. Add canonical realtime commands, events, and session reduction so higher layers can host WebSockets or other transports above ReqLlmNext while the package owns provider encode/decode and normalization semantics.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Design and implement transport-agnostic realtime core",
   "type": "task",
-  "updated_at": "2026-03-25T13:03:15Z"
+  "updated_at": "2026-03-25T13:03:16Z"
 }

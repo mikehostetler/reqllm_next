@@ -12,6 +12,7 @@
     "reqllm-fml.7",
     "reqllm-fml.8"
   ],
+  "closed_at": "2026-03-25T12:53:10Z",
   "created": "2026-03-25T12:00:36Z",
   "description": "Reconcile the official OpenAI docs surface against ReqLlmNext and capture an explicit inventory of supported, partial, missing, and boundary-evaluation surfaces. Keep Anthropic standalone media operations unsupported and document that boundary clearly.",
   "id": "reqllm-fml.1",
@@ -24,8 +25,8 @@
     }
   ],
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Finalize OpenAI gap map and package boundary",
   "type": "task",
-  "updated_at": "2026-03-25T12:01:39Z"
+  "updated_at": "2026-03-25T12:53:10Z"
 }

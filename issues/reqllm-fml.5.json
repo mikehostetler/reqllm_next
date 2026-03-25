@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-fml.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T12:00:36Z",
   "description": "Model OpenAI background mode as a first-class provider-owned execution surface or utility boundary, including webhook/completion handling where appropriate and clear integration points with the existing execution-plan runtime.",

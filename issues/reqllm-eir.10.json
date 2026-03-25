@@ -11,9 +11,15 @@
   "id": "reqllm-eir.10",
   "labels": [],
   "parent": "reqllm-eir",
+  "comments": [
+    {
+      "text": "Added Zenmux provider slice with Responses-first default, chat fallback, provider-local wires/semantic protocol, focused tests, and spec reconciliation. Verified with focused provider tests, mix quality, and mix spec.check --base origin/main.",
+      "timestamp": "2026-03-25T23:46:20Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Add Zenmux provider",
   "type": "task",
-  "updated_at": "2026-03-25T23:36:09Z"
+  "updated_at": "2026-03-25T23:46:20Z"
 }

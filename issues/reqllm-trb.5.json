@@ -7,14 +7,15 @@
     "reqllm-trb.6",
     "reqllm-trb.8"
   ],
+  "closed_at": "2026-03-25T13:54:39Z",
   "created": "2026-03-25T13:03:15Z",
   "description": "Rework the current provider-owned OpenAI realtime lane to become an adapter onto the shared realtime core instead of the permanent final shape. Preserve provider-native details while proving the new transport-agnostic realtime abstraction.",
   "id": "reqllm-trb.5",
   "labels": [],
   "parent": "reqllm-trb",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Migrate OpenAI realtime onto the shared realtime core",
   "type": "task",
-  "updated_at": "2026-03-25T13:03:17Z"
+  "updated_at": "2026-03-25T13:54:39Z"
 }

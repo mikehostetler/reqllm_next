@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T14:26:08Z",
+  "description": "Close the remaining gap between ReqLlmNext's Anthropic Messages lane and the current official Anthropic surface.\n\n```mermaid\ngraph LR\n    A[Refresh beta and effort handling] --\u003e B[Add web_fetch support]\n    A --\u003e C[Align context management]\n    B --\u003e D[Deepen provider-feature proof]\n    C --\u003e D\n    D --\u003e E[Reconcile guides specs and claims]\n```\n\nGoals:\n- add first-class web_fetch support and normalization\n- align context management with current beta/header semantics\n- refresh beta/effort/tool defaults to current Anthropic docs\n- deepen focused provider-feature coverage and reconcile guides/specs",
+  "id": "reqllm-7on",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Harden Anthropic native surface to current docs",
+  "type": "epic",
+  "updated_at": "2026-03-25T14:26:08Z"
+}

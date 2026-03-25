@@ -7,13 +7,13 @@
     "reqllm-fml.9"
   ],
   "created": "2026-03-25T12:00:36Z",
-  "description": "Research and decide how OpenAI MCP/connectors and Skills surfaces fit ReqLlmNext. Capture explicit boundary decisions and implement provider-owned support only where it cleanly fits the package thesis.",
+  "description": "Research and decide how OpenAI advanced agentic tool surfaces fit ReqLlmNext, including MCP/connectors, Skills, hosted shell, apply patch, tool search, and related Responses-native provider tools. Capture explicit boundary decisions and implement provider-owned support only where it cleanly fits the package thesis.",
   "id": "reqllm-fml.8",
   "labels": [],
   "parent": "reqllm-fml",
   "priority": 3,
   "status": "open",
-  "title": "Evaluate OpenAI MCP connectors and skills surfaces",
+  "title": "Evaluate OpenAI advanced agentic tool surfaces",
   "type": "task",
-  "updated_at": "2026-03-25T12:00:37Z"
+  "updated_at": "2026-03-25T12:02:17Z"
 }

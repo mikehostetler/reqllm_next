@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [
     "reqllm-jcc.3"
   ],
@@ -12,8 +12,8 @@
   "labels": [],
   "parent": "reqllm-jcc",
   "priority": 1,
-  "status": "open",
+  "status": "in_progress",
   "title": "Prove realtime adapter contract beyond OpenAI",
   "type": "task",
-  "updated_at": "2026-03-25T14:00:41Z"
+  "updated_at": "2026-03-25T14:06:10Z"
 }

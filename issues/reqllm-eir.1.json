@@ -15,14 +15,15 @@
     "reqllm-eir.8",
     "reqllm-eir.9"
   ],
+  "closed_at": "2026-03-25T22:36:06Z",
   "created": "2026-03-25T22:30:30Z",
   "description": "Set the provider expansion rules for ReqLlmNext: which providers map to existing families, which require new families, what proof depth each needs, and what we will not port directly from ReqLLM.",
   "id": "reqllm-eir.1",
   "labels": [],
   "parent": "reqllm-eir",
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Define provider expansion policy and ordering",
   "type": "task",
-  "updated_at": "2026-03-25T22:30:42Z"
+  "updated_at": "2026-03-25T22:36:06Z"
 }

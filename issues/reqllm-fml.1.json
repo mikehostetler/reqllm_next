@@ -3,7 +3,8 @@
   "blocked_by": [],
   "blocks": [
     "reqllm-fml.2",
-    "reqllm-fml.3"
+    "reqllm-fml.3",
+    "reqllm-fml.4"
   ],
   "created": "2026-03-25T12:00:36Z",
   "description": "Reconcile the official OpenAI docs surface against ReqLlmNext and capture an explicit inventory of supported, partial, missing, and boundary-evaluation surfaces. Keep Anthropic standalone media operations unsupported and document that boundary clearly.",

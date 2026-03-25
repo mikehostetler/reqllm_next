@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-jcc.2"
+  ],
   "blocks": [],
   "created": "2026-03-25T14:00:37Z",
   "description": "Update specs, guides, and verification references so the simplified media catalog, deeper utility proof, explicit result channels, and generalized realtime adapter contract become current truth.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Reconcile specs and guides for the hardening pass",
   "type": "task",
-  "updated_at": "2026-03-25T14:00:37Z"
+  "updated_at": "2026-03-25T14:00:41Z"
 }

@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-trb.6"
+  ],
   "blocks": [],
   "created": "2026-03-25T13:03:15Z",
   "description": "Use one OpenAI-compatible-but-not-OpenAI provider as the architecture proof. The goal is to validate that metadata plus narrow family/provider overrides are sufficient, and to expose any remaining imperative branching or normalization assumptions that do not generalize cleanly.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Pressure-test extension architecture with a third OpenAI-compatible provider",
   "type": "task",
-  "updated_at": "2026-03-25T13:03:15Z"
+  "updated_at": "2026-03-25T13:03:16Z"
 }

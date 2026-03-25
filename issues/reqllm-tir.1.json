@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T21:40:13Z",
+  "description": "Define the fixture-first testing model, classify sparse live verifier tests as opt-in integration checks rather than CI gates, and settle the command/env story for Anthropic and OpenAI verifier lanes.",
+  "id": "reqllm-tir.1",
+  "labels": [],
+  "parent": "reqllm-tir",
+  "priority": 2,
+  "status": "open",
+  "title": "Define live verifier test policy",
+  "type": "task",
+  "updated_at": "2026-03-25T21:40:13Z"
+}

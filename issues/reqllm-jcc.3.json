@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T14:00:37Z",
+  "description": "Refine canonical output items into explicit result-channel accessors and grouping so text, reasoning, tools, media, annotations, and provider-native extras are easier to consume without overloading message-centric helpers.",
+  "id": "reqllm-jcc.3",
+  "labels": [],
+  "parent": "reqllm-jcc",
+  "priority": 1,
+  "status": "open",
+  "title": "Make canonical result channels explicit",
+  "type": "task",
+  "updated_at": "2026-03-25T14:00:37Z"
+}

@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T14:26:20Z",
+  "description": "Update the Anthropic surface guide, current-truth specs, and related docs so coverage claims match the implemented native surface and its remaining honest boundaries.",
+  "id": "reqllm-7on.4",
+  "labels": [],
+  "parent": "reqllm-7on",
+  "priority": 2,
+  "status": "open",
+  "title": "Reconcile Anthropic guides specs and coverage claims",
+  "type": "task",
+  "updated_at": "2026-03-25T14:26:20Z"
+}

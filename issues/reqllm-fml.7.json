@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T12:00:36Z",
+  "description": "Add OpenAI Realtime as its own protocol family rather than stretching the current Responses WebSocket lane. Cover realtime text/audio sessions, event normalization, and plan/runtime integration.",
+  "id": "reqllm-fml.7",
+  "labels": [],
+  "parent": "reqllm-fml",
+  "priority": 1,
+  "status": "open",
+  "title": "Implement OpenAI Realtime as a first-class protocol family",
+  "type": "task",
+  "updated_at": "2026-03-25T12:00:36Z"
+}

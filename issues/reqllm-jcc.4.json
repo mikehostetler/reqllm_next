@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-jcc.3"
+  ],
   "blocks": [],
   "created": "2026-03-25T14:00:37Z",
   "description": "Add a shared realtime adapter behaviour and contract tests, including a non-OpenAI-shaped test adapter, so the realtime core is proven against more than one event grammar without turning WebSockets into the package abstraction.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Prove realtime adapter contract beyond OpenAI",
   "type": "task",
-  "updated_at": "2026-03-25T14:00:37Z"
+  "updated_at": "2026-03-25T14:00:41Z"
 }

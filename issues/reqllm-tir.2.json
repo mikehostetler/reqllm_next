@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-tir.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T21:40:23Z",
   "description": "Add the live verifier helper, mix alias, and curated Anthropic/OpenAI live verifier tests while keeping the rest of the suite replay-first.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Implement live verifier helpers and sparse provider tests",
   "type": "task",
-  "updated_at": "2026-03-25T21:40:23Z"
+  "updated_at": "2026-03-25T21:40:46Z"
 }

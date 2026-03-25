@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T13:03:15Z",
+  "description": "Add a real ReqLlmNext.Telemetry module and route shared runtime emissions through it instead of ad hoc telemetry calls. Cover request lifecycle, plan resolution, execution stack, stream lifecycle, provider requests, fixture replay/record, and compat/scenario runs with stable sanitized metadata.",
+  "id": "reqllm-trb.2",
+  "labels": [],
+  "parent": "reqllm-trb",
+  "priority": 1,
+  "status": "open",
+  "title": "Implement ReqLlmNext.Telemetry kernel and shared emitters",
+  "type": "task",
+  "updated_at": "2026-03-25T13:03:15Z"
+}

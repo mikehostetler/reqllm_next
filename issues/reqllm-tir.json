@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T21:40:08Z",
+  "description": "Implement a fixture-first testing model with explicit sparse live verifier tests for provider drift checks and fixture refreshes, while keeping live checks out of normal CI paths.\n\n```mermaid\ngraph LR\n  A[policy] --\u003e B[implementation]\n  B --\u003e C[docs-specs]\n```",
+  "id": "reqllm-tir",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Establish sparse live verifier test model",
+  "type": "epic",
+  "updated_at": "2026-03-25T21:40:08Z"
+}

@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T12:00:36Z",
+  "description": "Implement provider-owned OpenAI utility support for file upload/management and vector-store workflows so built-in file-search tools can be exercised end-to-end instead of only through request shaping.",
+  "id": "reqllm-fml.3",
+  "labels": [],
+  "parent": "reqllm-fml",
+  "priority": 1,
+  "status": "open",
+  "title": "Add OpenAI files and vector-store utility surfaces",
+  "type": "task",
+  "updated_at": "2026-03-25T12:00:36Z"
+}

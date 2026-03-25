@@ -2,13 +2,14 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-03-25T13:54:56Z",
   "created": "2026-03-25T13:03:14Z",
   "description": "Push ReqLlmNext beyond the current credible foundation by hardening the core runtime around five connected concerns: a real telemetry kernel, richer canonical output-item normalization, a first-class transport-agnostic realtime core, deeper verification for provider-owned utility surfaces, and a third-provider proof of the extension architecture.\n\n```mermaid\ngraph LR\n    A[Telemetry contract and event model] --\u003e B[ReqLlmNext.Telemetry kernel]\n    B --\u003e C[Canonical output-item normalization]\n    C --\u003e D[Transport-agnostic realtime core]\n    D --\u003e E[OpenAI realtime adapter migration]\n    B --\u003e F[Provider utility verification hardening]\n    C --\u003e F\n    E --\u003e F\n    F --\u003e G[Third OpenAI-compatible provider proof]\n    A --\u003e H[Specs guides and closeout]\n    B --\u003e H\n    C --\u003e H\n    D --\u003e H\n    E --\u003e H\n    F --\u003e H\n    G --\u003e H\n```",
   "id": "reqllm-trb",
   "labels": [],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Harden runtime telemetry normalization and realtime core",
   "type": "epic",
-  "updated_at": "2026-03-25T13:03:14Z"
+  "updated_at": "2026-03-25T13:54:56Z"
 }

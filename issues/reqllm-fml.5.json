@@ -7,14 +7,15 @@
   "blocks": [
     "reqllm-fml.9"
   ],
+  "closed_at": "2026-03-25T12:53:10Z",
   "created": "2026-03-25T12:00:36Z",
   "description": "Model OpenAI background mode as a first-class provider-owned execution surface or utility boundary, including webhook/completion handling where appropriate and clear integration points with the existing execution-plan runtime.",
   "id": "reqllm-fml.5",
   "labels": [],
   "parent": "reqllm-fml",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Add OpenAI background mode support",
   "type": "task",
-  "updated_at": "2026-03-25T12:00:37Z"
+  "updated_at": "2026-03-25T12:53:10Z"
 }

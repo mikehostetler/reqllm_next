@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [],
   "blocks": [
     "reqllm-eir.10",
@@ -21,8 +21,8 @@
   "labels": [],
   "parent": "reqllm-eir",
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Define provider expansion policy and ordering",
   "type": "task",
-  "updated_at": "2026-03-25T22:30:41Z"
+  "updated_at": "2026-03-25T22:30:42Z"
 }

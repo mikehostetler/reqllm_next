@@ -1,7 +1,8 @@
 {
   "assignee": "Mike Hostetler",
   "blocked_by": [
-    "reqllm-7on.3"
+    "reqllm-7on.3",
+    "reqllm-7on.5"
   ],
   "blocks": [],
   "created": "2026-03-25T14:26:20Z",
@@ -13,5 +14,5 @@
   "status": "in_progress",
   "title": "Reconcile Anthropic guides specs and coverage claims",
   "type": "task",
-  "updated_at": "2026-03-25T14:42:33Z"
+  "updated_at": "2026-03-25T14:45:07Z"
 }

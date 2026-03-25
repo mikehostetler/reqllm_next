@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-7on.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T14:25:52Z",
   "description": "Add provider-native web_fetch helper construction, request encoding, semantic normalization for web_fetch tool results and errors, and focused tests/provider-feature coverage.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Add Anthropic web_fetch support",
   "type": "task",
-  "updated_at": "2026-03-25T14:26:20Z"
+  "updated_at": "2026-03-25T14:26:24Z"
 }

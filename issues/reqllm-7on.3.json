@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-jcc.6"
+  ],
   "blocks": [],
   "created": "2026-03-25T14:26:20Z",
   "description": "Add or refresh focused Anthropic provider-feature tests and fixtures for current server-tool and context-management lanes so the implemented surface is proven rather than just encoded.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Deepen Anthropic provider-feature proof",
   "type": "task",
-  "updated_at": "2026-03-25T14:26:20Z"
+  "updated_at": "2026-03-25T14:26:24Z"
 }

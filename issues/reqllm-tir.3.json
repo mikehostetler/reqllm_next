@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-tir.2"
+  ],
   "blocks": [],
   "created": "2026-03-25T21:40:36Z",
   "description": "Update AGENTS, README/spec subjects, and current-truth guidance so the repo documents live verifier tests as sparse opt-in integration checks and fixtures as the default proof system.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Reconcile testing docs and specs for live verifiers",
   "type": "task",
-  "updated_at": "2026-03-25T21:40:36Z"
+  "updated_at": "2026-03-25T21:40:46Z"
 }

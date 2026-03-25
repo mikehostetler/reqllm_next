@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-tir.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-tir.3"
+  ],
   "created": "2026-03-25T21:40:23Z",
   "description": "Add the live verifier helper, mix alias, and curated Anthropic/OpenAI live verifier tests while keeping the rest of the suite replay-first.",
   "id": "reqllm-tir.2",

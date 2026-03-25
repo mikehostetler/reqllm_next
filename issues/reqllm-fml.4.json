@@ -9,14 +9,15 @@
     "reqllm-fml.7",
     "reqllm-fml.9"
   ],
+  "closed_at": "2026-03-25T12:53:10Z",
   "created": "2026-03-25T12:00:36Z",
   "description": "Expand OpenAI Responses built-in tool support beyond helper constructors into fuller lifecycle coverage for web search, file search, code interpreter, and computer use, including normalized results and curated live/replay verification.",
   "id": "reqllm-fml.4",
   "labels": [],
   "parent": "reqllm-fml",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Harden OpenAI built-in tools lifecycle coverage",
   "type": "task",
-  "updated_at": "2026-03-25T12:00:37Z"
+  "updated_at": "2026-03-25T12:53:10Z"
 }

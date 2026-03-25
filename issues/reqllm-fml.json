@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T12:00:35Z",
+  "description": "Thoroughly map and close the remaining OpenAI API surface gaps while keeping the Anthropic boundary intact. This epic covers core generation/media gaps, built-in tool lifecycle support, file and vector-store utilities, background and batch execution surfaces, realtime, and explicit evaluation of OpenAI-native utility surfaces that may need provider-owned modules instead of planner creep.\n\n",
+  "id": "reqllm-fml",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "Close OpenAI platform surface gaps",
+  "type": "epic",
+  "updated_at": "2026-03-25T12:00:35Z"
+}

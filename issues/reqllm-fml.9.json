@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-fml.2"
+  ],
   "blocks": [],
   "created": "2026-03-25T12:00:36Z",
   "description": "After implementation work lands, reconcile guides, support claims, fixtures, provider-feature probes, support matrix boundaries, and Spec Led current truth so the OpenAI story stays honest and reviewable.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Reconcile OpenAI docs fixtures tests and specs",
   "type": "task",
-  "updated_at": "2026-03-25T12:00:36Z"
+  "updated_at": "2026-03-25T12:00:37Z"
 }

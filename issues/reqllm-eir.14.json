@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-eir.2"
+  ],
   "blocks": [],
   "created": "2026-03-25T22:30:31Z",
   "description": "Reconcile README, guides, support matrix, live verifiers, and spec subjects after provider expansion lands.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Reconcile provider expansion docs and package truth",
   "type": "task",
-  "updated_at": "2026-03-25T22:30:31Z"
+  "updated_at": "2026-03-25T22:30:41Z"
 }

@@ -2,6 +2,7 @@
   "assignee": "Mike Hostetler",
   "blocked_by": [],
   "blocks": [
+    "reqllm-fml.11",
     "reqllm-fml.2",
     "reqllm-fml.3",
     "reqllm-fml.4",
@@ -25,5 +26,5 @@
   "status": "in_progress",
   "title": "Finalize OpenAI gap map and package boundary",
   "type": "task",
-  "updated_at": "2026-03-25T12:00:59Z"
+  "updated_at": "2026-03-25T12:01:39Z"
 }

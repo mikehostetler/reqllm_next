@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-fml.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T12:01:39Z",
   "description": "Evaluate and implement OpenAI video generation and moderation as explicit provider-owned surfaces where they fit ReqLlmNext, or capture a durable boundary decision if they belong outside the current package facade.",

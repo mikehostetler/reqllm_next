@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-fml.9"
   ],
+  "closed_at": "2026-03-25T12:53:10Z",
   "created": "2026-03-25T12:00:36Z",
   "description": "Implement provider-owned Batch API utilities and verification so non-interactive large-run workflows are covered explicitly instead of being left outside the package boundary.",
   "id": "reqllm-fml.6",
   "labels": [],
   "parent": "reqllm-fml",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Add OpenAI Batch API utilities",
   "type": "task",
-  "updated_at": "2026-03-25T12:00:37Z"
+  "updated_at": "2026-03-25T12:53:10Z"
 }

@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T13:03:15Z",
+  "description": "Introduce a richer canonical output-item model beneath Response and StreamResponse so text, thinking, tool calls, tool results, audio, transcript, image, citation, refusal, provider items, usage, and terminal metadata normalize cleanly without overloading provider_meta.",
+  "id": "reqllm-trb.3",
+  "labels": [],
+  "parent": "reqllm-trb",
+  "priority": 1,
+  "status": "open",
+  "title": "Refactor response normalization around canonical output items",
+  "type": "task",
+  "updated_at": "2026-03-25T13:03:15Z"
+}

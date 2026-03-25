@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T14:26:20Z",
+  "description": "Add the current context-management beta header, validate and encode documented edit strategies, and preserve richer stop/compaction metadata where the Messages lane exposes it.",
+  "id": "reqllm-7on.2",
+  "labels": [],
+  "parent": "reqllm-7on",
+  "priority": 2,
+  "status": "open",
+  "title": "Align Anthropic context management and compaction semantics",
+  "type": "task",
+  "updated_at": "2026-03-25T14:26:20Z"
+}

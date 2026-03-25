@@ -2,7 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [
-    "reqllm-eir.2"
+    "reqllm-eir.2",
+    "reqllm-eir.3"
   ],
   "created": "2026-03-25T22:30:30Z",
   "description": "Set the provider expansion rules for ReqLlmNext: which providers map to existing families, which require new families, what proof depth each needs, and what we will not port directly from ReqLLM.",

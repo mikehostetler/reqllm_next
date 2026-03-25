@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-fml.1"
+  ],
   "blocks": [],
   "created": "2026-03-25T12:00:36Z",
   "description": "Implement provider-owned OpenAI utility support for file upload/management and vector-store workflows so built-in file-search tools can be exercised end-to-end instead of only through request shaping.",

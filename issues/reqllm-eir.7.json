@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-eir.14"
   ],
+  "closed_at": "2026-03-25T23:25:27Z",
   "created": "2026-03-25T22:30:31Z",
   "description": "Implement Alibaba DashScope as an OpenAI-compatible provider, including international and China endpoint strategy, tests, fixtures, docs, and specs.",
   "id": "reqllm-eir.7",
   "labels": [],
   "parent": "reqllm-eir",
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add Alibaba provider",
   "type": "task",
-  "updated_at": "2026-03-25T23:20:23Z"
+  "updated_at": "2026-03-25T23:25:27Z"
 }

@@ -15,6 +15,12 @@
   "id": "reqllm-fml.1",
   "labels": [],
   "parent": "reqllm-fml",
+  "comments": [
+    {
+      "text": "Initial research pass complete. Current implementation is strong on chat/Responses/embeddings/media basics, but gaps remain in image edits, audio translations and richer diarization normalization, file upload/vector-store utilities, full built-in tool lifecycle coverage, background mode, Batch API, Realtime as a first-class protocol family, and explicit evaluation of MCP/connectors/Skills surfaces. Anthropic boundary remains unchanged: standalone media operations stay unsupported there.",
+      "timestamp": "2026-03-25T12:00:59Z"
+    }
+  ],
   "priority": 1,
   "status": "in_progress",
   "title": "Finalize OpenAI gap map and package boundary",

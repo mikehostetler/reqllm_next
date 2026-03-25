@@ -2,13 +2,14 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-03-25T14:14:35Z",
   "created": "2026-03-25T14:00:24Z",
   "description": "Push the next layer of hardening after the telemetry/realtime pass by simplifying low-value indirection, deepening OpenAI utility proof depth, making canonical result channels more explicit, and proving the shared realtime contract beyond one provider-specific adapter.\n\n```mermaid\ngraph LR\n    A[Simplify low-value indirection] --\u003e B[Deeper utility verification]\n    A --\u003e C[Explicit result channels]\n    C --\u003e D[Realtime adapter contract proof]\n    B --\u003e E[Docs/spec reconciliation]\n    C --\u003e E\n    D --\u003e E\n```",
   "id": "reqllm-jcc",
   "labels": [],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Refine runtime surface, result channels, and utility proof depth",
   "type": "epic",
-  "updated_at": "2026-03-25T14:00:24Z"
+  "updated_at": "2026-03-25T14:14:35Z"
 }

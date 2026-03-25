@@ -5,14 +5,15 @@
     "reqllm-jcc.2",
     "reqllm-jcc.3"
   ],
+  "closed_at": "2026-03-25T14:01:21Z",
   "created": "2026-03-25T14:00:32Z",
   "description": "Collapse tiny OpenAI media surface-catalog indirection where it is no longer buying a real seam, while preserving provider-family boundaries and keeping the manifest/runtime model explicit.",
   "id": "reqllm-jcc.1",
   "labels": [],
   "parent": "reqllm-jcc",
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Simplify low-value media surface indirection",
   "type": "task",
-  "updated_at": "2026-03-25T14:00:41Z"
+  "updated_at": "2026-03-25T14:01:21Z"
 }

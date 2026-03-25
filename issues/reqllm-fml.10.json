@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-25T12:01:31Z",
+  "description": "Close remaining OpenAI run-and-scale gaps around webhooks, compaction, token counting, and request/latency optimization controls such as predicted outputs, priority processing, and flex processing where they fit the execution-plan runtime.",
+  "id": "reqllm-fml.10",
+  "labels": [],
+  "parent": "reqllm-fml",
+  "priority": 2,
+  "status": "open",
+  "title": "Complete OpenAI run-and-scale utility coverage",
+  "type": "task",
+  "updated_at": "2026-03-25T12:01:31Z"
+}

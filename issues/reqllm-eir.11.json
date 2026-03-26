@@ -11,9 +11,15 @@
   "id": "reqllm-eir.11",
   "labels": [],
   "parent": "reqllm-eir",
+  "comments": [
+    {
+      "text": "Implemented native Google Gemini generateContent family with dynamic streaming request builder, provider facts, surface prep, semantic protocol, wire modules, tests, and spec reconciliation. Verified with focused provider tests, mix quality, and mix spec.check --base origin/main.",
+      "timestamp": "2026-03-26T00:01:04Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Add Google Gemini provider",
   "type": "task",
-  "updated_at": "2026-03-25T23:46:44Z"
+  "updated_at": "2026-03-26T00:01:04Z"
 }

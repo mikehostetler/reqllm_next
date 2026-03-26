@@ -6,6 +6,7 @@
   "blocks": [
     "reqllm-eir.14"
   ],
+  "closed_at": "2026-03-26T00:01:12Z",
   "created": "2026-03-25T22:30:31Z",
   "description": "Implement Google Gemini as a new provider family with its own surface semantics, tests, fixtures, docs, and specs.",
   "id": "reqllm-eir.11",
@@ -18,8 +19,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add Google Gemini provider",
   "type": "task",
-  "updated_at": "2026-03-26T00:01:04Z"
+  "updated_at": "2026-03-26T00:01:12Z"
 }

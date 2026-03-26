@@ -9,9 +9,15 @@
   "id": "reqllm-1hn.1",
   "labels": [],
   "parent": "reqllm-1hn",
+  "comments": [
+    {
+      "text": "Upstream llm_db PRs are now open: PR #164 (runtime contract) and PR #165 (snapshot/runtime metadata population). Next local phase is ReqLlmNext generic runtime consumption of Provider.runtime and Model.execution.",
+      "timestamp": "2026-03-26T11:31:49Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "LLMDB runtime metadata contract",
   "type": "task",
-  "updated_at": "2026-03-26T01:19:47Z"
+  "updated_at": "2026-03-26T11:31:49Z"
 }

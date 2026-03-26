@@ -4,13 +4,14 @@
     "reqllm-1hn.2"
   ],
   "blocks": [],
+  "closed_at": "2026-03-26T12:40:03Z",
   "created": "2026-03-26T01:19:46Z",
   "description": "Finalize specs/docs, create upstream llm_db PRs, and land ReqLlmNext verification.",
   "id": "reqllm-1hn.4",
   "labels": [],
   "parent": "reqllm-1hn",
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Closeout docs specs and upstream PRs",
   "type": "task",
   "updated_at": "2026-03-26T12:40:03Z"

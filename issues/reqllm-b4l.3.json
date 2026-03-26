@@ -4,14 +4,15 @@
     "reqllm-b4l.2"
   ],
   "blocks": [],
+  "closed_at": "2026-03-26T13:04:07Z",
   "created": "2026-03-26T12:41:24Z",
   "description": "Make first-class vs best-effort vs unsupported support tiers visible in docs, specs, and package guidance, including what generic support does and does not promise.",
   "id": "reqllm-b4l.3",
   "labels": [],
   "parent": "reqllm-b4l",
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Document support tiers and best-effort boundaries",
   "type": "task",
-  "updated_at": "2026-03-26T12:56:15Z"
+  "updated_at": "2026-03-26T13:04:07Z"
 }

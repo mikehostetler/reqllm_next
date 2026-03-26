@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-1hn.2"
+  ],
   "blocks": [],
   "created": "2026-03-26T01:19:46Z",
   "description": "Finalize specs/docs, create upstream llm_db PRs, and land ReqLlmNext verification.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Closeout docs specs and upstream PRs",
   "type": "task",
-  "updated_at": "2026-03-26T01:19:46Z"
+  "updated_at": "2026-03-26T01:19:47Z"
 }

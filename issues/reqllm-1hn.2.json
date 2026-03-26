@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-1hn.3"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-1hn.4"
+  ],
   "created": "2026-03-26T01:19:38Z",
   "description": "Consume new LLMDB execution metadata, add generic provider runtime path, support introspection, and tests.",
   "id": "reqllm-1hn.2",

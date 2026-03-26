@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-26T01:19:24Z",
+  "description": "Add typed provider runtime and model execution metadata, validation, and docs in upstream llm_db.",
+  "id": "reqllm-1hn.1",
+  "labels": [],
+  "parent": "reqllm-1hn",
+  "priority": 2,
+  "status": "open",
+  "title": "LLMDB runtime metadata contract",
+  "type": "task",
+  "updated_at": "2026-03-26T01:19:24Z"
+}

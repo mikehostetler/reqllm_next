@@ -3,7 +3,9 @@
   "blocked_by": [
     "reqllm-1hn.1"
   ],
-  "blocks": [],
+  "blocks": [
+    "reqllm-1hn.2"
+  ],
   "created": "2026-03-26T01:19:46Z",
   "description": "Populate runtime metadata across priority providers and rebuild snapshot in upstream llm_db.",
   "id": "reqllm-1hn.3",
@@ -13,5 +15,5 @@
   "status": "open",
   "title": "LLMDB source and snapshot population",
   "type": "task",
-  "updated_at": "2026-03-26T01:19:46Z"
+  "updated_at": "2026-03-26T01:19:47Z"
 }

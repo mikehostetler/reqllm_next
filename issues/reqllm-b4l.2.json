@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [
     "reqllm-b4l.1"
   ],
@@ -12,8 +12,8 @@
   "labels": [],
   "parent": "reqllm-b4l",
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Harden generic runtime metadata execution path",
   "type": "task",
-  "updated_at": "2026-03-26T12:41:31Z"
+  "updated_at": "2026-03-26T12:47:36Z"
 }

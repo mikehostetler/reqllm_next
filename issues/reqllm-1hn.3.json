@@ -11,9 +11,15 @@
   "id": "reqllm-1hn.3",
   "labels": [],
   "parent": "reqllm-1hn",
+  "comments": [
+    {
+      "text": "Upstream llm_db PR #165 landed on main with packaged runtime metadata population.",
+      "timestamp": "2026-03-26T12:03:07Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "LLMDB source and snapshot population",
   "type": "task",
-  "updated_at": "2026-03-26T01:19:47Z"
+  "updated_at": "2026-03-26T12:03:07Z"
 }

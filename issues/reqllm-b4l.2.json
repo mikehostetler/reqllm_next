@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-26T12:41:24Z",
+  "description": "Fix any auth, base-url, path, or operation-family gaps uncovered by the best-effort proof matrix while preserving the thin facade and provider-layer boundaries.",
+  "id": "reqllm-b4l.2",
+  "labels": [],
+  "parent": "reqllm-b4l",
+  "priority": 2,
+  "status": "open",
+  "title": "Harden generic runtime metadata execution path",
+  "type": "task",
+  "updated_at": "2026-03-26T12:41:24Z"
+}

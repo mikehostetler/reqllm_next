@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-26T01:19:18Z",
+  "description": "Upstream llm_db runtime metadata contract and ReqLlmNext generic execution support.\n\n```mermaid\ngraph LR\n  A[llmdb contract] --\u003e B[llmdb source population]\n  B --\u003e C[reqllm generic runtime]\n  C --\u003e D[tests docs pr closeout]\n```",
+  "id": "reqllm-1hn",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Universal LLMDB best-effort execution",
+  "type": "epic",
+  "updated_at": "2026-03-26T01:19:18Z"
+}

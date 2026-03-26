@@ -11,9 +11,15 @@
   "id": "reqllm-eir.13",
   "labels": [],
   "parent": "reqllm-eir",
+  "comments": [
+    {
+      "text": "Implemented native Cohere chat family with provider facts, surface catalog, provider-owned chat prep, semantic protocol, wire modules, test model factory, provider-slice tests, and spec reconciliation. Verified with focused tests, mix quality, and mix spec.check --base origin/main.",
+      "timestamp": "2026-03-26T00:18:12Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Add Cohere provider",
   "type": "task",
-  "updated_at": "2026-03-25T22:30:42Z"
+  "updated_at": "2026-03-26T00:18:12Z"
 }

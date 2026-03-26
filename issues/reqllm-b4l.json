@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-26T12:41:15Z",
+  "description": "Exercise the new typed LLMDB runtime path against representative non-first-class packaged providers, harden any generic-runtime gaps that shake out, and document first-class vs best-effort support tiers.\n\n```mermaid\ngraph LR\n  A[proof matrix] --\u003e B[generic runtime hardening]\n  B --\u003e C[support-tier docs and closeout]\n```",
+  "id": "reqllm-b4l",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Best-effort provider proof and support tiers",
+  "type": "epic",
+  "updated_at": "2026-03-26T12:41:15Z"
+}

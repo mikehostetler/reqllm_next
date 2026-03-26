@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-26T12:41:24Z",
+  "description": "Add replay-backed tests for representative non-first-class packaged providers such as Mistral, TogetherAI, GitHub Models, Perplexity, and Cloudflare Workers AI to prove planning, surface selection, and request construction through typed LLMDB runtime metadata.",
+  "id": "reqllm-b4l.1",
+  "labels": [],
+  "parent": "reqllm-b4l",
+  "priority": 2,
+  "status": "open",
+  "title": "Add representative best-effort provider proof matrix",
+  "type": "task",
+  "updated_at": "2026-03-26T12:41:24Z"
+}

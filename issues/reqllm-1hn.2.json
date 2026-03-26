@@ -6,14 +6,15 @@
   "blocks": [
     "reqllm-1hn.4"
   ],
+  "closed_at": "2026-03-26T12:39:58Z",
   "created": "2026-03-26T01:19:38Z",
   "description": "Consume new LLMDB execution metadata, add generic provider runtime path, support introspection, and tests.",
   "id": "reqllm-1hn.2",
   "labels": [],
   "parent": "reqllm-1hn",
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "ReqLlmNext generic best-effort runtime",
   "type": "task",
-  "updated_at": "2026-03-26T12:03:07Z"
+  "updated_at": "2026-03-26T12:39:58Z"
 }

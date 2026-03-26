@@ -11,9 +11,15 @@
   "id": "reqllm-eir.12",
   "labels": [],
   "parent": "reqllm-eir",
+  "comments": [
+    {
+      "text": "Implemented ElevenLabs as a speech/transcription-only native media provider with provider-owned media facts, surface catalog, speech/transcription prep and wire modules, test model factories, provider-slice tests, and spec reconciliation. Verified with focused tests, mix quality, and mix spec.check --base origin/main.",
+      "timestamp": "2026-03-26T00:10:57Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Add ElevenLabs provider",
   "type": "task",
-  "updated_at": "2026-03-26T00:01:18Z"
+  "updated_at": "2026-03-26T00:10:57Z"
 }

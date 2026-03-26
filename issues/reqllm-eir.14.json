@@ -20,9 +20,15 @@
   "id": "reqllm-eir.14",
   "labels": [],
   "parent": "reqllm-eir",
+  "comments": [
+    {
+      "text": "Reconciled the provider-expansion docs and package truth after landing the provider wave. README, package thesis, provider expansion roadmap, and support matrix guidance now reflect the completed provider inventory, deferred wrapper queue, and replay-first verification posture. Verified with mix spec.next, mix quality, and mix spec.check --base origin/main.",
+      "timestamp": "2026-03-26T00:21:31Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Reconcile provider expansion docs and package truth",
   "type": "task",
-  "updated_at": "2026-03-26T00:18:32Z"
+  "updated_at": "2026-03-26T00:21:31Z"
 }

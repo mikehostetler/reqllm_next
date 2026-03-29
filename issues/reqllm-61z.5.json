@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-61z.4"
+  ],
   "blocks": [],
   "created": "2026-03-29T00:11:58Z",
   "description": "Update guides, README, support matrices, specs, and ADRs so Google support claims match the implemented and verified truth.",

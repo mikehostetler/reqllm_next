@@ -12,9 +12,15 @@
   "id": "reqllm-61z.4",
   "labels": [],
   "parent": "reqllm-61z",
+  "comments": [
+    {
+      "text": "Recorded replay fixtures for Google text/object/embed/image lanes, added sparse Google live verifier coverage, and hardened Imagen image requests to reject unsupported :size overrides before provider execution. Live Google text/object/embed/Gemini image checks passed with real API key; Imagen passed live without :size and now fails fast locally when :size is supplied.",
+      "timestamp": "2026-03-29T01:01:32Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Add Google fixtures and live verifiers",
   "type": "task",
-  "updated_at": "2026-03-29T00:11:58Z"
+  "updated_at": "2026-03-29T01:01:32Z"
 }

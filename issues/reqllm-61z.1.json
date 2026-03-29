@@ -10,9 +10,15 @@
   "id": "reqllm-61z.1",
   "labels": [],
   "parent": "reqllm-61z",
+  "comments": [
+    {
+      "text": "Landed Google embeddings plus image-generation surfaces, support-tier truth tightening, Google provider tests, and Google surface guide. Provider-native Google utility helpers remain for a later slice.",
+      "timestamp": "2026-03-29T00:35:15Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Add Google embeddings and utility surfaces",
   "type": "task",
-  "updated_at": "2026-03-29T00:11:59Z"
+  "updated_at": "2026-03-29T00:35:15Z"
 }

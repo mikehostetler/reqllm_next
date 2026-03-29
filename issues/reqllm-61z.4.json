@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "reqllm-61z.2"
+  ],
   "blocks": [],
   "created": "2026-03-29T00:11:58Z",
   "description": "Record replay fixtures for newly supported Google lanes and add sparse live verifier coverage for high-signal Google-native features.",

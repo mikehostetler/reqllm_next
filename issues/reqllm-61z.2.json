@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-61z.4"
+  ],
   "created": "2026-03-29T00:11:58Z",
   "description": "Compare current Google implementation against official Gemini docs, classify support depth, and lock the honest Google support statement before changing code.",
   "id": "reqllm-61z.2",

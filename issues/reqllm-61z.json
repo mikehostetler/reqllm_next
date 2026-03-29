@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-29T00:11:44Z",
+  "description": "Audit and expand the first-class Google Gemini surface using the provider-surface-rollout playbook. Improve the native generateContent lane, add the highest-value missing Google-native surfaces, add replay fixtures and sparse live verifiers, and reconcile support claims.\n\n```mermaid\ngraph LR\n    1[gap map and support statement] --\u003e 2[add embeddings and utility surfaces]\n    1 --\u003e 3[expand built-in tools and validation]\n    2 --\u003e 4[fixtures and live verifiers]\n    3 --\u003e 4\n    4 --\u003e 5[docs and spec reconciliation]\n```",
+  "id": "reqllm-61z",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Improve Google provider surface coverage",
+  "type": "epic",
+  "updated_at": "2026-03-29T00:11:44Z"
+}

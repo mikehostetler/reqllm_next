@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-03-29T00:11:58Z",
+  "description": "Update guides, README, support matrices, specs, and ADRs so Google support claims match the implemented and verified truth.",
+  "id": "reqllm-61z.5",
+  "labels": [],
+  "parent": "reqllm-61z",
+  "priority": 2,
+  "status": "open",
+  "title": "Reconcile Google docs specs and support claims",
+  "type": "task",
+  "updated_at": "2026-03-29T00:11:58Z"
+}

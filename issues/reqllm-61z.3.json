@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "reqllm-61z.4"
+  ],
   "created": "2026-03-29T00:11:58Z",
   "description": "Broaden generateContent support for Google-native tools and tighten planner and surface validation so native Google features fail fast and normalize correctly.",
   "id": "reqllm-61z.3",

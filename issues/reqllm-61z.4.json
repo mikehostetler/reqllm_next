@@ -16,11 +16,15 @@
     {
       "text": "Recorded replay fixtures for Google text/object/embed/image lanes, added sparse Google live verifier coverage, and hardened Imagen image requests to reject unsupported :size overrides before provider execution. Live Google text/object/embed/Gemini image checks passed with real API key; Imagen passed live without :size and now fails fast locally when :size is supplied.",
       "timestamp": "2026-03-29T01:01:32Z"
+    },
+    {
+      "text": "Landed on main as 6ffa827 with Google replay fixtures, sparse Google live verifier coverage, and Imagen :size fail-fast validation. Tracker still marks this slice blocked by broader Google mapping/tool tasks, so I left status unchanged rather than forcing an inconsistent close.",
+      "timestamp": "2026-03-29T01:06:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Add Google fixtures and live verifiers",
   "type": "task",
-  "updated_at": "2026-03-29T01:01:32Z"
+  "updated_at": "2026-03-29T01:06:12Z"
 }

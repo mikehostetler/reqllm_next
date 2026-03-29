@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [],
   "blocks": [
     "reqllm-61z.2",
@@ -11,8 +11,8 @@
   "labels": [],
   "parent": "reqllm-61z",
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Add Google embeddings and utility surfaces",
   "type": "task",
-  "updated_at": "2026-03-29T00:11:58Z"
+  "updated_at": "2026-03-29T00:11:59Z"
 }

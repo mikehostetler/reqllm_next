@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "Mike Hostetler",
   "blocked_by": [],
   "blocks": [],
   "created": "2026-04-03T14:06:24Z",
@@ -7,8 +7,8 @@
   "id": "reqllm-htk",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Spike codex_cli first-class provider",
   "type": "task",
-  "updated_at": "2026-04-03T14:06:24Z"
+  "updated_at": "2026-04-03T14:06:30Z"
 }

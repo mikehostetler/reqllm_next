@@ -273,7 +273,7 @@
         "id": "reqllm.architecture.execution_layers",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext architecture shall separate realtime adapter, realtime session reduction, semantic protocol, wire format, transport, provider, session-runtime, and telemetry-kernel concerns so canonical request and event meaning, wire envelopes, persistent execution state, byte movement, and diagnostics can evolve independently, and canonical response normalization shall expose explicit result channels on top of output items so higher-level helpers do not have to recover those distinctions from provider metadata while replay-backed suites and sparse live verifier suites continue to exercise the same execution spine rather than alternate ad hoc paths.",
+        "statement": "ReqLlmNext architecture shall separate realtime adapter, realtime session reduction, semantic protocol, wire format, transport, provider, session-runtime, and telemetry-kernel concerns so canonical request and event meaning, wire envelopes, persistent execution state, byte movement, and diagnostics can evolve independently across HTTP, WebSocket, and local-process transports, and canonical response normalization shall expose explicit result channels on top of output items so higher-level helpers do not have to recover those distinctions from provider metadata while replay-backed suites and sparse live verifier suites continue to exercise the same execution spine rather than alternate ad hoc paths.",
         "subject_id": "reqllm.architecture"
       },
       {
@@ -281,7 +281,7 @@
         "id": "reqllm.architecture.facts_mode_policy_plan",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext architecture shall normalize model facts into `ModelProfile`, request intent into `ExecutionMode`, resolve compatibility-aware surface policy, run surface-owned request preparation, and materialize a single `ExecutionPlan` before downstream execution, including manifest-backed provider-scoped descriptive fact extraction for first-class providers, typed `LLMDB.Provider.runtime` and `LLMDB.Model.execution` metadata as the upstream contract for best-effort providers without dedicated slice registrations, family-owned or metadata-driven surface catalog resolution before planning, manifest-backed or generic runtime-module lookup for provider, session-runtime, protocol, wire, and transport layers, honoring explicit transport and session intent when a matching surface exists, validating surface-specific parameter compatibility before wire encoding, preparing continuation state in session runtime before transport execution, and routing both streaming and request-style non-streaming HTTP execution through explicit transport modules across text, object, embedding, image, transcription, and speech operations, including provider-owned Google embedding and image lanes inside the native Google family, while allowing public docs to distinguish first-class and best-effort support tiers without splitting the runtime into different planner architectures.",
+        "statement": "ReqLlmNext architecture shall normalize model facts into `ModelProfile`, request intent into `ExecutionMode`, resolve compatibility-aware surface policy, run surface-owned request preparation, and materialize a single `ExecutionPlan` before downstream execution, including manifest-backed provider-scoped descriptive fact extraction for first-class providers, typed `LLMDB.Provider.runtime` and `LLMDB.Model.execution` metadata as the upstream contract for best-effort providers without dedicated slice registrations, family-owned or metadata-driven surface catalog resolution before planning, manifest-backed or generic runtime-module lookup for provider, session-runtime, protocol, wire, and transport layers, honoring explicit transport and session intent when a matching surface exists, validating surface-specific parameter compatibility before wire encoding, preparing continuation state in session runtime before transport execution, and routing both streaming and request-style execution through explicit transport modules across text, object, embedding, image, transcription, and speech operations, including provider-owned Google embedding and image lanes inside the native Google family plus first-class local-process text and object lanes such as the Codex CLI spike that keep auth outside the package boundary, while allowing public docs to distinguish first-class and best-effort support tiers without splitting the runtime into different planner architectures.",
         "subject_id": "reqllm.architecture"
       },
       {
@@ -345,7 +345,7 @@
         "id": "reqllm.enforcement.runtime_hard_fail",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall use runtime hard-fail validation for invalid model metadata, unsupported profile combinations, unsupported surface-parameter combinations, unsupported media operations, wrong-provider provider-native helper inputs, raw tool maps on non-owning surfaces, missing required continuation state, missing typed runtime metadata for best-effort providers, catalog-only packaged models that do not map to a real first-class provider-owned surface, unknown execution families, unknown keys, invalid enums, and unsafe source combinations rather than best-effort fallback behavior, while allowing only explicit manifest-declared provider-default and global-default family fallbacks and hard-failing compile-time extension manifests that violate duplicate-id, missing-reference, seam-ownership, or seam-module guarantees, without treating family-local semantic, wire, or transport seam overrides as invalid merely because a shared fallback registry already defines the same seam key.",
+        "statement": "ReqLlmNext shall use runtime hard-fail validation for invalid model metadata, unsupported profile combinations, unsupported surface-parameter combinations, unsupported media operations, wrong-provider provider-native helper inputs, raw tool maps on non-owning surfaces, unsupported local CLI context shapes such as assistant tool-call history on Codex CLI text lanes, missing required continuation state, missing typed runtime metadata for best-effort providers, catalog-only packaged models that do not map to a real first-class provider-owned surface, unknown execution families, unknown keys, invalid enums, and unsafe source combinations rather than best-effort fallback behavior, while allowing only explicit manifest-declared provider-default and global-default family fallbacks and hard-failing compile-time extension manifests that violate duplicate-id, missing-reference, seam-ownership, or seam-module guarantees, without treating family-local semantic, wire, or transport seam overrides as invalid merely because a shared fallback registry already defines the same seam key.",
         "subject_id": "reqllm.enforcement"
       },
       {
@@ -441,7 +441,7 @@
         "id": "reqllm.execution_surfaces.support_unit",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall represent each valid endpoint style as a named `ExecutionSurface` that bundles semantic protocol, wire format, transport, session compatibility, feature tags, and owning family id for one operation family, including provider-native structured-output strategies, provider-native request-preparation rules, any session-runtime seam selection implied by that semantic family, and request-style media surfaces when a provider exposes standalone image, transcription, or speech APIs, including provider-local responses-first surface ids such as xAI text and object Responses lanes, Google embedding and image surfaces inside the native Google family, provider-local media-family overrides such as xAI image generation, and generic best-effort surfaces synthesized from typed `LLMDB.Model.execution` metadata for non-first-class providers.",
+        "statement": "ReqLlmNext shall represent each valid endpoint style as a named `ExecutionSurface` that bundles semantic protocol, wire format, transport, session compatibility, feature tags, and owning family id for one operation family, including provider-native structured-output strategies, provider-native request-preparation rules, any session-runtime seam selection implied by that semantic family, request-style media surfaces when a provider exposes standalone image, transcription, or speech APIs, and non-HTTP local-process surfaces when a first-class provider owns a CLI runtime, including provider-local responses-first surface ids such as xAI text and object Responses lanes, Google embedding and image surfaces inside the native Google family, provider-local media-family overrides such as xAI image generation, Codex CLI text and object lanes with a local-process transport, and generic best-effort surfaces synthesized from typed `LLMDB.Model.execution` metadata for non-first-class providers.",
         "subject_id": "reqllm.execution_surfaces"
       },
       {
@@ -457,7 +457,7 @@
         "id": "reqllm.execution_surfaces.transport_variants",
         "priority": "should",
         "stability": "evolving",
-        "statement": "ReqLlmNext may declare multiple transport variants for one semantic protocol family, such as OpenAI Responses over HTTP SSE and WebSocket, and explicit transport preference shall only select among those declared surfaces and fallbacks.",
+        "statement": "ReqLlmNext may declare multiple transport variants for one semantic protocol family, such as OpenAI Responses over HTTP SSE and WebSocket or provider-owned local-process transports for CLI-backed surfaces, and explicit transport preference shall only select among those declared surfaces and fallbacks.",
         "subject_id": "reqllm.execution_surfaces"
       },
       {
@@ -481,7 +481,7 @@
         "id": "reqllm.extension_manifest.narrow_seams",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Extension declarations shall only patch explicit seams such as provider registration, provider facts, surface catalog construction, surface preparation, session-runtime mapping, semantic protocol mapping, wire mapping, transport mapping, realtime adapter mapping, adapters, and provider-native utility homes, including provider-owned media families and request-style media wires when needed, and shared runtime code shall consume those seams instead of branching on provider atoms directly, so providers such as xAI can add provider-local tool helpers and responses or media wire swaps without reintroducing shared provider branching.",
+        "statement": "Extension declarations shall only patch explicit seams such as provider registration, provider facts, surface catalog construction, surface preparation, session-runtime mapping, semantic protocol mapping, wire mapping, transport mapping, realtime adapter mapping, adapters, and provider-native utility homes, including provider-owned media families, request-style media wires, or local-process CLI transports when needed, and shared runtime code shall consume those seams instead of branching on provider atoms directly, so providers such as xAI can add provider-local tool helpers and responses or media wire swaps and Codex CLI can add a provider-local wire, protocol, and local transport stack without reintroducing shared provider branching.",
         "subject_id": "reqllm.extension_manifest"
       },
       {
@@ -489,7 +489,7 @@
         "id": "reqllm.extension_manifest.plain_runtime_contract",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall model execution extension behavior as plain runtime data made of providers, families, rules, criteria, seam patches, and manifests so the runtime consumes a stable contract independent of any authoring DSL, with built-in declaration packs discovered from provider and family slice homes such as `lib/req_llm_next/families/**/definition.ex` and `lib/req_llm_next/providers/**/definition.ex`, merged into one compiled manifest at compile time, and expanded into a manifest-backed runtime registry for globally-addressable provider, session-runtime, protocol, wire, and transport seam keys plus plan-local seam overrides for provider or family stacks that intentionally shadow the shared fallback registry.",
+        "statement": "ReqLlmNext shall model execution extension behavior as plain runtime data made of providers, families, rules, criteria, seam patches, and manifests so the runtime consumes a stable contract independent of any authoring DSL, with built-in declaration packs discovered from provider and family slice homes such as `lib/req_llm_next/families/**/definition.ex` and `lib/req_llm_next/providers/**/definition.ex`, merged into one compiled manifest at compile time, and expanded into a manifest-backed runtime registry for globally-addressable provider, session-runtime, protocol, wire, and transport seam keys, including provider-owned local-process transport keys for CLI-backed slices such as Codex CLI, plus plan-local seam overrides for provider or family stacks that intentionally shadow the shared fallback registry.",
         "subject_id": "reqllm.extension_manifest"
       },
       {
@@ -537,7 +537,7 @@
         "id": "reqllm.layer_boundaries.replay_uses_recorded_stack",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Fixture replay shall prefer the recorded or inferable surface from the fixture request itself over today's planned surface so replay keeps exercising the execution stack that originally produced the captured artifact, whether that artifact was a streaming capture or a request-style media response that must still route through the owning wire decoder, while sparse live verifier suites above the runtime stack continue to use the same planner and execution layers rather than special-case provider shortcuts, including replay-backed Google embedding and image fixtures plus opt-in Google live verifiers that exercise the same native provider stack.",
+        "statement": "Fixture replay shall prefer the recorded or inferable surface from the fixture request itself over today's planned surface so replay keeps exercising the execution stack that originally produced the captured artifact, whether that artifact was a streaming capture, a request-style media response that must still route through the owning wire decoder, or a line-framed local-process capture such as Codex CLI JSONL output, while sparse live verifier suites above the runtime stack continue to use the same planner and execution layers rather than special-case provider shortcuts, including replay-backed Google embedding and image fixtures plus opt-in Google live verifiers that exercise the same native provider stack.",
         "subject_id": "reqllm.layer_boundaries"
       },
       {
@@ -545,7 +545,7 @@
         "id": "reqllm.layer_boundaries.separated_io",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall keep provider, session runtime, realtime adapter, realtime session reduction, transport, wire format, semantic protocol, and telemetry-kernel responsibilities separated so no layer skips across another layer's ownership boundary and each resolved plan binds one deterministic layer stack including explicit provider, protocol, wire, and transport modules resolved from manifest-declared seams and the compiled runtime registry across both streaming execution and request-style HTTP media lanes, allowing provider-local wire swaps and family overrides such as Groq chat and transcription support, OpenRouter routing-aware request shaping, Google generateContent plus dedicated embedding and image wires inside one native provider family, or xAI Responses and image-family separation plus provider-local tool helper wires without mutating the shared family baseline, while also allowing simple providers such as vLLM or generic best-effort packaged providers to bind a provider module without adding unnecessary lower-layer indirection.",
+        "statement": "ReqLlmNext shall keep provider, session runtime, realtime adapter, realtime session reduction, transport, wire format, semantic protocol, and telemetry-kernel responsibilities separated so no layer skips across another layer's ownership boundary and each resolved plan binds one deterministic layer stack including explicit provider, protocol, wire, and transport modules resolved from manifest-declared seams and the compiled runtime registry across both streaming execution and request-style HTTP or local-process lanes, allowing provider-local wire swaps and family overrides such as Groq chat and transcription support, OpenRouter routing-aware request shaping, Google generateContent plus dedicated embedding and image wires inside one native provider family, Codex CLI local-process text and object execution with isolated working directories and external auth, or xAI Responses and image-family separation plus provider-local tool helper wires without mutating the shared family baseline, while also allowing simple providers such as vLLM or generic best-effort packaged providers to bind a provider module without adding unnecessary lower-layer indirection.",
         "subject_id": "reqllm.layer_boundaries"
       },
       {
@@ -633,7 +633,7 @@
         "id": "reqllm.model_input.accepted_forms",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext public runtime APIs shall accept model input only as an `LLMDB` `model_spec` string or a `%LLMDB.Model{}`, including handcrafted `%LLMDB.Model{}` values used for local iteration, unreleased models, and local providers, and that narrow boundary shall stay stable across the top-level text, object, media, embedding, and support-introspection facade plus the shared realtime core and sparse live verifier suites even as concrete provider and family implementations are co-located into internal slice homes, the provider roster grows through family-first expansion, and packaged models resolve into first-class or best-effort support tiers.",
+        "statement": "ReqLlmNext public runtime APIs shall accept model input only as an `LLMDB` `model_spec` string or a `%LLMDB.Model{}`, including handcrafted `%LLMDB.Model{}` values used for local iteration, unreleased models, and local providers such as the Codex CLI spike, and that narrow boundary shall stay stable across the top-level text, object, media, embedding, and support-introspection facade plus the shared realtime core and sparse live verifier suites even as concrete provider and family implementations are co-located into internal slice homes, the provider roster grows through family-first expansion, and packaged models resolve into first-class or best-effort support tiers.",
         "subject_id": "reqllm.model_input"
       },
       {
@@ -665,7 +665,7 @@
         "id": "reqllm.model_profile.descriptive_facts",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall normalize resolved model metadata into a request-independent `ModelProfile` that describes operations, features, modalities, limits, parameter defaults, constraints metadata, and session capabilities without choosing concrete request behavior, including manifest-backed provider-scoped descriptive fact extraction for normalized features such as Anthropic structured outputs, citations, context management, additional document input, provider-owned media operation support, Google distinctions between Gemini chat, embedding, dedicated image-generation, and obviously non-chat long-tail families, and OpenAI-compatible provider deltas such as DeepSeek chat or reasoning behavior, Groq transcription-media routing, OpenRouter routing-aware chat overrides, xAI responses-first versus image-media routing plus native-structured-output support by model generation, and self-hosted providers such as vLLM that intentionally ride the shared OpenAI-compatible family without custom wire or protocol overrides, plus the resolved extension family id selected by declarative criteria and provider or global fallback rules or by typed `LLMDB.Model.execution` metadata for best-effort providers when no dedicated provider registration exists.",
+        "statement": "ReqLlmNext shall normalize resolved model metadata into a request-independent `ModelProfile` that describes operations, features, modalities, limits, parameter defaults, constraints metadata, and session capabilities without choosing concrete request behavior, including manifest-backed provider-scoped descriptive fact extraction for normalized features such as Anthropic structured outputs, citations, context management, additional document input, provider-owned media operation support, Google distinctions between Gemini chat, embedding, dedicated image-generation, and obviously non-chat long-tail families, Codex CLI local text and object support with native output-schema capability but no canonical tool calling, and OpenAI-compatible provider deltas such as DeepSeek chat or reasoning behavior, Groq transcription-media routing, OpenRouter routing-aware chat overrides, xAI responses-first versus image-media routing plus native-structured-output support by model generation, and self-hosted providers such as vLLM that intentionally ride the shared OpenAI-compatible family without custom wire or protocol overrides, plus the resolved extension family id selected by declarative criteria and provider or global fallback rules or by typed `LLMDB.Model.execution` metadata for best-effort providers when no dedicated provider registration exists.",
         "subject_id": "reqllm.model_profile"
       },
       {
@@ -673,7 +673,7 @@
         "id": "reqllm.model_profile.execution_surfaces_declared",
         "priority": "must",
         "stability": "evolving",
-        "statement": "`ModelProfile` shall declare explicit named `ExecutionSurface` entries for supported endpoint styles instead of implying support from independent protocol, wire-format, and transport lists, including multiple transport variants for one semantic family when the provider truly supports them, allowing one provider-owned media catalog to emit several explicit media-operation surfaces when the provider facts already disambiguate which family is active, and carrying an explicit owning family id on each surface whether that surface came from an extension-backed catalog or the generic typed-metadata best-effort catalog.",
+        "statement": "`ModelProfile` shall declare explicit named `ExecutionSurface` entries for supported endpoint styles instead of implying support from independent protocol, wire-format, and transport lists, including multiple transport variants for one semantic family when the provider truly supports them, provider-owned local-process surfaces when a CLI runtime is first-class, allowing one provider-owned media catalog to emit several explicit media-operation surfaces when the provider facts already disambiguate which family is active, and carrying an explicit owning family id on each surface whether that surface came from an extension-backed catalog or the generic typed-metadata best-effort catalog.",
         "subject_id": "reqllm.model_profile"
       },
       {
@@ -689,7 +689,7 @@
         "id": "reqllm.operation_planner.assembly_scope",
         "priority": "must",
         "stability": "evolving",
-        "statement": "The planner boundary shall own mode normalization, rule evaluation, compatibility-aware surface selection, parameter normalization, explicit transport and session preference handling, fallback planning, surface-specific parameter validation, documented provider-native dependency validation, provider-native helper acceptance or rejection, surface-owned request preparation, session planning, and adapter selection, including request-style media operations, provider-owned Google embedding and image validation including rejection of unsupported Imagen `:size` overrides before provider execution, OpenAI-compatible provider overrides such as DeepSeek chat families and xAI responses-first surfaces with provider-local built-in tool helpers plus image-family overrides, Anthropic context-management validation such as `clear_thinking_20251015` requiring Anthropic thinking to be enabled, and resolution of surface-preparation, session-runtime, and adapter seams from the compiled extension manifest rather than from global imperative registries, while using the chosen surface family and typed `LLMDB` execution metadata to plan best-effort providers without reintroducing provider-name inference into the planner.",
+        "statement": "The planner boundary shall own mode normalization, rule evaluation, compatibility-aware surface selection, parameter normalization, explicit transport and session preference handling, fallback planning, surface-specific parameter validation, documented provider-native dependency validation, provider-native helper acceptance or rejection, surface-owned request preparation, session planning, and adapter selection, including request-style media operations, provider-owned Google embedding and image validation including rejection of unsupported Imagen `:size` overrides before provider execution, local CLI surface validation such as Codex CLI rejecting canonical tool calls and assistant tool-call history before local transport execution, OpenAI-compatible provider overrides such as DeepSeek chat families and xAI responses-first surfaces with provider-local built-in tool helpers plus image-family overrides, Anthropic context-management validation such as `clear_thinking_20251015` requiring Anthropic thinking to be enabled, and resolution of surface-preparation, session-runtime, and adapter seams from the compiled extension manifest rather than from global imperative registries, while using the chosen surface family and typed `LLMDB` execution metadata to plan best-effort providers without reintroducing provider-name inference into the planner.",
         "subject_id": "reqllm.operation_planner"
       },
       {
@@ -729,7 +729,7 @@
         "id": "reqllm.package.execution_planning",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall route supported requests through a deterministic planning path that normalizes model facts into `ModelProfile`, request intent into `ExecutionMode`, selects explicit `ExecutionSurface` support through compatibility-aware policy, validates surface-specific parameter compatibility, materializes an `ExecutionPlan`, and resolves an execution stack of provider, session runtime, semantic protocol, wire, and transport modules before runtime execution, with provider facts, runtime-module lookup, and surface catalog construction driven from the compiled extension manifest for first-class providers and from typed `LLMDB.Provider.runtime` plus `LLMDB.Model.execution` metadata for best-effort providers rather than from central provider branching, and the provider layer shall honor typed runtime auth styles, templated provider configuration, and per-operation `base_url`, `path`, and `provider_model_id` overrides declared by that upstream contract while shared wire dispatch continues to honor provider-owned optional callbacks such as custom request builders and wire-specific headers even when those wire modules were not preloaded earlier in the VM lifetime.",
+        "statement": "ReqLlmNext shall route supported requests through a deterministic planning path that normalizes model facts into `ModelProfile`, request intent into `ExecutionMode`, selects explicit `ExecutionSurface` support through compatibility-aware policy, validates surface-specific parameter compatibility, materializes an `ExecutionPlan`, and resolves an execution stack of provider, session runtime, semantic protocol, wire, and transport modules before runtime execution, with provider facts, runtime-module lookup, and surface catalog construction driven from the compiled extension manifest for first-class providers and from typed `LLMDB.Provider.runtime` plus `LLMDB.Model.execution` metadata for best-effort providers rather than from central provider branching, and the runtime stack shall support HTTP, WebSocket, and provider-owned local-process transports such as the Codex CLI spike while keeping auth an external concern for those CLI-backed surfaces, while shared wire dispatch continues to honor provider-owned optional callbacks such as custom request builders and wire-specific headers even when those wire modules were not preloaded earlier in the VM lifetime.",
         "subject_id": "reqllm.package"
       },
       {
@@ -737,7 +737,7 @@
         "id": "reqllm.package.fixture_replay",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall verify package behavior with deterministic automated tests that exercise provider scenarios and replay recorded fixtures by default, preserving the recorded execution surface when fixtures were captured against an older but still valid endpoint shape, including request-style fixtures for non-stream image, transcription, and speech operations, while keeping sparse live verifier tests as an explicit opt-in integration lane instead of broad live CI coverage.",
+        "statement": "ReqLlmNext shall verify package behavior with deterministic automated tests that exercise provider scenarios and replay recorded fixtures by default, preserving the recorded execution surface when fixtures were captured against an older but still valid endpoint shape, including request-style fixtures for non-stream image, transcription, and speech operations plus line-framed local-process captures for CLI-backed surfaces such as Codex CLI, while keeping sparse live verifier tests as an explicit opt-in integration lane instead of broad live CI coverage.",
         "subject_id": "reqllm.package"
       },
       {
@@ -769,7 +769,7 @@
         "id": "reqllm.package.multi_provider_api",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall provide a unified public API for text generation, structured output, streaming, embeddings, and supported media operations across supported model providers using the same operations whether callers start from an `LLMDB` `model_spec` string or an `%LLMDB.Model{}`, including handcrafted structs used for local development, while distinguishing first-class integrated providers from best-effort packaged providers whose execution is driven by typed `LLMDB` runtime metadata.",
+        "statement": "ReqLlmNext shall provide a unified public API for text generation, structured output, streaming, embeddings, and supported media operations across supported model providers using the same operations whether callers start from an `LLMDB` `model_spec` string or an `%LLMDB.Model{}`, including handcrafted structs used for local development and local first-class providers such as the Codex CLI spike, while distinguishing first-class integrated providers from best-effort packaged providers whose execution is driven by typed `LLMDB` runtime metadata.",
         "subject_id": "reqllm.package"
       },
       {
@@ -801,7 +801,7 @@
         "id": "reqllm.package.support_tiers",
         "priority": "should",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall accept all `LLMDB` models as public inputs, report support through explicit `:first_class`, `:best_effort`, and `{:unsupported, reason}` tiers, treat first-class support as a function of actual provider-owned surfaces rather than provider registration alone, execute packaged non-first-class models through canonical families only when typed `LLMDB` runtime metadata is complete enough to do so safely, prove that path against a curated best-effort provider matrix instead of a single happy-path provider, and fail fast when packaged metadata is catalog-only, incomplete, or names an unknown execution family.",
+        "statement": "ReqLlmNext shall accept all `LLMDB` models as public inputs, report support through explicit `:first_class`, `:best_effort`, and `{:unsupported, reason}` tiers, treat first-class support as a function of actual provider-owned surfaces rather than provider registration alone, allow handcrafted local provider structs such as Codex CLI to report `:first_class` only when their provider-owned surfaces are real, execute packaged non-first-class models through canonical families only when typed `LLMDB` runtime metadata is complete enough to do so safely, prove that path against a curated best-effort provider matrix instead of a single happy-path provider, and fail fast when packaged metadata is catalog-only, incomplete, or names an unknown execution family.",
         "subject_id": "reqllm.package"
       },
       {
@@ -889,7 +889,7 @@
         "id": "reqllm.public_api.canonical_shapes",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Top-level generation, media, and embedding entrypoints shall accept the canonical public model inputs of `LLMDB` `model_spec` strings or `%LLMDB.Model{}` values, return canonical `Response`, `StreamResponse`, `ReqLlmNext.Transcription.Result`, or `ReqLlmNext.Speech.Result` values from non-bang forms as appropriate, and raise from bang forms.",
+        "statement": "Top-level generation, media, and embedding entrypoints shall accept the canonical public model inputs of `LLMDB` `model_spec` strings or `%LLMDB.Model{}` values, including handcrafted local-provider models such as Codex CLI, return canonical `Response`, `StreamResponse`, `ReqLlmNext.Transcription.Result`, or `ReqLlmNext.Speech.Result` values from non-bang forms as appropriate, and raise from bang forms.",
         "subject_id": "reqllm.public_api"
       },
       {
@@ -913,7 +913,7 @@
         "id": "reqllm.public_api.support_status",
         "priority": "should",
         "stability": "evolving",
-        "statement": "`ReqLlmNext.support_status/1` shall accept the same canonical model inputs as the execution facade and return `:first_class`, `:best_effort`, or `{:unsupported, reason}` based on integrated provider slices, typed `LLMDB` runtime and execution metadata, and explicit fail-fast unsupported reasons such as `:catalog_only`, `:missing_provider_runtime`, or `:missing_execution_metadata`, with first-class status reflecting actual provider-owned surfaces rather than provider registration alone so locally implemented Google embedding or image lanes can report `:first_class` even when upstream metadata still marks adjacent models as catalog-only.",
+        "statement": "`ReqLlmNext.support_status/1` shall accept the same canonical model inputs as the execution facade and return `:first_class`, `:best_effort`, or `{:unsupported, reason}` based on integrated provider slices, typed `LLMDB` runtime and execution metadata, and explicit fail-fast unsupported reasons such as `:catalog_only`, `:missing_provider_runtime`, or `:missing_execution_metadata`, with first-class status reflecting actual provider-owned surfaces rather than provider registration alone so locally implemented Google embedding or image lanes and handcrafted Codex CLI models can report `:first_class` only when their provider-owned surfaces are real.",
         "subject_id": "reqllm.public_api"
       },
       {
@@ -993,7 +993,7 @@
         "id": "reqllm.source_layout.concern_homes",
         "priority": "must",
         "stability": "evolving",
-        "statement": "ReqLlmNext shall keep model-boundary concerns, support-tier introspection, typed runtime-metadata interpretation, provider-scoped fact extraction, manifest-backed provider registration, family-owned or provider-owned surface catalog modules, profile construction, mode normalization, policy resolution, surface-owned request preparation, session-runtime modules, semantic protocol normalization, wire envelopes, transport mechanics, shared response output-item materialization, fixture replay, curated best-effort provider proof matrices, provider-feature probes, sparse live verifier probes, media input and output contracts, realtime commands and session state, and telemetry emission in distinct source locations that match the architecture, while co-locating concrete family implementations under `lib/req_llm_next/families/` and provider-owned implementations and utilities under `lib/req_llm_next/providers/`, including provider-local chat and media variants such as the Groq, OpenRouter, and xAI slices, simple provider registrations such as the vLLM slice, native-family slices such as the Google Gemini generateContent plus Google embedding and image wires, ElevenLabs media, and Cohere chat implementations, and central generic best-effort runtime helpers such as `runtime_metadata.ex`, `support.ex`, and `providers/generic.ex`, with generic auth and URL resolution remaining owned by the central provider layer rather than leaking into planner, wire, or transport modules, and with shared wire helpers loading provider-owned optional callbacks before dispatch so provider-specific headers and dynamic request builders stay owned by the provider wire homes instead of being duplicated upward.",
+        "statement": "ReqLlmNext shall keep model-boundary concerns, support-tier introspection, typed runtime-metadata interpretation, provider-scoped fact extraction, manifest-backed provider registration, family-owned or provider-owned surface catalog modules, profile construction, mode normalization, policy resolution, surface-owned request preparation, session-runtime modules, semantic protocol normalization, wire envelopes, transport mechanics, shared response output-item materialization, fixture replay, curated best-effort provider proof matrices, provider-feature probes, sparse live verifier probes, media input and output contracts, realtime commands and session state, and telemetry emission in distinct source locations that match the architecture, while co-locating concrete family implementations under `lib/req_llm_next/families/` and provider-owned implementations and utilities under `lib/req_llm_next/providers/`, including provider-local chat and media variants such as the Groq, OpenRouter, and xAI slices, simple provider registrations such as the vLLM slice, native-family slices such as the Google Gemini generateContent plus Google embedding and image wires, local CLI slices such as Codex CLI with provider-owned facts, surface catalog, semantic protocol, wire, and transport modules, ElevenLabs media, and Cohere chat implementations, and central generic best-effort runtime helpers such as `runtime_metadata.ex`, `support.ex`, and `providers/generic.ex`, with generic auth and URL resolution remaining owned by the central provider layer rather than leaking into planner, wire, or transport modules, and with shared wire helpers loading provider-owned optional callbacks before dispatch so provider-specific headers and dynamic request builders stay owned by the provider wire homes instead of being duplicated upward.",
         "subject_id": "reqllm.source_layout"
       },
       {
@@ -1886,7 +1886,7 @@
         "file": ".spec/specs/architecture.spec.md",
         "kind": "command",
         "subject_id": "reqllm.architecture",
-        "target": "mix test test/model_resolver_test.exs test/public_api"
+        "target": "mix test test/model_resolver_test.exs test/public_api test/providers/codex_cli/execution_stack_test.exs"
       },
       {
         "covers": [
@@ -1906,7 +1906,7 @@
         "file": ".spec/specs/architecture.spec.md",
         "kind": "command",
         "subject_id": "reqllm.architecture",
-        "target": "mix test test/best_effort_runtime_test.exs test/public_api/support_status_test.exs"
+        "target": "mix test test/best_effort_runtime_test.exs test/public_api/support_status_test.exs test/public_api/codex_cli_test.exs"
       },
       {
         "covers": [
@@ -1950,7 +1950,7 @@
         "file": ".spec/specs/enforcement.spec.md",
         "kind": "command",
         "subject_id": "reqllm.enforcement",
-        "target": "mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/media_test.exs test/req_llm_next/validation_test.exs"
+        "target": "mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/media_test.exs test/public_api/codex_cli_test.exs test/req_llm_next/validation_test.exs"
       },
       {
         "covers": [
@@ -2043,7 +2043,7 @@
         "file": ".spec/specs/execution_surfaces.spec.md",
         "kind": "command",
         "subject_id": "reqllm.execution_surfaces",
-        "target": "mix test test/operation_planner_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/cohere/execution_stack_test.exs"
+        "target": "mix test test/operation_planner_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/cohere/execution_stack_test.exs test/providers/codex_cli/execution_stack_test.exs"
       },
       {
         "covers": [
@@ -2103,7 +2103,7 @@
         "file": ".spec/specs/extension_manifest.spec.md",
         "kind": "command",
         "subject_id": "reqllm.extension_manifest",
-        "target": "mix test test/providers/cohere/execution_stack_test.exs test/providers/deepseek/execution_stack_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/groq/execution_stack_test.exs test/providers/openrouter/execution_stack_test.exs test/providers/vllm/execution_stack_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/model_profile_test.exs"
+        "target": "mix test test/providers/cohere/execution_stack_test.exs test/providers/deepseek/execution_stack_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/groq/execution_stack_test.exs test/providers/openrouter/execution_stack_test.exs test/providers/vllm/execution_stack_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/providers/codex_cli/execution_stack_test.exs test/model_profile_test.exs"
       },
       {
         "covers": [
@@ -2137,7 +2137,7 @@
         "file": ".spec/specs/layer_boundaries.spec.md",
         "kind": "command",
         "subject_id": "reqllm.layer_boundaries",
-        "target": "mix test test/executor/stream_state_test.exs test/fixtures_test.exs test/operation_planner_test.exs"
+        "target": "mix test test/executor/stream_state_test.exs test/fixtures_test.exs test/operation_planner_test.exs test/providers/codex_cli/execution_stack_test.exs"
       },
       {
         "covers": [
@@ -2170,7 +2170,7 @@
         "file": ".spec/specs/layer_boundaries.spec.md",
         "kind": "command",
         "subject_id": "reqllm.layer_boundaries",
-        "target": "mix test test/providers/xai/execution_stack_test.exs test/providers/xai/wire_responses_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/zenmux/wire_chat_test.exs test/providers/zenmux/wire_responses_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_generate_content_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/elevenlabs/wire_speech_test.exs test/providers/elevenlabs/wire_transcriptions_test.exs test/providers/cohere/execution_stack_test.exs test/providers/cohere/wire_chat_test.exs"
+        "target": "mix test test/providers/xai/execution_stack_test.exs test/providers/xai/wire_responses_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/zenmux/wire_chat_test.exs test/providers/zenmux/wire_responses_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_generate_content_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/elevenlabs/wire_speech_test.exs test/providers/elevenlabs/wire_transcriptions_test.exs test/providers/cohere/execution_stack_test.exs test/providers/cohere/wire_chat_test.exs test/providers/codex_cli/execution_stack_test.exs test/public_api/codex_cli_test.exs"
       },
       {
         "covers": [
@@ -2321,7 +2321,7 @@
         "file": ".spec/specs/model_input_boundary.spec.md",
         "kind": "command",
         "subject_id": "reqllm.model_input",
-        "target": "mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/text_generation_test.exs test/public_api/media_test.exs test/req_llm_next/realtime_test.exs"
+        "target": "mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/text_generation_test.exs test/public_api/codex_cli_test.exs test/public_api/media_test.exs test/req_llm_next/realtime_test.exs"
       },
       {
         "covers": [
@@ -2355,7 +2355,7 @@
         "file": ".spec/specs/model_profile.spec.md",
         "kind": "command",
         "subject_id": "reqllm.model_profile",
-        "target": "mix test test/model_profile_test.exs test/operation_planner_test.exs test/providers/xai/provider_facts_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/provider_facts_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/provider_facts_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/providers/elevenlabs/provider_facts_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/cohere/provider_facts_test.exs test/providers/cohere/execution_stack_test.exs"
+        "target": "mix test test/model_profile_test.exs test/operation_planner_test.exs test/providers/xai/provider_facts_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/provider_facts_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/provider_facts_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/providers/elevenlabs/provider_facts_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/cohere/provider_facts_test.exs test/providers/cohere/execution_stack_test.exs test/providers/codex_cli/execution_stack_test.exs"
       },
       {
         "covers": [
@@ -2388,7 +2388,7 @@
         "file": ".spec/specs/operation_planner.spec.md",
         "kind": "command",
         "subject_id": "reqllm.operation_planner",
-        "target": "mix test test/operation_planner_test.exs"
+        "target": "mix test test/operation_planner_test.exs test/providers/codex_cli/execution_stack_test.exs"
       },
       {
         "covers": [
@@ -2398,7 +2398,7 @@
         "file": ".spec/specs/operation_planner.spec.md",
         "kind": "command",
         "subject_id": "reqllm.operation_planner",
-        "target": "mix test test/providers/anthropic/surface_preparation_messages_test.exs"
+        "target": "mix test test/providers/anthropic/surface_preparation_messages_test.exs test/public_api/codex_cli_test.exs"
       },
       {
         "covers": [
@@ -2519,7 +2519,7 @@
         "file": ".spec/specs/package.spec.md",
         "kind": "command",
         "subject_id": "reqllm.package",
-        "target": "mix test test/providers/cohere test/providers/deepseek test/providers/elevenlabs test/providers/groq test/providers/openrouter test/providers/vllm test/providers/xai test/providers/zenmux test/providers/google test/model_profile_test.exs test/wire/resolver_test.exs"
+        "target": "mix test test/providers/cohere test/providers/deepseek test/providers/elevenlabs test/providers/groq test/providers/openrouter test/providers/vllm test/providers/xai test/providers/zenmux test/providers/google test/providers/codex_cli test/model_profile_test.exs test/wire/resolver_test.exs"
       },
       {
         "covers": [

@@ -24,7 +24,7 @@ surface:
 
 ```spec-requirements
 - id: reqllm.extension_manifest.plain_runtime_contract
-  statement: ReqLlmNext shall model execution extension behavior as plain runtime data made of providers, families, rules, criteria, seam patches, and manifests so the runtime consumes a stable contract independent of any authoring DSL, with built-in declaration packs discovered from provider and family slice homes such as `lib/req_llm_next/families/**/definition.ex` and `lib/req_llm_next/providers/**/definition.ex`, merged into one compiled manifest at compile time, and expanded into a manifest-backed runtime registry for globally-addressable provider, session-runtime, protocol, wire, and transport seam keys plus plan-local seam overrides for provider or family stacks that intentionally shadow the shared fallback registry.
+  statement: ReqLlmNext shall model execution extension behavior as plain runtime data made of providers, families, rules, criteria, seam patches, and manifests so the runtime consumes a stable contract independent of any authoring DSL, with built-in declaration packs discovered from provider and family slice homes such as `lib/req_llm_next/families/**/definition.ex` and `lib/req_llm_next/providers/**/definition.ex`, merged into one compiled manifest at compile time, and expanded into a manifest-backed runtime registry for globally-addressable provider, session-runtime, protocol, wire, and transport seam keys, including provider-owned local-process transport keys for CLI-backed slices such as Codex CLI, plus plan-local seam overrides for provider or family stacks that intentionally shadow the shared fallback registry.
   priority: must
   stability: evolving
 
@@ -39,7 +39,7 @@ surface:
   stability: evolving
 
 - id: reqllm.extension_manifest.narrow_seams
-  statement: Extension declarations shall only patch explicit seams such as provider registration, provider facts, surface catalog construction, surface preparation, session-runtime mapping, semantic protocol mapping, wire mapping, transport mapping, realtime adapter mapping, adapters, and provider-native utility homes, including provider-owned media families and request-style media wires when needed, and shared runtime code shall consume those seams instead of branching on provider atoms directly, so providers such as xAI can add provider-local tool helpers and responses or media wire swaps without reintroducing shared provider branching.
+  statement: Extension declarations shall only patch explicit seams such as provider registration, provider facts, surface catalog construction, surface preparation, session-runtime mapping, semantic protocol mapping, wire mapping, transport mapping, realtime adapter mapping, adapters, and provider-native utility homes, including provider-owned media families, request-style media wires, or local-process CLI transports when needed, and shared runtime code shall consume those seams instead of branching on provider atoms directly, so providers such as xAI can add provider-local tool helpers and responses or media wire swaps and Codex CLI can add a provider-local wire, protocol, and local transport stack without reintroducing shared provider branching.
   priority: must
   stability: evolving
 
@@ -82,7 +82,7 @@ surface:
     - reqllm.extension_manifest.compile_time_verification
 
 - kind: command
-  target: mix test test/providers/cohere/execution_stack_test.exs test/providers/deepseek/execution_stack_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/groq/execution_stack_test.exs test/providers/openrouter/execution_stack_test.exs test/providers/vllm/execution_stack_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/model_profile_test.exs
+  target: mix test test/providers/cohere/execution_stack_test.exs test/providers/deepseek/execution_stack_test.exs test/providers/elevenlabs/execution_stack_test.exs test/providers/groq/execution_stack_test.exs test/providers/openrouter/execution_stack_test.exs test/providers/vllm/execution_stack_test.exs test/providers/xai/execution_stack_test.exs test/providers/zenmux/execution_stack_test.exs test/providers/google/execution_stack_test.exs test/providers/google/wire_embeddings_test.exs test/providers/google/wire_images_test.exs test/provider_features/google_native_surfaces_test.exs test/providers/codex_cli/execution_stack_test.exs test/model_profile_test.exs
   execute: true
   covers:
     - reqllm.extension_manifest.plain_runtime_contract

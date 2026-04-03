@@ -22,7 +22,7 @@ surface:
   stability: evolving
 
 - id: reqllm.public_api.canonical_shapes
-  statement: Top-level generation, media, and embedding entrypoints shall accept the canonical public model inputs of `LLMDB` `model_spec` strings or `%LLMDB.Model{}` values, return canonical `Response`, `StreamResponse`, `ReqLlmNext.Transcription.Result`, or `ReqLlmNext.Speech.Result` values from non-bang forms as appropriate, and raise from bang forms.
+  statement: Top-level generation, media, and embedding entrypoints shall accept the canonical public model inputs of `LLMDB` `model_spec` strings or `%LLMDB.Model{}` values, including handcrafted local-provider models such as Codex CLI, return canonical `Response`, `StreamResponse`, `ReqLlmNext.Transcription.Result`, or `ReqLlmNext.Speech.Result` values from non-bang forms as appropriate, and raise from bang forms.
   priority: must
   stability: evolving
 
@@ -37,7 +37,7 @@ surface:
   stability: evolving
 
 - id: reqllm.public_api.support_status
-  statement: `ReqLlmNext.support_status/1` shall accept the same canonical model inputs as the execution facade and return `:first_class`, `:best_effort`, or `{:unsupported, reason}` based on integrated provider slices, typed `LLMDB` runtime and execution metadata, and explicit fail-fast unsupported reasons such as `:catalog_only`, `:missing_provider_runtime`, or `:missing_execution_metadata`, with first-class status reflecting actual provider-owned surfaces rather than provider registration alone so locally implemented Google embedding or image lanes can report `:first_class` even when upstream metadata still marks adjacent models as catalog-only.
+  statement: `ReqLlmNext.support_status/1` shall accept the same canonical model inputs as the execution facade and return `:first_class`, `:best_effort`, or `{:unsupported, reason}` based on integrated provider slices, typed `LLMDB` runtime and execution metadata, and explicit fail-fast unsupported reasons such as `:catalog_only`, `:missing_provider_runtime`, or `:missing_execution_metadata`, with first-class status reflecting actual provider-owned surfaces rather than provider registration alone so locally implemented Google embedding or image lanes and handcrafted Codex CLI models can report `:first_class` only when their provider-owned surfaces are real.
   priority: should
   stability: evolving
 ```

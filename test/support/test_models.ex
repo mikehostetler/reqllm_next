@@ -95,6 +95,29 @@ defmodule ReqLlmNext.TestModels do
   end
 
   @doc """
+  Creates a local Codex CLI model for testing.
+  """
+  def codex_cli(overrides \\ %{}) do
+    base = %LLMDB.Model{
+      id: "gpt-5-codex",
+      provider: :codex_cli,
+      name: "Test Codex CLI Model",
+      capabilities: %{
+        chat: true,
+        embeddings: false,
+        reasoning: %{enabled: false},
+        tools: %{enabled: false, streaming: false, strict: false, parallel: false},
+        json: %{native: true, schema: true, strict: true},
+        streaming: %{text: true, tool_calls: false}
+      },
+      limits: %{context: 200_000, output: 32_768},
+      modalities: %{input: [:text], output: [:text]}
+    }
+
+    struct!(base, Map.to_list(overrides))
+  end
+
+  @doc """
   Creates an OpenAI reasoning model (o-series) for testing.
 
   Includes `extra.wire.protocol: :openai_responses` and `extra.api: "responses"`

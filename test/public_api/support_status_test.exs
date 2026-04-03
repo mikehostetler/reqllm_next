@@ -57,6 +57,15 @@ defmodule ReqLlmNext.PublicApi.SupportStatusTest do
     assert ReqLlmNext.support_status(model) == :first_class
   end
 
+  test "returns first-class for handcrafted Codex CLI models" do
+    model =
+      ReqLlmNext.TestModels.codex_cli(%{
+        catalog_only: true
+      })
+
+    assert ReqLlmNext.support_status(model) == :first_class
+  end
+
   test "returns unsupported for catalog-only Google models without supported surfaces" do
     model =
       %LLMDB.Model{

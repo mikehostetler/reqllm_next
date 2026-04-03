@@ -31,7 +31,7 @@ decisions:
 
 ```spec-requirements
 - id: reqllm.model_input.accepted_forms
-  statement: ReqLlmNext public runtime APIs shall accept model input only as an `LLMDB` `model_spec` string or a `%LLMDB.Model{}`, including handcrafted `%LLMDB.Model{}` values used for local iteration, unreleased models, and local providers, and that narrow boundary shall stay stable across the top-level text, object, media, embedding, and support-introspection facade plus the shared realtime core and sparse live verifier suites even as concrete provider and family implementations are co-located into internal slice homes, the provider roster grows through family-first expansion, and packaged models resolve into first-class or best-effort support tiers.
+  statement: ReqLlmNext public runtime APIs shall accept model input only as an `LLMDB` `model_spec` string or a `%LLMDB.Model{}`, including handcrafted `%LLMDB.Model{}` values used for local iteration, unreleased models, and local providers such as the Codex CLI spike, and that narrow boundary shall stay stable across the top-level text, object, media, embedding, and support-introspection facade plus the shared realtime core and sparse live verifier suites even as concrete provider and family implementations are co-located into internal slice homes, the provider roster grows through family-first expansion, and packaged models resolve into first-class or best-effort support tiers.
   priority: must
   stability: evolving
 
@@ -63,7 +63,7 @@ decisions:
     - reqllm.model_input.zoi_handoff_contracts
 
 - kind: command
-  target: mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/text_generation_test.exs test/public_api/media_test.exs test/req_llm_next/realtime_test.exs
+  target: mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/text_generation_test.exs test/public_api/codex_cli_test.exs test/public_api/media_test.exs test/req_llm_next/realtime_test.exs
   execute: true
   covers:
     - reqllm.model_input.accepted_forms

@@ -5,6 +5,7 @@
     "reqllm-61z.2",
     "reqllm-61z.3"
   ],
+  "closed_at": "2026-04-03T13:33:39Z",
   "created": "2026-03-29T00:11:51Z",
   "description": "Implement the highest-value missing Google-native surfaces that fit the current package architecture cleanly, starting with embeddings and provider-scoped utilities like token counting or files where appropriate.",
   "id": "reqllm-61z.1",
@@ -17,8 +18,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Add Google embeddings and utility surfaces",
   "type": "task",
-  "updated_at": "2026-03-29T00:35:15Z"
+  "updated_at": "2026-04-03T13:33:39Z"
 }

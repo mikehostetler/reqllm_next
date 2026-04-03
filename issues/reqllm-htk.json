@@ -6,9 +6,15 @@
   "description": "Build an MVP spike for a first-class local codex_cli provider in ReqLlmNext. Keep auth external, prefer local Codex CLI login or API-key login outside the package, add the narrowest viable text/object execution path, and document the support boundary and risks for a spike branch that may not be kept.",
   "id": "reqllm-htk",
   "labels": [],
+  "comments": [
+    {
+      "text": "Opened draft PR #4 for codex_cli spike: https://github.com/mikehostetler/reqllm_next/pull/4",
+      "timestamp": "2026-04-03T17:17:01Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Spike codex_cli first-class provider",
   "type": "task",
-  "updated_at": "2026-04-03T14:06:30Z"
+  "updated_at": "2026-04-03T17:17:01Z"
 }

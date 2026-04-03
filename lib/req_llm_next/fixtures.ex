@@ -106,6 +106,9 @@ defmodule ReqLlmNext.Fixtures do
       "websocket" ->
         build_websocket_replay_stream(chunks, runtime, model)
 
+      "local_process" ->
+        build_framed_replay_stream(chunks, runtime, model)
+
       _ ->
         build_sse_replay_stream(chunks, runtime, model)
     end
@@ -156,6 +159,32 @@ defmodule ReqLlmNext.Fixtures do
             |> Enum.reject(&is_nil/1)
 
           {text_chunks, rest}
+      end,
+      fn _ -> :ok end
+    )
+  end
+
+  defp build_framed_replay_stream(
+         chunks,
+         %{wire_mod: wire_mod, protocol_mod: protocol_mod},
+         model
+       ) do
+    Stream.resource(
+      fn -> chunks end,
+      fn
+        [] ->
+          {:halt, nil}
+
+        [b64_chunk | rest] ->
+          raw_data = Base.decode64!(b64_chunk)
+
+          framed_chunks =
+            %{data: raw_data}
+            |> wire_mod.decode_wire_event()
+            |> Enum.flat_map(&protocol_mod.decode_event(&1, model))
+            |> Enum.reject(&is_nil/1)
+
+          {framed_chunks, rest}
       end,
       fn _ -> :ok end
     )

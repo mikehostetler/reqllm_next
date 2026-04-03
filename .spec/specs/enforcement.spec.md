@@ -25,7 +25,7 @@ surface:
   stability: evolving
 
 - id: reqllm.enforcement.runtime_hard_fail
-  statement: ReqLlmNext shall use runtime hard-fail validation for invalid model metadata, unsupported profile combinations, unsupported surface-parameter combinations, unsupported media operations, wrong-provider provider-native helper inputs, raw tool maps on non-owning surfaces, missing required continuation state, missing typed runtime metadata for best-effort providers, catalog-only packaged models that do not map to a real first-class provider-owned surface, unknown execution families, unknown keys, invalid enums, and unsafe source combinations rather than best-effort fallback behavior, while allowing only explicit manifest-declared provider-default and global-default family fallbacks and hard-failing compile-time extension manifests that violate duplicate-id, missing-reference, seam-ownership, or seam-module guarantees, without treating family-local semantic, wire, or transport seam overrides as invalid merely because a shared fallback registry already defines the same seam key.
+  statement: ReqLlmNext shall use runtime hard-fail validation for invalid model metadata, unsupported profile combinations, unsupported surface-parameter combinations, unsupported media operations, wrong-provider provider-native helper inputs, raw tool maps on non-owning surfaces, unsupported local CLI context shapes such as assistant tool-call history on Codex CLI text lanes, missing required continuation state, missing typed runtime metadata for best-effort providers, catalog-only packaged models that do not map to a real first-class provider-owned surface, unknown execution families, unknown keys, invalid enums, and unsafe source combinations rather than best-effort fallback behavior, while allowing only explicit manifest-declared provider-default and global-default family fallbacks and hard-failing compile-time extension manifests that violate duplicate-id, missing-reference, seam-ownership, or seam-module guarantees, without treating family-local semantic, wire, or transport seam overrides as invalid merely because a shared fallback registry already defines the same seam key.
   priority: must
   stability: evolving
 
@@ -46,7 +46,7 @@ surface:
     - reqllm.enforcement.zoi_for_facts
 
 - kind: command
-  target: mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/media_test.exs test/req_llm_next/validation_test.exs
+  target: mix test test/model_resolver_test.exs test/public_api/contract_test.exs test/public_api/media_test.exs test/public_api/codex_cli_test.exs test/req_llm_next/validation_test.exs
   execute: true
   covers:
     - reqllm.enforcement.raw_model_boundary

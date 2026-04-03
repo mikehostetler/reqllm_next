@@ -62,12 +62,12 @@ decisions:
   stability: evolving
 
 - id: reqllm.architecture.facts_mode_policy_plan
-  statement: ReqLlmNext architecture shall normalize model facts into `ModelProfile`, request intent into `ExecutionMode`, resolve compatibility-aware surface policy, run surface-owned request preparation, and materialize a single `ExecutionPlan` before downstream execution, including manifest-backed provider-scoped descriptive fact extraction for first-class providers, typed `LLMDB.Provider.runtime` and `LLMDB.Model.execution` metadata as the upstream contract for best-effort providers without dedicated slice registrations, family-owned or metadata-driven surface catalog resolution before planning, manifest-backed or generic runtime-module lookup for provider, session-runtime, protocol, wire, and transport layers, honoring explicit transport and session intent when a matching surface exists, validating surface-specific parameter compatibility before wire encoding, preparing continuation state in session runtime before transport execution, and routing both streaming and request-style non-streaming HTTP execution through explicit transport modules across text, object, embedding, image, transcription, and speech operations, including provider-owned Google embedding and image lanes inside the native Google family, while allowing public docs to distinguish first-class and best-effort support tiers without splitting the runtime into different planner architectures.
+  statement: ReqLlmNext architecture shall normalize model facts into `ModelProfile`, request intent into `ExecutionMode`, resolve compatibility-aware surface policy, run surface-owned request preparation, and materialize a single `ExecutionPlan` before downstream execution, including manifest-backed provider-scoped descriptive fact extraction for first-class providers, typed `LLMDB.Provider.runtime` and `LLMDB.Model.execution` metadata as the upstream contract for best-effort providers without dedicated slice registrations, family-owned or metadata-driven surface catalog resolution before planning, manifest-backed or generic runtime-module lookup for provider, session-runtime, protocol, wire, and transport layers, honoring explicit transport and session intent when a matching surface exists, validating surface-specific parameter compatibility before wire encoding, preparing continuation state in session runtime before transport execution, and routing both streaming and request-style execution through explicit transport modules across text, object, embedding, image, transcription, and speech operations, including provider-owned Google embedding and image lanes inside the native Google family plus first-class local-process text and object lanes such as the Codex CLI spike that keep auth outside the package boundary, while allowing public docs to distinguish first-class and best-effort support tiers without splitting the runtime into different planner architectures.
   priority: must
   stability: evolving
 
 - id: reqllm.architecture.execution_layers
-  statement: ReqLlmNext architecture shall separate realtime adapter, realtime session reduction, semantic protocol, wire format, transport, provider, session-runtime, and telemetry-kernel concerns so canonical request and event meaning, wire envelopes, persistent execution state, byte movement, and diagnostics can evolve independently, and canonical response normalization shall expose explicit result channels on top of output items so higher-level helpers do not have to recover those distinctions from provider metadata while replay-backed suites and sparse live verifier suites continue to exercise the same execution spine rather than alternate ad hoc paths.
+  statement: ReqLlmNext architecture shall separate realtime adapter, realtime session reduction, semantic protocol, wire format, transport, provider, session-runtime, and telemetry-kernel concerns so canonical request and event meaning, wire envelopes, persistent execution state, byte movement, and diagnostics can evolve independently across HTTP, WebSocket, and local-process transports, and canonical response normalization shall expose explicit result channels on top of output items so higher-level helpers do not have to recover those distinctions from provider metadata while replay-backed suites and sparse live verifier suites continue to exercise the same execution spine rather than alternate ad hoc paths.
   priority: must
   stability: evolving
 
@@ -108,7 +108,7 @@ decisions:
     - reqllm.architecture.zoi_struct_contracts
 
 - kind: command
-  target: mix test test/model_resolver_test.exs test/public_api
+  target: mix test test/model_resolver_test.exs test/public_api test/providers/codex_cli/execution_stack_test.exs
   execute: true
   covers:
     - reqllm.architecture.model_input_boundary
@@ -119,7 +119,7 @@ decisions:
     - reqllm.architecture.provider_specific_utilities
 
 - kind: command
-  target: mix test test/best_effort_runtime_test.exs test/public_api/support_status_test.exs
+  target: mix test test/best_effort_runtime_test.exs test/public_api/support_status_test.exs test/public_api/codex_cli_test.exs
   execute: true
   covers:
     - reqllm.architecture.facts_mode_policy_plan
